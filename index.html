@@ -3,8 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Lexie — My Favorite Person</title>
-  <!-- Fonts -->
+  <title>Lexie — My Favorite Fuck</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -60,692 +59,122 @@
       10%{opacity:.85}
       to{ transform: translateY(-120vh) rotate(45deg); opacity:0;}
     }
-    .wrap{
-      height:100%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:20px;
-    }
-    .stage{
-      width:min(980px, 96vw);
-      height:min(660px, 86vh);
-      position:relative;
-      perspective: 1400px;
-    }
-    .hint{
-      position:absolute;
-      top:-40px; left:0; right:0;
-      text-align:center;
-      font-size:13px;
-      color:rgba(60,25,45,.65);
-      user-select:none;
-    }
-    .hint kbd{
-      font: 600 12px/1 Inter, sans-serif;
-      padding:6px 10px;
-      border-radius:999px;
-      background:rgba(255,255,255,.65);
-      border:1px solid rgba(240, 170, 200, .65);
-      box-shadow: 0 8px 16px rgba(0,0,0,.05);
-    }
-    .book{
-      width:100%;
-      height:100%;
-      position:relative;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      background:
-        radial-gradient(120% 180% at 0% 0%, rgba(255,255,255,.85), rgba(255,255,255,.15)),
-        linear-gradient(135deg, rgba(255,255,255,.65), rgba(255,255,255,.35));
-      padding:18px;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 133, 168, .35);
-      touch-action: pan-y;
-    }
-    .book-inner{
-      width:100%;
-      height:100%;
-      position:relative;
-      border-radius: calc(var(--radius) - 8px);
-      background: linear-gradient(135deg, rgba(255,255,255,.88), rgba(255,255,255,.76));
-      overflow: hidden;
-      box-shadow: inset 0 0 0 1px rgba(240, 170, 200, .25);
-    }
-    .nav-zone{
-      position:absolute; top:0; bottom:0;
-      width:18%;
-      z-index:80;
-      cursor:pointer;
-      user-select:none;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .nav-left{ left:0;}
-    .nav-right{ right:0;}
-    .nav-zone::after{
-      content:"";
-      position:absolute; inset:0;
-      opacity:0;
-      transition:opacity .2s ease;
-    }
-    .nav-left::after{ background: linear-gradient(90deg, rgba(255,77,141,.18), transparent); }
-    .nav-right::after{ background: linear-gradient(270deg, rgba(255,77,141,.18), transparent); }
+    .wrap{height:100%;display:flex;align-items:center;justify-content:center;padding:20px;}
+    .stage{width:min(980px, 96vw);height:min(660px, 86vh);position:relative;perspective: 1400px;}
+    .hint{position:absolute;top:-40px;left:0;right:0;text-align:center;font-size:13px;color:rgba(60,25,45,.65);user-select:none;}
+    .hint kbd{font:600 12px/1 Inter,sans-serif;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.65);border:1px solid rgba(240,170,200,.65);box-shadow:0 8px 16px rgba(0,0,0,.05);}
+    .book{width:100%;height:100%;position:relative;border-radius:var(--radius);box-shadow:var(--shadow);background:radial-gradient(120% 180% at 0% 0%, rgba(255,255,255,.85), rgba(255,255,255,.15)),linear-gradient(135deg, rgba(255,255,255,.65), rgba(255,255,255,.35));padding:18px;backdrop-filter:blur(10px);border:1px solid rgba(255,133,168,.35);touch-action:pan-y;}
+    .book-inner{width:100%;height:100%;position:relative;border-radius:calc(var(--radius)-8px);background:linear-gradient(135deg, rgba(255,255,255,.88), rgba(255,255,255,.76));overflow:hidden;box-shadow:inset 0 0 0 1px rgba(240,170,200,.25);}
+    .nav-zone{position:absolute;top:0;bottom:0;width:18%;z-index:80;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;}
+    .nav-left{left:0;}.nav-right{right:0;}
+    .nav-zone::after{content:"";position:absolute;inset:0;opacity:0;transition:opacity .2s ease;}
+    .nav-left::after{background:linear-gradient(90deg, rgba(255,77,141,.18), transparent);}
+    .nav-right::after{background:linear-gradient(270deg, rgba(255,77,141,.18), transparent);}
     .nav-zone:hover::after{opacity:1}
-    .pages{
-      position:absolute; inset:0;
-      border-radius: calc(var(--radius) - 8px);
-    }
-    .page{
-      position:absolute; inset:0;
-      border-radius: calc(var(--radius) - 8px);
-      background: linear-gradient(135deg, var(--paper), var(--paper2));
-      transform-style: preserve-3d;
-      transform-origin: left center;
-      box-shadow: var(--shadow2);
-      border: 1px solid rgba(240, 170, 200, .35);
-      overflow:hidden;
-      transition: transform 850ms cubic-bezier(.2,.9,.2,1);
-    }
-    .page.flipped{ transform: rotateY(-180deg); }
-    .content{
-      position:absolute;
-      inset:0;
-      padding: 40px 42px 28px 56px;
-      display:flex;
-      flex-direction:column;
-      gap:16px;
-      overflow:hidden;
-    }
-    .scrollable{
-      overflow:auto;
-      -webkit-overflow-scrolling: touch;
-      padding-right: 10px;
-      flex:1;
-      touch-action: pan-y;
-    }
-    .topline{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      color: var(--muted);
-      font-size:12px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-    }
-    .badge{
-      padding:7px 10px;
-      border-radius:999px;
-      background: rgba(255,77,141,.10);
-      border: 1px solid rgba(255,77,141,.22);
-      box-shadow: 0 8px 16px rgba(0,0,0,.04);
-      font-weight:700;
-      color: rgba(120, 35, 70, .9);
-    }
+    .pages{position:absolute;inset:0;border-radius:calc(var(--radius)-8px);}
+    .page{position:absolute;inset:0;border-radius:calc(var(--radius)-8px);background:linear-gradient(135deg, var(--paper), var(--paper2));transform-style:preserve-3d;transform-origin:left center;box-shadow:var(--shadow2);border:1px solid rgba(240,170,200,.35);overflow:hidden;transition:transform 850ms cubic-bezier(.2,.9,.2,1);}
+    .page.flipped{transform:rotateY(-180deg);}
+    .content{position:absolute;inset:0;padding:40px 42px 28px 56px;display:flex;flex-direction:column;gap:16px;overflow:hidden;}
+    .scrollable{overflow:auto;-webkit-overflow-scrolling:touch;padding-right:10px;flex:1;touch-action:pan-y;}
+    .topline{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--muted);font-size:12px;letter-spacing:.08em;text-transform:uppercase;}
+    .badge{padding:7px 10px;border-radius:999px;background:rgba(255,77,141,.10);border:1px solid rgba(255,77,141,.22);box-shadow:0 8px 16px rgba(0,0,0,.04);font-weight:700;color:rgba(120,35,70,.9);}
     h1,h2,h3{margin:0}
-    .cover-name{
-      font-family: "Great Vibes", cursive;
-      font-size: clamp(56px, 7.6vw, 92px);
-      line-height: 1;
-      letter-spacing: .02em;
-      color: rgba(90, 20, 55, .95);
-      text-shadow:
-        0 2px 0 rgba(255,255,255,.85),
-        0 18px 44px rgba(255,77,141,.20);
-    }
-    .engraved{ position:relative; }
-    .engraved::after{
-      content:"";
-      position:absolute;
-      left:0; right:0;
-      bottom:-10px;
-      height:2px;
-      background: linear-gradient(90deg, transparent, rgba(255,77,141,.55), transparent);
-      filter: blur(.2px);
-    }
-    .subtitle{
-      font-family: "Playfair Display", serif;
-      font-weight:600;
-      font-size: clamp(18px, 2.2vw, 26px);
-      color: rgba(70, 30, 50, .88);
-    }
-    .note{
-      color: rgba(60,25,45,.75);
-      font-size: 14px;
-      line-height: 1.45;
-      max-width: 56ch;
-    }
-    .divider{
-      height:1px;
-      width:100%;
-      background: linear-gradient(90deg, transparent, rgba(255,77,141,.30), transparent);
-      margin: 8px 0;
-    }
-    .cover-frame{
-      position:relative;
-      flex:1;
-      border-radius: 18px;
-      background:
-        radial-gradient(900px 420px at 20% 15%, rgba(255,255,255,.9), rgba(255,255,255,.55)),
-        linear-gradient(135deg, rgba(255,77,141,.07), rgba(255,133,168,.06));
-      border: 1px solid rgba(240,170,200,.30);
-      box-shadow: 0 18px 34px rgba(0,0,0,.06);
-      padding: 22px 20px;
-      overflow:hidden;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      gap:12px;
-    }
-    .cover-frame::before,
-    .cover-frame::after{
-      content:"";
-      position:absolute;
-      width:220px; height:220px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 30%, rgba(255,77,141,.18), rgba(255,133,168,0));
-      opacity:.9;
-      pointer-events:none;
-    }
-    .cover-frame::before{ left:-70px; top:-70px; }
-    .cover-frame::after{ right:-80px; bottom:-80px; }
-    .flourish{
-      position:absolute;
-      width:170px;
-      height:170px;
-      opacity:.55;
-      pointer-events:none;
-      filter: drop-shadow(0 10px 20px rgba(255,77,141,.10));
-    }
-    .flourish.tl{ left:10px; top:10px; transform: rotate(-6deg); }
-    .flourish.br{ right:10px; bottom:10px; transform: rotate(174deg); opacity:.45; }
-    .seal{
-      margin-top: 2px;
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.72);
-      border: 1px solid rgba(240,170,200,.32);
-      box-shadow: 0 12px 22px rgba(0,0,0,.05);
-      color: rgba(70, 25, 50, .86);
-      font-weight: 800;
-      font-size: 12px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-    }
-    .seal .mini-heart{
-      width:16px; height:16px;
-      transform: rotate(45deg);
-      background: linear-gradient(135deg, rgba(255,77,141,.92), rgba(255,133,168,.72));
-      border-radius: 4px;
-      position:relative;
-      box-shadow: 0 10px 18px rgba(255,77,141,.18);
-    }
-    .seal .mini-heart::before,
-    .seal .mini-heart::after{
-      content:"";
-      position:absolute; width:16px; height:16px;
-      background: inherit;
-      border-radius:50%;
-    }
-    .seal .mini-heart::before{ left:-8px; top:0; }
-    .seal .mini-heart::after{ top:-8px; left:0; }
-    .cover-tagline{
-      font-family: "Playfair Display", serif;
-      font-size: 15px;
-      color: rgba(60,25,45,.76);
-      max-width: 52ch;
-      line-height: 1.55;
-    }
-    .reasons{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap:10px 14px;
-      margin-top:10px;
-    }
-    .reason{
-      display:flex;
-      gap:10px;
-      padding:10px 12px;
-      border-radius: 14px;
-      background: rgba(255,255,255,.62);
-      border: 1px solid rgba(240,170,200,.25);
-      box-shadow: 0 10px 18px rgba(0,0,0,.04);
-      align-items:flex-start;
-      min-height: 44px;
-    }
-    .dot{
-      width:22px; height:22px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, rgba(255,77,141,.92), rgba(255,133,168,.65));
-      display:grid;
-      place-items:center;
-      color:white;
-      font-weight:900;
-      font-size:12px;
-      flex:0 0 auto;
-      box-shadow: 0 10px 18px rgba(255,77,141,.20);
-    }
-    .reason span{
-      font-size: 13px;
-      line-height: 1.25;
-      color: rgba(45, 20, 35, .88);
-      font-weight:600;
-    }
-    .secrets{
-      margin-top: 18px;
-      padding-bottom: 8px;
-      font-family: "Playfair Display", serif;
-      font-size: 12.5px;
-      line-height: 1.7;
-      color: rgba(90, 20, 55, .08);
-      user-select:none;
-    }
-    .secrets .line{
-      filter: blur(.35px);
-      text-shadow: 0 1px 0 rgba(255,255,255,.6);
-      letter-spacing: .01em;
-    }
-    .scratch-wrap{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:16px;
-      align-items:stretch;
-      margin-top:8px;
-    }
-    .panel{
-      border-radius: 18px;
-      background: rgba(255,255,255,.68);
-      border: 1px solid rgba(240,170,200,.28);
-      box-shadow: 0 12px 22px rgba(0,0,0,.05);
-      padding:14px;
-      position:relative;
-      overflow:hidden;
-      min-height: 340px;
-    }
-    .panel h3{
-      font-family:"Playfair Display", serif;
-      font-size:18px;
-      color: rgba(70, 25, 50, .9);
-      margin:0 0 6px;
-    }
-    .panel p{
-      margin:0 0 12px;
-      font-size: 13px;
-      color: rgba(60,25,45,.72);
-      line-height:1.35;
-    }
-    .scratch-area{
-      position:relative;
-      height: 230px;
-      border-radius: 14px;
-      overflow:hidden;
-      border: 1px dashed rgba(255,77,141,.35);
-      background: linear-gradient(135deg, rgba(255,77,141,.10), rgba(255,133,168,.08));
-    }
-    .scratch-under{
-      position:absolute; inset:0;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      font-family:"Great Vibes", cursive;
-      font-size: 38px;
-      color: rgba(90, 20, 55, .92);
-      user-select:none;
-      pointer-events:none;
-      padding: 0 14px;
-    }
-    #scratchCanvas{
-      position:absolute; inset:0;
-      width:100%; height:100%;
-      display:block;
-      border-radius: 14px;
-      touch-action:none;
-    }
-    .jar-page{ display:flex; flex-direction:column; gap:14px; flex:1; }
-    .mini-panel{
-      border-radius: 18px;
-      background: rgba(255,255,255,.62);
-      border: 1px solid rgba(240,170,200,.25);
-      box-shadow: 0 12px 22px rgba(0,0,0,.05);
-      padding:18px;
-      flex:1;
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-      min-height: 380px;
-    }
-    .mini-panel h3{
-      font-family:"Playfair Display", serif;
-      font-size:20px;
-      margin:0;
-      color: rgba(70, 25, 50, .9);
-      text-align:center;
-    }
-    .jar-btn{
-      align-self:center;
-      margin-top: 8px;
-      width:min(360px, 86%);
-      height:54px;
-      border:0;
-      border-radius: 16px;
-      cursor:pointer;
-      font-weight: 1000;
-      font-size: 16px;
-      color:white;
-      background: linear-gradient(135deg, rgba(255,77,141,.96), rgba(255,133,168,.84));
-      box-shadow: 0 18px 34px rgba(255,77,141,.20);
-      transition: transform .12s ease, filter .12s ease;
-    }
-    .jar-btn:hover{ filter: brightness(1.02); }
-    .jar-btn:active{ transform: scale(.99); }
-    .jar-note{
-      margin-top:auto;
-      padding:16px 14px;
-      border-radius: 14px;
-      background: rgba(255,255,255,.88);
-      border: 1px solid rgba(240,170,200,.28);
-      color: rgba(50, 20, 35, .88);
-      font-size:14px;
-      line-height:1.45;
-      min-height: 130px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .jar-note.revealed {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .vibe-wrap{ flex:1; display:flex; flex-direction:column; gap:12px; min-height:0; }
-    .vibe-grid{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 8px;
-    }
-    .vibe-card{
-      border-radius: 16px;
-      background: rgba(255,255,255,.68);
-      border: 1px solid rgba(240,170,200,.26);
-      box-shadow: 0 12px 22px rgba(0,0,0,.05);
-      padding: 12px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      min-height: 120px;
-      position:relative;
-      overflow:hidden;
-      touch-action: manipulation;
-    }
-    .vibe-card::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      opacity:.0;
-      background: radial-gradient(600px 160px at 10% 0%, rgba(255,77,141,.14), transparent 55%);
-      transition: opacity .2s ease;
-      pointer-events:none;
-    }
-    .vibe-card:hover::after{ opacity:.9; }
-    .vibe-stack{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      position:relative;
-      z-index:1;
-      align-items:flex-start;
-    }
-    .vibe-option{
-      width:100%;
-      border: 1px solid rgba(255,77,141,.22);
-      background: rgba(255,77,141,.10);
-      color: rgba(90, 20, 55, .92);
-      box-shadow: 0 10px 18px rgba(0,0,0,.04);
-      padding: 10px 12px;
-      border-radius: 999px;
-      font-weight: 900;
-      font-size: 13px;
-      cursor:pointer;
-      transition: transform .10s ease, filter .12s ease, background .12s ease, border-color .12s ease, opacity .12s ease;
-      -webkit-tap-highlight-color: transparent;
-      user-select:none;
-      text-align:center;
-      white-space:nowrap;
-    }
-    .vibe-option:active{ transform: scale(.99); }
-    .vibe-option.picked{
-      background: rgba(255,77,141,.22);
-      border-color: rgba(255,77,141,.36);
-      filter: brightness(1.03);
-    }
-    .vibe-option.dim{
-      opacity:.55;
-      filter: saturate(.85);
-    }
-    .constellation{
-      position:relative;
-      border-radius: 18px;
-      background:
-        radial-gradient(800px 300px at 20% 20%, rgba(255,255,255,.9), rgba(255,255,255,.45)),
-        linear-gradient(135deg, rgba(255,77,141,.08), rgba(255,133,168,.06));
-      border: 1px solid rgba(255,77,141,.18);
-      box-shadow: 0 16px 30px rgba(0,0,0,.06);
-      overflow:hidden;
-      height: 300px;
-      padding-bottom: 128px;
-    }
-    .spark{
-      position:absolute;
-      width:14px; height:14px;
-      transform: rotate(45deg);
-      border-radius: 3px;
-      background: linear-gradient(135deg, rgba(255,77,141,.92), rgba(255,133,168,.7));
-      cursor:pointer;
-      box-shadow: 0 12px 20px rgba(255,77,141,.22);
-      transition: transform .12s ease;
-      z-index:2;
-    }
-    .spark::before,.spark::after{
-      content:"";
-      position:absolute; width:14px; height:14px;
-      background: inherit;
-      border-radius:50%;
-    }
-    .spark::before{ left:-7px; top:0;}
-    .spark::after{ top:-7px; left:0;}
-    .spark:hover{ transform: rotate(45deg) scale(1.06); }
-    .tooltip{
-      position:absolute;
-      left:16px;
-      right:16px;
-      bottom:14px;
-      min-height: 110px;
-      padding:14px 16px;
-      border-radius:14px;
-      background: rgba(255,255,255,.88);
-      border: 1px solid rgba(240,170,200,.35);
-      box-shadow: 0 18px 40px rgba(0,0,0,.08);
-      font-size: 13px;
-      color: rgba(50,20,35,.9);
-      display:flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      gap:8px;
-      text-align: center;
-      z-index:3;
-    }
-    .tooltip strong{
-      font-weight:900;
-      white-space: nowrap;
-      flex: 0 0 auto;
-    }
-    .tooltip .tip-text{
-      min-width: 0;
-      max-width: 100%;
-      line-height:1.4;
-    }
-    .found-counter{
-      position:absolute;
-      left:16px;
-      right:16px;
-      bottom:14px;
-      display:flex;
-      justify-content:center;
-      pointer-events:none;
-      z-index:3;
-    }
-    .pill{
-      padding:6px 12px;
-      border-radius:999px;
-      background: rgba(255,77,141,.10);
-      border: 1px solid rgba(255,77,141,.22);
-      font-weight:900;
-      font-size:12px;
-      color: rgba(90, 20, 55, .92);
-      white-space:nowrap;
-    }
-    /* Instant Reaction Page */
-    .cock-container {
-      position: relative;
-      width: 140px;
-      height: 280px;
-      margin: 0 auto;
-    }
-    .testicles {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 110px;
-      height: 80px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-    }
-    .ball {
-      width: 48px;
-      height: 48px;
-      background: linear-gradient(135deg, #ff85a8, #ff4d8d);
-      border-radius: 50%;
-      box-shadow: 
-        inset 0 6px 12px rgba(160,20,70,.4),
-        0 8px 16px rgba(0,0,0,.12);
-    }
-    .shaft {
-      position: absolute;
-      bottom: 50px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 38px;
-      height: 140px;
-      background: linear-gradient(to top, #ff4d8d, #ff85a8);
-      border-radius: 19px 19px 0 0;
-      box-shadow: 
-        inset 0 10px 20px rgba(255,255,255,.25),
-        inset 0 -10px 20px rgba(160,20,70,.35),
-        0 12px 28px rgba(255,77,141,.3);
-      transition: height 0.9s cubic-bezier(0.34, 1.56, 0.64, 1), bottom 0.9s ease;
-    }
-    .shaft.growing {
-      height: 280px;
-      bottom: 50px;
-    }
-    .head {
-      position: absolute;
-      bottom: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 54px;
-      height: 54px;
-      background: #ff85a8;
-      border-radius: 50% 50% 40% 40% / 60% 60% 40% 40%;
-      box-shadow: 
-        inset 0 6px 12px rgba(255,255,255,.4),
-        0 8px 18px rgba(255,77,141,.35);
-      transition: bottom 0.9s ease;
-    }
-    .shaft.growing + .head {
-      bottom: 280px;
-    }
-    /* Floating hearts on date reveal */
-    #heartBurst .heart {
-      animation: floatUp 2.8s ease-out forwards;
-      opacity: 0.7;
-    }
-    /* Copy feedback */
-    #saveDateBtn.copied::after {
-      content: "Copied! 💕";
-      position: absolute;
-      top: -36px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(255,77,141,0.92);
-      color: white;
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 12px;
-      white-space: nowrap;
-      animation: fadeOut 1.8s forwards;
-    }
-    @keyframes fadeOut {
-      0%   { opacity: 1; transform: translateX(-50%) translateY(0); }
-      100% { opacity: 0; transform: translateX(-50%) translateY(-16px); }
-    }
-    .heartbeat-wrap{
-      flex:1;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:flex-start;
-      text-align:center;
-      gap:32px;
-      padding-top:40px;
-    }
-    .heartbeat-note{
-      font-size:14px;
-      color: rgba(60,25,45,.75);
-      margin: 0;
-    }
-    .heart-message{
-      margin-top: 0;
-      padding: 12px 16px;
-      border-radius: 14px;
-      background: rgba(255,255,255,.86);
-      border: 1px solid rgba(240,170,200,.30);
-      box-shadow: 0 14px 30px rgba(0,0,0,.06);
-      font-family: "Playfair Display", serif;
-      font-size:18px;
-      color: rgba(70,25,50,.92);
-      opacity:0;
-      transform: translateY(6px);
-      transition: opacity .35s ease, transform .35s ease;
-    }
-    .heart-message.show{
-      opacity:1;
-      transform: translateY(0);
-    }
-    /* Mobile tweaks */
-    @media (max-width: 820px){
-      .content{ padding: 34px 18px 18px 44px; }
-      .reasons{ grid-template-columns: 1fr; }
-      .hint{ top:-46px; font-size:12px; }
-      .nav-zone{ width:14%; }
-      .constellation{ height: 260px; padding-bottom: 126px; }
-      .tooltip{ min-height: 96px; bottom:56px; }
-      .cover-frame{ padding: 18px 14px; }
-      .flourish{ width:140px; height:140px; }
-      .jar-btn{ height:52px; font-size:15px; }
-      .vibe-grid{ grid-template-columns: 1fr; }
-      .vibe-card{ min-height: 112px; }
+    .cover-name{font-family:"Great Vibes",cursive;font-size:clamp(56px,7.6vw,92px);line-height:1;letter-spacing:.02em;color:rgba(90,20,55,.95);text-shadow:0 2px 0 rgba(255,255,255,.85),0 18px 44px rgba(255,77,141,.20);}
+    .engraved{position:relative;}
+    .engraved::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:2px;background:linear-gradient(90deg, transparent, rgba(255,77,141,.55), transparent);filter:blur(.2px);}
+    .subtitle{font-family:"Playfair Display",serif;font-weight:600;font-size:clamp(18px,2.2vw,26px);color:rgba(70,30,50,.88);}
+    .note{color:rgba(60,25,45,.75);font-size:14px;line-height:1.45;max-width:56ch;}
+    .divider{height:1px;width:100%;background:linear-gradient(90deg, transparent, rgba(255,77,141,.30), transparent);margin:8px 0;}
+    .cover-frame{position:relative;flex:1;border-radius:18px;background:radial-gradient(900px 420px at 20% 15%, rgba(255,255,255,.9), rgba(255,255,255,.55)),linear-gradient(135deg, rgba(255,77,141,.07), rgba(255,133,168,.06));border:1px solid rgba(240,170,200,.30);box-shadow:0 18px 34px rgba(0,0,0,.06);padding:22px 20px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:12px;}
+    .cover-frame::before,.cover-frame::after{content:"";position:absolute;width:220px;height:220px;border-radius:999px;background:radial-gradient(circle at 30% 30%, rgba(255,77,141,.18), rgba(255,133,168,0));opacity:.9;pointer-events:none;}
+    .cover-frame::before{left:-70px;top:-70px;}
+    .cover-frame::after{right:-80px;bottom:-80px;}
+    .flourish{position:absolute;width:170px;height:170px;opacity:.55;pointer-events:none;filter:drop-shadow(0 10px 20px rgba(255,77,141,.10));}
+    .flourish.tl{left:10px;top:10px;transform:rotate(-6deg);}
+    .flourish.br{right:10px;bottom:10px;transform:rotate(174deg);opacity:.45;}
+    .seal{margin-top:2px;display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.72);border:1px solid rgba(240,170,200,.32);box-shadow:0 12px 22px rgba(0,0,0,.05);color:rgba(70,25,50,.86);font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;}
+    .seal .mini-heart{width:16px;height:16px;transform:rotate(45deg);background:linear-gradient(135deg, rgba(255,77,141,.92), rgba(255,133,168,.72));border-radius:4px;position:relative;box-shadow:0 10px 18px rgba(255,77,141,.18);}
+    .seal .mini-heart::before,.seal .mini-heart::after{content:"";position:absolute;width:16px;height:16px;background:inherit;border-radius:50%;}
+    .seal .mini-heart::before{left:-8px;top:0;}
+    .seal .mini-heart::after{top:-8px;left:0;}
+    .cover-tagline{font-family:"Playfair Display",serif;font-size:15px;color:rgba(60,25,45,.76);max-width:52ch;line-height:1.55;}
+    .reasons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px;margin-top:10px;}
+    .reason{display:flex;gap:10px;padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.62);border:1px solid rgba(240,170,200,.25);box-shadow:0 10px 18px rgba(0,0,0,.04);align-items:flex-start;min-height:44px;}
+    .dot{width:22px;height:22px;border-radius:999px;background:linear-gradient(135deg, rgba(255,77,141,.92), rgba(255,133,168,.65));display:grid;place-items:center;color:white;font-weight:900;font-size:12px;flex:0 0 auto;box-shadow:0 10px 18px rgba(255,77,141,.20);}
+    .reason span{font-size:13px;line-height:1.25;color:rgba(45,20,35,.88);font-weight:600;}
+    .secrets{margin-top:18px;padding-bottom:8px;font-family:"Playfair Display",serif;font-size:12.5px;line-height:1.7;color:rgba(90,20,55,.65);user-select:none;}
+    .secrets .line{margin:4px 0;}
+    .scratch-wrap{display:grid;grid-template-columns:1fr;gap:16px;align-items:stretch;margin-top:8px;}
+    .panel{border-radius:18px;background:rgba(255,255,255,.68);border:1px solid rgba(240,170,200,.28);box-shadow:0 12px 22px rgba(0,0,0,.05);padding:14px;position:relative;overflow:hidden;min-height:340px;}
+    .panel h3{font-family:"Playfair Display",serif;font-size:18px;color:rgba(70,25,50,.9);margin:0 0 6px;}
+    .panel p{margin:0 0 12px;font-size:13px;color:rgba(60,25,45,.72);line-height:1.35;}
+    .scratch-area{position:relative;height:230px;border-radius:14px;overflow:hidden;border:1px dashed rgba(255,77,141,.35);background:linear-gradient(135deg, rgba(255,77,141,.10), rgba(255,133,168,.08));}
+    .scratch-under{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;font-family:"Great Vibes",cursive;font-size:38px;color:rgba(90,20,55,.92);user-select:none;pointer-events:none;padding:0 14px;}
+    #scratchCanvas{position:absolute;inset:0;width:100%;height:100%;display:block;border-radius:14px;touch-action:none;}
+    .jar-page{display:flex;flex-direction:column;gap:14px;flex:1;}
+    .mini-panel{border-radius:18px;background:rgba(255,255,255,.62);border:1px solid rgba(240,170,200,.25);box-shadow:0 12px 22px rgba(0,0,0,.05);padding:18px;flex:1;display:flex;flex-direction:column;gap:14px;min-height:380px;}
+    .mini-panel h3{font-family:"Playfair Display",serif;font-size:20px;margin:0;color:rgba(70,25,50,.9);text-align:center;}
+    .jar-btn{align-self:center;margin-top:8px;width:min(360px,86%);height:54px;border:0;border-radius:16px;cursor:pointer;font-weight:1000;font-size:16px;color:white;background:linear-gradient(135deg, rgba(255,77,141,.96), rgba(255,133,168,.84));box-shadow:0 18px 34px rgba(255,77,141,.20);transition:transform .12s ease,filter .12s ease;}
+    .jar-btn:hover{filter:brightness(1.02);}
+    .jar-btn:active{transform:scale(.99);}
+    .jar-note{margin-top:auto;padding:16px 14px;border-radius:14px;background:rgba(255,255,255,.88);border:1px solid rgba(240,170,200,.28);color:rgba(50,20,35,.88);font-size:14px;line-height:1.45;min-height:130px;display:flex;align-items:center;justify-content:center;text-align:center;transition:opacity 0.6s ease,transform 0.6s ease;}
+    .jar-note.revealed{opacity:1;transform:translateY(0);}
+    .vibe-wrap{flex:1;display:flex;flex-direction:column;gap:12px;min-height:0;}
+    .vibe-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:8px;}
+    .vibe-card{border-radius:16px;background:rgba(255,255,255,.68);border:1px solid rgba(240,170,200,.26);box-shadow:0 12px 22px rgba(0,0,0,.05);padding:12px;display:flex;flex-direction:column;gap:10px;min-height:120px;position:relative;overflow:hidden;touch-action:manipulation;}
+    .vibe-card::after{content:"";position:absolute;inset:0;opacity:0;background:radial-gradient(600px 160px at 10% 0%, rgba(255,77,141,.14), transparent 55%);transition:opacity .2s ease;pointer-events:none;}
+    .vibe-card:hover::after{opacity:.9;}
+    .vibe-stack{display:flex;flex-direction:column;gap:10px;position:relative;z-index:1;align-items:flex-start;}
+    .vibe-option{width:100%;border:1px solid rgba(255,77,141,.22);background:rgba(255,77,141,.10);color:rgba(90,20,55,.92);box-shadow:0 10px 18px rgba(0,0,0,.04);padding:10px 12px;border-radius:999px;font-weight:900;font-size:13px;cursor:pointer;transition:transform .10s ease,filter .12s ease,background .12s ease,border-color .12s ease,opacity .12s ease;-webkit-tap-highlight-color:transparent;user-select:none;text-align:center;white-space:nowrap;}
+    .vibe-option:active{transform:scale(.99);}
+    .vibe-option.picked{background:rgba(255,77,141,.22);border-color:rgba(255,77,141,.36);filter:brightness(1.03);}
+    .vibe-option.dim{opacity:.55;filter:saturate(.85);}
+    .constellation{position:relative;border-radius:18px;background:radial-gradient(800px 300px at 20% 20%, rgba(255,255,255,.9), rgba(255,255,255,.45)),linear-gradient(135deg, rgba(255,77,141,.08), rgba(255,133,168,.06));border:1px solid rgba(255,77,141,.18);box-shadow:0 16px 30px rgba(0,0,0,.06);overflow:hidden;height:300px;padding-bottom:128px;}
+    .spark{position:absolute;width:14px;height:14px;transform:rotate(45deg);border-radius:3px;background:linear-gradient(135deg, rgba(255,77,141,.92), rgba(255,133,168,.7));cursor:pointer;box-shadow:0 12px 20px rgba(255,77,141,.22);transition:transform .12s ease;z-index:2;}
+    .spark::before,.spark::after{content:"";position:absolute;width:14px;height:14px;background:inherit;border-radius:50%;}
+    .spark::before{left:-7px;top:0;}
+    .spark::after{top:-7px;left:0;}
+    .spark:hover{transform:rotate(45deg) scale(1.06);}
+    .tooltip{position:absolute;left:16px;right:16px;bottom:14px;min-height:110px;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.88);border:1px solid rgba(240,170,200,.35);box-shadow:0 18px 40px rgba(0,0,0,.08);font-size:13px;color:rgba(50,20,35,.9);display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:8px;text-align:center;z-index:3;}
+    .tooltip strong{font-weight:900;white-space:nowrap;flex:0 0 auto;}
+    .tooltip .tip-text{min-width:0;max-width:100%;line-height:1.4;}
+    .found-counter{position:absolute;left:16px;right:16px;bottom:14px;display:flex;justify-content:center;pointer-events:none;z-index:3;}
+    .pill{padding:6px 12px;border-radius:999px;background:rgba(255,77,141,.10);border:1px solid rgba(255,77,141,.22);font-weight:900;font-size:12px;color:rgba(90,20,55,.92);white-space:nowrap;}
+    .cock-container{position:relative;width:140px;height:280px;margin:0 auto;}
+    .testicles{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:110px;height:80px;display:flex;justify-content:space-between;align-items:flex-end;}
+    .ball{width:48px;height:48px;background:linear-gradient(135deg, #ff85a8, #ff4d8d);border-radius:50%;box-shadow:inset 0 6px 12px rgba(160,20,70,.4),0 8px 16px rgba(0,0,0,.12);}
+    .shaft{position:absolute;bottom:50px;left:50%;transform:translateX(-50%);width:38px;height:140px;background:linear-gradient(to top, #ff4d8d, #ff85a8);border-radius:19px 19px 0 0;box-shadow:inset 0 10px 20px rgba(255,255,255,.25),inset 0 -10px 20px rgba(160,20,70,.35),0 12px 28px rgba(255,77,141,.3);transition:height 0.9s cubic-bezier(0.34,1.56,0.64,1),bottom 0.9s ease;}
+    .shaft.growing{height:280px;bottom:50px;}
+    .head{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);width:54px;height:54px;background:#ff85a8;border-radius:50% 50% 40% 40% / 60% 60% 40% 40%;box-shadow:inset 0 6px 12px rgba(255,255,255,.4),0 8px 18px rgba(255,77,141,.35);transition:bottom 0.9s ease;}
+    .shaft.growing + .head{bottom:280px;}
+    #heartBurst .heart{animation:floatUp 2.8s ease-out forwards;opacity:0.7;}
+    #saveDateBtn.copied::after{content:"Copied! 💕";position:absolute;top:-36px;left:50%;transform:translateX(-50%);background:rgba(255,77,141,0.92);color:white;padding:6px 14px;border-radius:999px;font-size:12px;white-space:nowrap;animation:fadeOut 1.8s forwards;}
+    @keyframes fadeOut{0%{opacity:1;transform:translateX(-50%) translateY(0);}100%{opacity:0;transform:translateX(-50%) translateY(-16px);}}
+    .heartbeat-wrap{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;gap:32px;padding-top:40px;}
+    .heartbeat-note{font-size:14px;color:rgba(60,25,45,.75);margin:0;}
+    .heart-message{margin-top:0;padding:12px 16px;border-radius:14px;background:rgba(255,255,255,.86);border:1px solid rgba(240,170,200,.30);box-shadow:0 14px 30px rgba(0,0,0,.06);font-family:"Playfair Display",serif;font-size:18px;color:rgba(70,25,50,.92);opacity:0;transform:translateY(6px);transition:opacity .35s ease,transform .35s ease;}
+    .heart-message.show{opacity:1;transform:translateY(0);}
+    .valentine-cta{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;position:relative;overflow:hidden;padding:6px 0 10px;}
+    #fireworks{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;}
+    .yes-btn{width:min(460px,88%);height:92px;border:0;border-radius:20px;font-weight:1000;font-size:30px;letter-spacing:.02em;color:white;cursor:pointer;background:linear-gradient(135deg, rgba(255,77,141,.98), rgba(255,133,168,.84));box-shadow:0 22px 46px rgba(255,77,141,.28);transition:transform .12s ease,filter .12s ease;position:relative;z-index:3;}
+    .yes-btn:hover{filter:brightness(1.02);}
+    .yes-btn:active{transform:scale(.99);}
+    .no-btn{width:130px;height:40px;border-radius:999px;border:1px solid rgba(0,0,0,.18);background:rgba(55,55,60,.92);color:rgba(255,255,255,.92);font-weight:900;cursor:pointer;box-shadow:0 12px 24px rgba(0,0,0,.12);z-index:2;position:absolute;left:50%;transform:translateX(-50%);}
+    .no-btn::after{content:" :(";opacity:.85;font-weight:900;}
+    .yes-msg{display:none;position:relative;z-index:3;max-width:60ch;text-align:center;padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.86);border:1px solid rgba(240,170,200,.30);box-shadow:0 14px 30px rgba(0,0,0,.06);color:rgba(50,20,35,.92);font-size:14px;line-height:1.35;}
+    @media (max-width:820px){
+      .content{padding:34px 18px 18px 44px;}
+      .reasons{grid-template-columns:1fr;}
+      .hint{top:-46px;font-size:12px;}
+      .nav-zone{width:14%;}
+      .constellation{height:260px;padding-bottom:126px;}
+      .tooltip{min-height:96px;bottom:56px;}
+      .yes-btn{height:86px;font-size:28px;}
+      .cover-frame{padding:18px 14px;}
+      .flourish{width:140px;height:140px;}
+      .jar-btn{height:52px;font-size:15px;}
+      .vibe-grid{grid-template-columns:1fr;}
+      .vibe-card{min-height:112px;}
     }
   </style>
 </head>
@@ -753,13 +182,11 @@
   <div class="bg-hearts" id="bgHearts" aria-hidden="true"></div>
   <div class="wrap">
     <div class="stage">
-      <div class="hint">
-        Swipe <kbd>←</kbd>/<kbd>→</kbd> on mobile • click edges on desktop • arrows work too
-      </div>
+      <div class="hint">Swipe <kbd>←</kbd>/<kbd>→</kbd> on mobile • click edges on desktop • arrows work too</div>
       <div class="book" id="book">
         <div class="book-inner">
-          <div class="nav-zone nav-left" id="navLeft" title="Previous page"></div>
-          <div class="nav-zone nav-right" id="navRight" title="Next page"></div>
+          <div class="nav-zone nav-left" id="navLeft"></div>
+          <div class="nav-zone nav-right" id="navRight"></div>
           <div class="pages" id="pages">
             <!-- PAGE 1: Cover -->
             <section class="page" data-index="0" style="z-index:9">
@@ -769,52 +196,33 @@
                   <span id="pageCountA">Page 1 / 9</span>
                 </div>
                 <div class="cover-frame">
-                  <svg class="flourish tl" viewBox="0 0 200 200" aria-hidden="true">
-                    <path d="M35 120c26-8 35-28 44-48 10-23 22-44 52-52 30-8 57 6 64 32 6 23-6 49-33 58-24 8-42-2-56-18 2 20 15 38 39 45 30 9 65-8 74-40"
-                          fill="none" stroke="rgba(255,77,141,.55)" stroke-width="8" stroke-linecap="round"/>
-                    <path d="M58 148c18-2 31-14 40-28" fill="none" stroke="rgba(255,133,168,.45)" stroke-width="7" stroke-linecap="round"/>
-                    <circle cx="118" cy="58" r="10" fill="rgba(255,77,141,.22)"/>
-                    <circle cx="140" cy="44" r="6" fill="rgba(255,133,168,.18)"/>
-                  </svg>
-                  <svg class="flourish br" viewBox="0 0 200 200" aria-hidden="true">
-                    <path d="M35 120c26-8 35-28 44-48 10-23 22-44 52-52 30-8 57 6 64 32 6 23-6 49-33 58-24 8-42-2-56-18 2 20 15 38 39 45 30 9 65-8 74-40"
-                          fill="none" stroke="rgba(255,77,141,.55)" stroke-width="8" stroke-linecap="round"/>
-                    <path d="M58 148c18-2 31-14 40-28" fill="none" stroke="rgba(255,133,168,.45)" stroke-width="7" stroke-linecap="round"/>
-                    <circle cx="118" cy="58" r="10" fill="rgba(255,77,141,.22)"/>
-                    <circle cx="140" cy="44" r="6" fill="rgba(255,133,168,.18)"/>
-                  </svg>
+                  <svg class="flourish tl" viewBox="0 0 200 200" aria-hidden="true"><path d="M35 120c26-8 35-28 44-48 10-23 22-44 52-52 30-8 57 6 64 32 6 23-6 49-33 58-24 8-42-2-56-18 2 20 15 38 39 45 30 9 65-8 74-40" fill="none" stroke="rgba(255,77,141,.55)" stroke-width="8" stroke-linecap="round"/><path d="M58 148c18-2 31-14 40-28" fill="none" stroke="rgba(255,133,168,.45)" stroke-width="7" stroke-linecap="round"/><circle cx="118" cy="58" r="10" fill="rgba(255,77,141,.22)"/><circle cx="140" cy="44" r="6" fill="rgba(255,133,168,.18)"/></svg>
+                  <svg class="flourish br" viewBox="0 0 200 200" aria-hidden="true"><path d="M35 120c26-8 35-28 44-48 10-23 22-44 52-52 30-8 57 6 64 32 6 23-6 49-33 58-24 8-42-2-56-18 2 20 15 38 39 45 30 9 65-8 74-40" fill="none" stroke="rgba(255,77,141,.55)" stroke-width="8" stroke-linecap="round"/><path d="M58 148c18-2 31-14 40-28" fill="none" stroke="rgba(255,133,168,.45)" stroke-width="7" stroke-linecap="round"/><circle cx="118" cy="58" r="10" fill="rgba(255,77,141,.22)"/><circle cx="140" cy="44" r="6" fill="rgba(255,133,168,.18)"/></svg>
                   <div class="cover-name engraved">Lexie</div>
-                  <div class="subtitle">My Favorite Person</div>
-                  <div class="seal">
-                    <span class="mini-heart" aria-hidden="true"></span>
-                    <span>for you, always</span>
-                  </div>
+                  <div class="subtitle">My Favorite Fuck</div>
+                  <div class="seal"><span class="mini-heart"></span><span>for you, always</span></div>
                   <div class="divider" style="max-width:520px;"></div>
-                  <div class="cover-tagline">
-                    A little book of reasons, tiny surprises, and one very important question.
-                  </div>
+                  <div class="cover-tagline">A filthy little book of why I need to fuck you, dirty surprises, and one very important question.</div>
                 </div>
-                <div style="margin-top:auto; display:flex; gap:12px; align-items:center; justify-content:space-between;">
-                  <div class="note" style="margin:0; opacity:.85">Tip: swipe left and right</div>
-                  <div class="badge" style="background:rgba(255,255,255,.65)">♥</div>
+                <div style="margin-top:auto;display:flex;gap:12px;align-items:center;justify-content:space-between;">
+                  <div class="note" style="margin:0;opacity:.85">Tip: swipe left and right</div>
+                  <div class="badge" style="background:rgba(255,255,255,.65)">💦</div>
                 </div>
               </div>
             </section>
 
-            <!-- PAGE 2: Reasons -->
+            <!-- PAGE 2: 15 Reasons I Want to Fuck You -->
             <section class="page" data-index="1" style="z-index:8">
               <div class="content">
                 <div class="topline">
                   <span class="badge">Chapter One</span>
-                  <span>15 Reasons I Like You</span>
+                  <span>15 Reasons I Want to Fuck You</span>
                 </div>
-                <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:rgba(70,25,50,.92)">
-                  15 Reasons I Like You
-                </h2>
+                <h2 style="font-family:'Playfair Display',serif;font-size:28px;color:rgba(70,25,50,.92)">15 Reasons I Want to Fuck You</h2>
                 <div class="scrollable">
-                  <p class="note" style="margin-top:0">Just a few… but you know I could keep going.</p>
+                  <p class="note" style="margin-top:0">I could list way more than 15...</p>
                   <div class="reasons" id="reasonsGrid"></div>
-                  <div class="secrets" aria-hidden="true">
+                  <div class="secrets">
                     <div class="line">Your perfect tits</div>
                     <div class="line">Your pretty little pussy</div>
                     <div class="line">Your fat ass</div>
@@ -827,109 +235,73 @@
             <!-- PAGE 3: Scratch -->
             <section class="page" data-index="2" style="z-index:7">
               <div class="content">
-                <div class="topline">
-                  <span class="badge">Interactive</span>
-                  <span>Scratch to Reveal</span>
-                </div>
-                <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:rgba(70,25,50,.92)">
-                  Little Surprise
-                </h2>
+                <div class="topline"><span class="badge">Interactive</span><span>Scratch to Reveal</span></div>
+                <h2 style="font-family:'Playfair Display',serif;font-size:28px;color:rgba(70,25,50,.92)">Dirty Little Surprise</h2>
                 <div class="scrollable">
-                  <p class="note" style="margin-top:0">Scratch the panel to reveal the message.</p>
+                  <p class="note" style="margin-top:0">Scratch it off, baby.</p>
                   <div class="scratch-wrap">
                     <div class="panel">
                       <h3>Scratch to Reveal</h3>
-                      <p>Use your finger or mouse. Scratch enough and it shows through.</p>
+                      <p>Use your finger or mouse.</p>
                       <div class="scratch-area" id="scratchArea">
-                        <div class="scratch-under">You make me truly happy, Lexie.</div>
+                        <div class="scratch-under">I need to be inside you, Lexie.</div>
                         <canvas id="scratchCanvas"></canvas>
                       </div>
-                      <div style="height:10px"></div>
                     </div>
                   </div>
                 </div>
               </div>
             </section>
 
-            <!-- PAGE 4: Compliment Jar -->
+            <!-- PAGE 4: Dirty Talk Jar -->
             <section class="page" data-index="3" style="z-index:6">
               <div class="content">
-                <div class="topline">
-                  <span class="badge">Interactive</span>
-                  <span>Compliment Jar</span>
-                </div>
-                <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:rgba(70,25,50,.92); text-align:center">
-                  Compliment Jar 💌
-                </h2>
+                <div class="topline"><span class="badge">Interactive</span><span>Dirty Talk Jar</span></div>
+                <h2 style="font-family:'Playfair Display',serif;font-size:28px;color:rgba(70,25,50,.92);text-align:center">Dirty Talk Jar 😈</h2>
                 <div class="jar-page">
                   <div class="mini-panel">
-                    <h3>Pull a note</h3>
-                    <p class="note" style="margin:0; text-align:center; max-width:none">
-                      Tap the button to get a random compliment.
-                    </p>
-                    <button class="jar-btn" id="jarBtn" type="button">Get a compliment ✨</button>
-                    <div class="jar-note" id="jarNote">Tap the button 💗</div>
+                    <h3>Pull a filthy note</h3>
+                    <p class="note" style="margin:0;text-align:center;max-width:none">Tap for something nasty I want to whisper in your ear.</p>
+                    <button class="jar-btn" id="jarBtn">Get dirty talk 🔥</button>
+                    <div class="jar-note" id="jarNote">Tap the button 💦</div>
                   </div>
                 </div>
               </div>
             </section>
 
-            <!-- PAGE 5: Future Date Jar -->
+            <!-- PAGE 5: Future Fuck Jar -->
             <section class="page" data-index="4" style="z-index:5">
               <div class="content">
-                <div class="topline">
-                  <span class="badge">Interactive</span>
-                  <span>Future Date Jar</span>
-                </div>
-                <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:rgba(70,25,50,.92); text-align:center; display:flex; align-items:center; justify-content:center; gap:12px; margin:0;">
-                  <svg width="42" height="42" viewBox="0 0 100 100" aria-hidden="true" style="flex-shrink:0;">
-                    <defs>
-                      <linearGradient id="jarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#ff85a8" />
-                        <stop offset="100%" stop-color="#ff4d8d" />
-                      </linearGradient>
-                    </defs>
+                <div class="topline"><span class="badge">Interactive</span><span>Future Fuck Jar</span></div>
+                <h2 style="font-family:'Playfair Display',serif;font-size:28px;color:rgba(70,25,50,.92);text-align:center;display:flex;align-items:center;justify-content:center;gap:12px;margin:0;">
+                  <svg width="42" height="42" viewBox="0 0 100 100" style="flex-shrink:0;">
+                    <defs><linearGradient id="jarGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ff85a8"/><stop offset="100%" stop-color="#ff4d8d"/></linearGradient></defs>
                     <path d="M30 20 Q20 40 20 60 Q20 80 35 90 L65 90 Q80 80 80 60 Q80 40 70 20 Z" fill="none" stroke="url(#jarGrad)" stroke-width="6" stroke-linecap="round"/>
                     <path d="M50 35 Q 35 20 35 35 Q35 50 50 65 Q65 50 65 35 Q65 20 50 35 Z" fill="rgba(255,77,141,0.85)" transform="scale(0.7) translate(21,8)"/>
                   </svg>
-                  Future Date Jar 📅💕
+                  Future Fuck Jar 🔥💕
                 </h2>
                 <div class="jar-page">
                   <div class="mini-panel">
-                    <h3>Pick Our Next Adventure</h3>
-                    <p class="note" style="margin:0 0 16px; text-align:center; max-width:none">
-                      Tap to pull a date idea I can't wait to experience with you.
-                    </p>
-                    <button class="jar-btn" id="dateJarBtn" type="button">Pull a Date ✨</button>
-                    <div class="jar-note" id="dateNote" style="min-height:110px; position:relative; overflow:hidden;">
-                      Tap to reveal our next memory-in-the-making 💗
-                    </div>
-                    <div id="heartBurst" class="bg-hearts" style="position:absolute; inset:0; pointer-events:none; opacity:0; transition:opacity 0.4s;"></div>
-                    <div style="margin-top:16px; text-align:center;">
-                      <span id="dateCounter" class="pill" style="font-size:13px; padding:6px 14px;">0 / 20 pulled</span>
-                    </div>
-                    <button class="vibe-option" id="saveDateBtn" type="button" style="margin:16px auto 0; width:180px; display:none; font-size:14px; padding:10px;">
-                      Save this date 📋
-                    </button>
+                    <h3>Pick Our Next Fuck</h3>
+                    <p class="note" style="margin:0 0 16px;text-align:center;max-width:none">Tap to pull a nasty idea I’m dying to do with you.</p>
+                    <button class="jar-btn" id="dateJarBtn">Pull a Fuck ✨</button>
+                    <div class="jar-note" id="dateNote" style="min-height:110px;position:relative;overflow:hidden;">Tap to reveal how I’ll use you next 💦</div>
+                    <div id="heartBurst" class="bg-hearts" style="position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity 0.4s;"></div>
+                    <div style="margin-top:16px;text-align:center;"><span id="dateCounter" class="pill">0 / 20 pulled</span></div>
+                    <button class="vibe-option" id="saveDateBtn" style="margin:16px auto 0;width:180px;display:none;font-size:14px;padding:10px;">Save this fuck 📋</button>
                   </div>
                 </div>
               </div>
             </section>
 
-            <!-- PAGE 6: Choose the Vibe -->
+            <!-- PAGE 6: Choose the Vibe (sexual) -->
             <section class="page" data-index="5" style="z-index:4">
               <div class="content">
-                <div class="topline">
-                  <span class="badge">Interactive</span>
-                  <span>Choose the Vibe</span>
-                </div>
-                <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:rgba(70,25,50,.92); text-align:center">
-                  Choose the Vibe 🎧
-                </h2>
+                <div class="topline"><span class="badge">Interactive</span><span>Choose the Vibe</span></div>
+                <h2 style="font-family:'Playfair Display',serif;font-size:28px;color:rgba(70,25,50,.92);text-align:center">Choose How You Want It 😈</h2>
                 <div class="vibe-wrap">
-                  <p class="note" style="margin:0 auto; text-align:center; max-width:62ch">
-                    Tap one. The one you pick will get darker.
-                  </p>
+                  <p class="note" style="margin:0 auto;text-align:center;max-width:62ch">Tap one. The one you pick will get darker.</p>
                   <div class="scrollable">
                     <div class="vibe-grid" id="vibeGrid"></div>
                     <div style="height:10px"></div>
@@ -938,84 +310,49 @@
               </div>
             </section>
 
-            <!-- PAGE 7: Constellation -->
+            <!-- PAGE 7: Constellation (sexual) -->
             <section class="page" data-index="6" style="z-index:3">
               <div class="content">
-                <div class="topline">
-                  <span class="badge">Interactive</span>
-                  <span>Tap the Hearts</span>
-                </div>
-                <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:rgba(70,25,50,.92)">
-                  A Little Constellation
-                </h2>
-                <p class="note" style="margin-top:-6px">
-                  Tap the hearts to reveal something I’m looking forward to.
-                </p>
+                <div class="topline"><span class="badge">Interactive</span><span>Tap the Hearts</span></div>
+                <h2 style="font-family:'Playfair Display',serif;font-size:28px;color:rgba(70,25,50,.92)">Things I Want to Do to You</h2>
+                <p class="note" style="margin-top:-6px">Tap the hearts to reveal what I’m craving.</p>
                 <div class="constellation" id="constellation">
-                  <div class="tooltip" id="tooltip">
-                    <strong>Tap a heart</strong> to reveal something I’m looking forward to.
-                  </div>
-                  <div class="found-counter" id="foundCounter">
-                    <span class="pill" id="foundPill">0 / 6 found</span>
-                  </div>
+                  <div class="tooltip" id="tooltip"><strong>Tap a heart</strong> to reveal what I want to do to you.</div>
+                  <div class="found-counter" id="foundCounter"><span class="pill" id="foundPill">0 / 6 found</span></div>
                 </div>
               </div>
             </section>
 
-            <!-- PAGE 8: Instant Reaction (replaces heartbeat) -->
+            <!-- PAGE 8: Instant Reaction -->
             <section class="page" data-index="7" style="z-index:2">
               <div class="content">
-                <div class="topline">
-                  <span class="badge">Intimate</span>
-                  <span>Instant Reaction</span>
-                </div>
-                <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:rgba(70,25,50,.92); text-align:center">
-                  What You Do To Me
-                </h2>
-                <div class="heartbeat-wrap" style="align-items:center; gap:32px; padding-top:40px;">
-                  <p class="heartbeat-note" style="margin-bottom:20px;">
-                    Press the button below
-                  </p>
+                <div class="topline"><span class="badge">Intimate</span><span>Instant Reaction</span></div>
+                <h2 style="font-family:'Playfair Display',serif;font-size:28px;color:rgba(70,25,50,.92);text-align:center">What You Do To Me</h2>
+                <div class="heartbeat-wrap" style="align-items:center;gap:32px;padding-top:40px;">
+                  <p class="heartbeat-note" style="margin-bottom:20px;">Press the button below</p>
                   <div class="cock-container" id="cockContainer">
-                    <div class="testicles">
-                      <div class="ball left"></div>
-                      <div class="ball right"></div>
-                    </div>
+                    <div class="testicles"><div class="ball left"></div><div class="ball right"></div></div>
                     <div class="shaft" id="shaft"></div>
                     <div class="head" id="head"></div>
                   </div>
-                  <div class="heart-message" id="reactionMsg" style="margin-top:0;">
-                    Yeah… that’s what thinking about you does.
-                  </div>
-                  <button class="jar-btn" id="growBtn" type="button" style="margin-top:24px; width:220px; height:60px; font-size:18px;">
-                    Make It Happen 😈
-                  </button>
+                  <div class="heart-message" id="reactionMsg" style="margin-top:0;">Fuck… that’s what you do to my cock.</div>
+                  <button class="jar-btn" id="growBtn" style="margin-top:24px;width:220px;height:60px;font-size:18px;">Make It Happen 😈</button>
                 </div>
               </div>
             </section>
 
-            <!-- PAGE 9: Final -->
+            <!-- PAGE 9: Final (updated buttons) -->
             <section class="page" data-index="8" style="z-index:1">
               <div class="content">
-                <div class="topline">
-                  <span class="badge">Final Page</span>
-                  <span>One question</span>
-                </div>
-                <h2 style="font-family:'Playfair Display',serif; font-size:30px; color:rgba(70,25,50,.92); text-align:center">
-                  Will you be my valentine?
-                </h2>
+                <div class="topline"><span class="badge">Final Page</span><span>One question</span></div>
+                <h2 style="font-family:'Playfair Display',serif;font-size:30px;color:rgba(70,25,50,.92);text-align:center">Will you be my dirty little valentine?</h2>
                 <div class="valentine-cta" id="valCta">
                   <canvas id="fireworks"></canvas>
-                  <button class="yes-btn" id="yesBtn" type="button">YES!! 💖</button>
-                  <div class="yes-msg" id="yesMsg">
-                    YAY!! 💗<br>
-                    You just made my year
-                  </div>
-                  <button class="no-btn" id="noBtn" type="button">no</button>
+                  <button class="yes-btn" id="yesBtn">You're such a good girl for me</button>
+                  <div class="yes-msg" id="yesMsg">Fuck yes! I can’t wait to use you 💦</div>
+                  <button class="no-btn" id="noBtn">Bad girl</button>
                 </div>
-                <p class="note" style="text-align:center; margin-top:auto; opacity:.9; max-width:none">
-                  (If “no” runs away… it’s just shy.)
-                </p>
+                <p class="note" style="text-align:center;margin-top:auto;opacity:.9;max-width:none">(If “no” runs away… it’s just shy.)</p>
               </div>
             </section>
           </div>
@@ -1025,598 +362,75 @@
   </div>
 
   <script>
-    /* Background hearts */
-    (function makeBgHearts(){
-      const bg = document.getElementById('bgHearts');
-      const count = 18;
-      for(let i=0;i<count;i++){
-        const h = document.createElement('div');
-        h.className = 'heart';
-        const left = Math.random()*100;
-        const size = 10 + Math.random()*16;
-        const dur = 8 + Math.random()*10;
-        const delay = Math.random()*dur;
-        h.style.left = left + 'vw';
-        h.style.bottom = (-10 - Math.random()*30) + 'vh';
-        h.style.width = size + 'px';
-        h.style.height = size + 'px';
-        h.style.animationDuration = dur + 's';
-        h.style.animationDelay = (-delay) + 's';
-        bg.appendChild(h);
-      }
-    })();
-
-    /* Page flip + swipe */
-    const pages = Array.from(document.querySelectorAll('.page'));
-    let current = 0;
-    function updatePageCounters(){
-      const total = pages.length;
-      const el = document.getElementById('pageCountA');
-      if(el) el.textContent = `Page ${current+1} / ${total}`;
-    }
-    function goTo(idx){
-      idx = Math.max(0, Math.min(pages.length-1, idx));
-      current = idx;
-      pages.forEach((p,i)=> (i < current) ? p.classList.add('flipped') : p.classList.remove('flipped'));
-      pages.forEach((p,i)=> p.style.zIndex = (pages.length - i));
-      updatePageCounters();
-    }
-    function next(){ goTo(current + 1); }
-    function prev(){ goTo(current - 1); }
-    document.getElementById('navRight').addEventListener('click', next);
-    document.getElementById('navLeft').addEventListener('click', prev);
-    window.addEventListener('keydown', (e)=>{
-      if(e.key === 'ArrowRight') next();
-      if(e.key === 'ArrowLeft') prev();
-    });
-    const book = document.getElementById('book');
-    let touchStartX = 0, touchStartY = 0, tracking = false;
-    book.addEventListener('touchstart', (e)=>{
-      if(!e.touches || e.touches.length !== 1) return;
-      const t = e.touches[0];
-      touchStartX = t.clientX;
-      touchStartY = t.clientY;
-      tracking = true;
-    }, {passive:true});
-    book.addEventListener('touchmove', (e)=>{
-      if(!tracking || !e.touches || e.touches.length !== 1) return;
-      const t = e.touches[0];
-      const dx = t.clientX - touchStartX;
-      const dy = t.clientY - touchStartY;
-      if(Math.abs(dx) > 18 && Math.abs(dx) > Math.abs(dy) + 10) e.preventDefault();
-    }, {passive:false});
-    book.addEventListener('touchend', (e)=>{
-      if(!tracking) return;
-      tracking = false;
-      const t = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0] : null;
-      if(!t) return;
-      const dx = t.clientX - touchStartX;
-      const dy = t.clientY - touchStartY;
-      if(Math.abs(dy) > Math.abs(dx)) return;
-      if(dx < -60) next();
-      else if(dx > 60) prev();
-    }, {passive:true});
+    (function makeBgHearts(){const bg=document.getElementById('bgHearts');const count=18;for(let i=0;i<count;i++){const h=document.createElement('div');h.className='heart';const left=Math.random()*100;const size=10+Math.random()*16;const dur=8+Math.random()*10;const delay=Math.random()*dur;h.style.left=left+'vw';h.style.bottom=(-10-Math.random()*30)+'vh';h.style.width=size+'px';h.style.height=size+'px';h.style.animationDuration=dur+'s';h.style.animationDelay=(-delay)+'s';bg.appendChild(h);}})();
+    const pages=Array.from(document.querySelectorAll('.page'));let current=0;
+    function updatePageCounters(){const total=pages.length;const el=document.getElementById('pageCountA');if(el)el.textContent=`Page ${current+1} / ${total}`;}
+    function goTo(idx){idx=Math.max(0,Math.min(pages.length-1,idx));current=idx;pages.forEach((p,i)=>(i<current)?p.classList.add('flipped'):p.classList.remove('flipped'));pages.forEach((p,i)=>p.style.zIndex=(pages.length-i));updatePageCounters();}
+    function next(){goTo(current+1);}function prev(){goTo(current-1);}
+    document.getElementById('navRight').addEventListener('click',next);
+    document.getElementById('navLeft').addEventListener('click',prev);
+    window.addEventListener('keydown',(e)=>{if(e.key==='ArrowRight')next();if(e.key==='ArrowLeft')prev();});
+    const book=document.getElementById('book');let touchStartX=0,touchStartY=0,tracking=false;
+    book.addEventListener('touchstart',(e)=>{if(!e.touches||e.touches.length!==1)return;const t=e.touches[0];touchStartX=t.clientX;touchStartY=t.clientY;tracking=true;},{passive:true});
+    book.addEventListener('touchmove',(e)=>{if(!tracking||!e.touches||e.touches.length!==1)return;const t=e.touches[0];const dx=t.clientX-touchStartX;const dy=t.clientY-touchStartY;if(Math.abs(dx)>18&&Math.abs(dx)>Math.abs(dy)+10)e.preventDefault();},{passive:false});
+    book.addEventListener('touchend',(e)=>{if(!tracking)return;tracking=false;const t=(e.changedTouches&&e.changedTouches[0])?e.changedTouches[0]:null;if(!t)return;const dx=t.clientX-touchStartX;const dy=t.clientY-touchStartY;if(Math.abs(dy)>Math.abs(dx))return;if(dx<-60)next();else if(dx>60)prev();},{passive:true});
     goTo(0);
+    function shuffle(arr){const a=arr.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+    function randomFrom(a){return a[Math.floor(Math.random()*a.length)]}
 
-    /* Helpers */
-    function shuffle(arr){
-      const a = arr.slice();
-      for(let i=a.length-1;i>0;i--){
-        const j = Math.floor(Math.random()*(i+1));
-        [a[i],a[j]] = [a[j],a[i]];
-      }
-      return a;
-    }
-    function randomFrom(a){ return a[Math.floor(Math.random()*a.length)] }
+    const reasons=["Your perfect tits bouncing while you ride me","That tight little pussy gripping my cock","The way your ass jiggles when I spank it","How you moan my name when I’m deep inside","Your pretty mouth wrapped around me","How wet you get just thinking about me","The way you beg for more","Your thighs wrapped around my head","How you look when you cum","Your dirty little fantasies","The way you taste","How you arch your back for me","Your nipples getting hard when I touch you","How obedient you are in bed","The way you scream when I make you squirt"];
+    const reasonsGrid=document.getElementById('reasonsGrid');reasonsGrid.innerHTML="";shuffle(reasons).forEach((text,idx)=>{const item=document.createElement('div');item.className='reason';item.innerHTML=`<div class="dot">${idx+1}</div><span>${text}</span>`;reasonsGrid.appendChild(item);});
 
-    /* Reasons */
-    const reasons = [
-      "How easy you are to talk to",
-      "Your laugh",
-      "Your beautiful smile",
-      "Your adorable little frown",
-      "Your mesmerizing eyes",
-      "The way you talk to me",
-      "Your weirdness",
-      "How happy you make me",
-      "How sweet you are",
-      "Your sense of humor",
-      "Your kindness",
-      "Your energy",
-      "Your thoughtfulness",
-      "How you make simple moments feel special",
-      "The way you’re unapologetically you"
-    ];
-    const reasonsGrid = document.getElementById('reasonsGrid');
-    reasonsGrid.innerHTML = "";
-    shuffle(reasons).forEach((text, idx)=>{
-      const item = document.createElement('div');
-      item.className = 'reason';
-      item.innerHTML = `<div class="dot">${idx+1}</div><span>${text}</span>`;
-      reasonsGrid.appendChild(item);
-    });
+    const scratchArea=document.getElementById('scratchArea');const canvas=document.getElementById('scratchCanvas');const ctx=canvas.getContext('2d',{willReadFrequently:true});let isDrawing=false;
+    function drawScratchCover(){const dpr=Math.max(1,window.devicePixelRatio||1);ctx.setTransform(1,0,0,1,0,0);ctx.clearRect(0,0,canvas.width,canvas.height);const grad=ctx.createLinearGradient(0,0,canvas.width,canvas.height);grad.addColorStop(0,'rgba(255,77,141,1)');grad.addColorStop(1,'rgba(255,133,168,1)');ctx.globalCompositeOperation='source-over';ctx.fillStyle=grad;ctx.fillRect(0,0,canvas.width,canvas.height);ctx.globalAlpha=0.16;for(let i=0;i<16;i++){const y=(i/16)*canvas.height;ctx.beginPath();ctx.moveTo(-canvas.width*0.2,y);ctx.lineTo(canvas.width*1.2,y+50*dpr);ctx.lineWidth=3.2*dpr;ctx.strokeStyle='rgba(255,255,255,0.85)';ctx.stroke();}ctx.globalAlpha=0.14;for(let i=0;i<900;i++){const x=Math.random()*canvas.width;const y=Math.random()*canvas.height;const r=(Math.random()*1.2+0.3)*dpr;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fillStyle=(Math.random()>0.5)?'rgba(255,255,255,.75)':'rgba(255,255,255,.35)';ctx.fill();}ctx.globalAlpha=1;}
+    function resizeScratch(){const rect=scratchArea.getBoundingClientRect();const dpr=Math.max(1,window.devicePixelRatio||1);canvas.width=Math.floor(rect.width*dpr);canvas.height=Math.floor(rect.height*dpr);canvas.style.width=rect.width+"px";canvas.style.height=rect.height+"px";drawScratchCover();}
+    function scratchAt(clientX,clientY){const rect=canvas.getBoundingClientRect();const dpr=Math.max(1,window.devicePixelRatio||1);const x=(clientX-rect.left)*dpr;const y=(clientY-rect.top)*dpr;ctx.globalCompositeOperation='destination-out';ctx.beginPath();ctx.arc(x,y,24*dpr,0,Math.PI*2);ctx.fill();ctx.globalCompositeOperation='source-over';}
+    canvas.addEventListener('pointerdown',(e)=>{isDrawing=true;canvas.setPointerCapture?.(e.pointerId);scratchAt(e.clientX,e.clientY);e.preventDefault();});
+    canvas.addEventListener('pointermove',(e)=>{if(!isDrawing)return;scratchAt(e.clientX,e.clientY);e.preventDefault();});
+    const stopScratch=()=>{isDrawing=false;};canvas.addEventListener('pointerup',stopScratch);canvas.addEventListener('pointercancel',stopScratch);
+    window.addEventListener('resize',()=>requestAnimationFrame(resizeScratch));requestAnimationFrame(resizeScratch);
 
-    /* Scratch */
-    const scratchArea = document.getElementById('scratchArea');
-    const canvas = document.getElementById('scratchCanvas');
-    const ctx = canvas.getContext('2d', { willReadFrequently: true });
-    let isDrawing = false;
-    function drawScratchCover(){
-      const dpr = Math.max(1, window.devicePixelRatio || 1);
-      ctx.setTransform(1,0,0,1,0,0);
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      const grad = ctx.createLinearGradient(0,0,canvas.width,canvas.height);
-      grad.addColorStop(0, 'rgba(255,77,141,1)');
-      grad.addColorStop(1, 'rgba(255,133,168,1)');
-      ctx.globalCompositeOperation = 'source-over';
-      ctx.fillStyle = grad;
-      ctx.fillRect(0,0,canvas.width,canvas.height);
-      ctx.globalAlpha = 0.16;
-      for(let i=0;i<16;i++){
-        const y = (i/16)*canvas.height;
-        ctx.beginPath();
-        ctx.moveTo(-canvas.width*0.2, y);
-        ctx.lineTo(canvas.width*1.2, y + 50*dpr);
-        ctx.lineWidth = 3.2 * dpr;
-        ctx.strokeStyle = 'rgba(255,255,255,0.85)';
-        ctx.stroke();
-      }
-      ctx.globalAlpha = 0.14;
-      for(let i=0;i<900;i++){
-        const x = Math.random()*canvas.width;
-        const y = Math.random()*canvas.height;
-        const r = (Math.random()*1.2 + 0.3) * dpr;
-        ctx.beginPath();
-        ctx.arc(x,y,r,0,Math.PI*2);
-        ctx.fillStyle = (Math.random() > 0.5) ? 'rgba(255,255,255,.75)' : 'rgba(255,255,255,.35)';
-        ctx.fill();
-      }
-      ctx.globalAlpha = 1;
-    }
-    function resizeScratch(){
-      const rect = scratchArea.getBoundingClientRect();
-      const dpr = Math.max(1, window.devicePixelRatio || 1);
-      canvas.width = Math.floor(rect.width * dpr);
-      canvas.height = Math.floor(rect.height * dpr);
-      canvas.style.width = rect.width + "px";
-      canvas.style.height = rect.height + "px";
-      drawScratchCover();
-    }
-    function scratchAt(clientX, clientY){
-      const rect = canvas.getBoundingClientRect();
-      const dpr = Math.max(1, window.devicePixelRatio || 1);
-      const x = (clientX - rect.left) * dpr;
-      const y = (clientY - rect.top) * dpr;
-      ctx.globalCompositeOperation = 'destination-out';
-      ctx.beginPath();
-      ctx.arc(x, y, 24 * dpr, 0, Math.PI*2);
-      ctx.fill();
-      ctx.globalCompositeOperation = 'source-over';
-    }
-    canvas.addEventListener('pointerdown', (e)=>{
-      isDrawing = true;
-      canvas.setPointerCapture?.(e.pointerId);
-      scratchAt(e.clientX, e.clientY);
-      e.preventDefault();
-    });
-    canvas.addEventListener('pointermove', (e)=>{
-      if(!isDrawing) return;
-      scratchAt(e.clientX, e.clientY);
-      e.preventDefault();
-    });
-    const stopScratch = ()=>{ isDrawing = false; };
-    canvas.addEventListener('pointerup', stopScratch);
-    canvas.addEventListener('pointercancel', stopScratch);
-    window.addEventListener('resize', ()=>requestAnimationFrame(resizeScratch));
-    requestAnimationFrame(resizeScratch);
+    const jarNotes=["Your pussy was made for my cock","I’m gonna fuck you until you can’t walk","Cum for me like a good little slut","I love how wet you get for daddy","Bend over and take every inch","I want to fill you up and watch it drip","Fuck you until you scream my name","Your ass looks perfect with my handprint","Gonna make you squirt all over me","Open wide and swallow every drop","I own that pretty little body","Fuck, you feel so tight around me","Beg for my cum","I’m gonna ruin you for anyone else","Your tits look perfect bouncing","Choke on it, baby","I love when you gag for me","Spread those legs wider","You’re my dirty little fucktoy","Cum on my cock right now"];
+    const jarBtn=document.getElementById('jarBtn');const jarNote=document.getElementById('jarNote');
+    if(jarBtn){jarBtn.addEventListener('click',()=>{jarNote.textContent=randomFrom(jarNotes);jarNote.animate([{transform:'scale(1)'},{transform:'scale(1.02)'},{transform:'scale(1)'}],{duration:220,easing:'ease-out'});});}
 
-    /* Compliment Jar */
-    const jarNotes = [
-      "I like the way you make me feel calm and excited at the same time.",
-      "You’re the kind of person I’d choose in every universe.",
-      "Talking to you feels like a warm hoodie.",
-      "You make ordinary days feel like something worth remembering.",
-      "Your energy is the best kind of contagious.",
-      "You’re effortlessly lovable. (Yes, that’s a thing.)",
-      "You have a way of making people feel seen.",
-      "Your smile could fix a bad day in seconds.",
-      "Being around you just feels… right.",
-      "You’re charming without even trying.",
-      "You make little moments feel special.",
-      "Your laugh is genuinely one of my favorite sounds.",
-      "You’re the perfect mix of sweet and fun.",
-      "You’re easy to be myself around.",
-      "You’re thoughtful in the ways that matter most.",
-      "You’re prettier than you realize.",
-      "You make me look forward to things.",
-      "You’re the kind of person people are lucky to know.",
-      "You make the world feel softer around the edges.",
-      "Your vibe is unmatched."
-    ];
-    const jarBtn = document.getElementById('jarBtn');
-    const jarNote = document.getElementById('jarNote');
-    if(jarBtn){
-      jarBtn.addEventListener('click', ()=>{
-        jarNote.textContent = randomFrom(jarNotes);
-        jarNote.animate([{transform:'scale(1)'},{transform:'scale(1.02)'},{transform:'scale(1)'}], {duration:220, easing:'ease-out'});
-      });
-    }
+    const dateIdeas=["Bend you over the kitchen counter and fuck you raw","Tie you up and edge you for hours","Fuck you in front of the mirror so you watch","Make you ride me until your legs shake","Fill your pussy with cum and plug you","Fuck your throat until you cry","Spank your ass red then fuck it","Use your tits until I cum all over them","Make you squirt on my face","Fuck you in the shower against the wall","Cum inside you while you beg for more","Choke you while I pound you from behind","Make you cum on my fingers first","Fuck you slow and deep all night","Have you suck me off under the table","Pin your wrists and take you hard","Eat your pussy until you scream","Fuck you on the balcony at night","Make you cum twice before I finish","Leave bite marks all over your body"];
+    const dateJarBtn=document.getElementById('dateJarBtn');const dateNote=document.getElementById('dateNote');const saveDateBtn=document.getElementById('saveDateBtn');const dateCounter=document.getElementById('dateCounter');const heartBurst=document.getElementById('heartBurst');
+    let remainingDates=shuffle(dateIdeas.slice());let pulledCount=0;const totalDates=dateIdeas.length;
+    function updateCounter(){dateCounter.textContent=`${pulledCount} / ${totalDates} pulled`;}
+    function createFloatingHeart(){const h=document.createElement('div');h.className='heart';const size=12+Math.random()*14;const left=20+Math.random()*60;h.style.left=left+'%';h.style.bottom='-20px';h.style.width=size+'px';h.style.height=size+'px';h.style.animationDuration=(2+Math.random()*1.2)+'s';heartBurst.appendChild(h);setTimeout(()=>h.remove(),3500);}
+    if(dateJarBtn&&dateNote){updateCounter();dateJarBtn.addEventListener('click',()=>{if(remainingDates.length===0){remainingDates=shuffle(dateIdeas.slice());pulledCount=0;updateCounter();dateNote.textContent="All fucks discovered! Starting over... 💦";saveDateBtn.style.display='none';return;}
+    const idea=remainingDates.pop();pulledCount++;updateCounter();dateNote.style.opacity='0';dateNote.style.transform='translateY(12px)';setTimeout(()=>{dateNote.textContent=idea;dateNote.classList.add('revealed');dateNote.style.opacity='1';dateNote.style.transform='translateY(0)';heartBurst.style.opacity='0.8';for(let i=0;i<5;i++){setTimeout(createFloatingHeart,i*180);}setTimeout(()=>heartBurst.style.opacity='0',2200);},300);saveDateBtn.style.display='block';saveDateBtn.classList.remove('copied');saveDateBtn.textContent='Save this fuck 📋';});
+    saveDateBtn.addEventListener('click',()=>{const text=dateNote.textContent.trim();if(text&&text!=="Tap to reveal how I’ll use you next 💦"){navigator.clipboard.writeText(text).then(()=>{saveDateBtn.classList.add('copied');saveDateBtn.textContent='Saved!';setTimeout(()=>{saveDateBtn.classList.remove('copied');saveDateBtn.textContent='Save this fuck 📋';},2200);}).catch(err=>console.error('Copy failed',err));}});}
 
-    /* Future Date Jar */
-    const dateIdeas = [
-      "Drive to the coast just to watch the sunrise with coffee in hand",
-      "Build a blanket fort and binge our favorite show under fairy lights",
-      "Cook something new together (even if it turns out terrible — we'll laugh)",
-      "Stargaze on a clear night with blankets and your playlist",
-      "Slow dance in the kitchen at 2 a.m. to whatever song comes on",
-      "Go to a bookstore and pick books for each other to read aloud",
-      "Have a picnic in the park with your favorite snacks and no phones",
-      "Take a spontaneous road trip — no destination, just us and music",
-      "Try a pottery or painting class and make something messy and cute",
-      "Stay in with face masks, wine, and deep talks about everything",
-      "Visit a new coffee shop and rate their lattes like critics",
-      "Watch the sunset from somewhere high up and talk about the future",
-      "Have a game night with silly bets and your favorite snacks",
-      "Go thrifting and find outfits for each other to try on",
-      "Cuddle up during a thunderstorm with hot cocoa and stories",
-      "Take a late-night drive with windows down and sing terribly",
-      "Make a time capsule with letters and mementos for future us",
-      "Have breakfast in bed and plan our dream day together",
-      "Visit an aquarium or museum and make up backstories for everything",
-      "Just lay in bed talking until the sun comes up — no rush"
-    ];
-    const dateJarBtn = document.getElementById('dateJarBtn');
-    const dateNote = document.getElementById('dateNote');
-    const saveDateBtn = document.getElementById('saveDateBtn');
-    const dateCounter = document.getElementById('dateCounter');
-    const heartBurst = document.getElementById('heartBurst');
-    let remainingDates = shuffle(dateIdeas.slice());
-    let pulledCount = 0;
-    const totalDates = dateIdeas.length;
-    function updateCounter() {
-      dateCounter.textContent = `${pulledCount} / ${totalDates} pulled`;
-    }
-    function createFloatingHeart() {
-      const h = document.createElement('div');
-      h.className = 'heart';
-      const size = 12 + Math.random() * 14;
-      const left = 20 + Math.random() * 60;
-      h.style.left = left + '%';
-      h.style.bottom = '-20px';
-      h.style.width = size + 'px';
-      h.style.height = size + 'px';
-      h.style.animationDuration = (2 + Math.random() * 1.2) + 's';
-      heartBurst.appendChild(h);
-      setTimeout(() => h.remove(), 3500);
-    }
-    if (dateJarBtn && dateNote) {
-      updateCounter();
-      dateJarBtn.addEventListener('click', () => {
-        if (remainingDates.length === 0) {
-          remainingDates = shuffle(dateIdeas.slice());
-          pulledCount = 0;
-          updateCounter();
-          dateNote.textContent = "All dates discovered! Starting over... 💞";
-          saveDateBtn.style.display = 'none';
-          return;
-        }
-        const idea = remainingDates.pop();
-        pulledCount++;
-        updateCounter();
-        dateNote.style.opacity = '0';
-        dateNote.style.transform = 'translateY(12px)';
-        setTimeout(() => {
-          dateNote.textContent = idea;
-          dateNote.classList.add('revealed');
-          dateNote.style.opacity = '1';
-          dateNote.style.transform = 'translateY(0)';
-          heartBurst.style.opacity = '0.8';
-          for (let i = 0; i < 5; i++) {
-            setTimeout(createFloatingHeart, i * 180);
-          }
-          setTimeout(() => heartBurst.style.opacity = '0', 2200);
-        }, 300);
-        saveDateBtn.style.display = 'block';
-        saveDateBtn.classList.remove('copied');
-        saveDateBtn.textContent = 'Save this date 📋';
-      });
-      saveDateBtn.addEventListener('click', () => {
-        const text = dateNote.textContent.trim();
-        if (text && text !== "Tap to reveal our next memory-in-the-making 💗") {
-          navigator.clipboard.writeText(text).then(() => {
-            saveDateBtn.classList.add('copied');
-            saveDateBtn.textContent = 'Saved!';
-            setTimeout(() => {
-              saveDateBtn.classList.remove('copied');
-              saveDateBtn.textContent = 'Save this date 📋';
-            }, 2200);
-          }).catch(err => {
-            console.error('Copy failed', err);
-          });
-        }
-      });
-    }
+    const vibePairs=[["Slow and deep","Hard and fast"],["Gentle kisses","Biting your neck"],["Missionary so I see your face","Doggy so I spank your ass"],["You on top riding me","Me pinning you down"],["Cum inside you","Cum on your tits"],["Eat your pussy","Make you suck me"],["Tease you for hours","Fuck you senseless"],["In bed all night","Quickie in public"],["Your moans quiet","Your screams loud"]];
+    const vibeGrid=document.getElementById('vibeGrid');if(vibeGrid){vibeGrid.innerHTML="";shuffle(vibePairs).forEach((pair)=>{const card=document.createElement('div');card.className="vibe-card";card.innerHTML=`<div class="vibe-stack"><button class="vibe-option" type="button">${pair[0]}</button><button class="vibe-option" type="button">${pair[1]}</button></div>`;const opts=Array.from(card.querySelectorAll('.vibe-option'));opts.forEach(btn=>{btn.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();opts.forEach(o=>o.classList.remove('picked','dim'));btn.classList.add('picked');opts.forEach(o=>{if(o!==btn)o.classList.add('dim');});},{passive:false});});vibeGrid.appendChild(card);});}
 
-    /* Vibe choices */
-    const vibePairs = [
-      ["Late nights 🌙", "Early mornings ☀️"],
-      ["Staying in 🛋️", "Going out ✨"],
-      ["Spontaneous 🌀", "Planned 📅"],
-      ["Sweet 🍰", "Salty 🍿"],
-      ["Soft kisses 💋", "Heavy makeouts 😮‍💨"],
-      ["Soft music 🎧", "Windows down vibes 🚗"],
-      ["Being silly 😄", "Being thoughtful 💭"],
-      ["Hair pulls 😌", "Neck kisses 💋"],
-      ["Little spoon 🤍", "Big spoon 🫶"],
-      ["Movie night 🎬", "Game night 🎮"]
-    ];
-    const vibeGrid = document.getElementById('vibeGrid');
-    if(vibeGrid){
-      vibeGrid.innerHTML = "";
-      shuffle(vibePairs).forEach((pair)=>{
-        const card = document.createElement('div');
-        card.className = "vibe-card";
-        card.innerHTML = `
-          <div class="vibe-stack">
-            <button class="vibe-option" type="button">${pair[0]}</button>
-            <button class="vibe-option" type="button">${pair[1]}</button>
-          </div>
-        `;
-        const opts = Array.from(card.querySelectorAll('.vibe-option'));
-        opts.forEach(btn=>{
-          btn.addEventListener('click', (e)=>{
-            e.preventDefault();
-            e.stopPropagation();
-            opts.forEach(o=>o.classList.remove('picked','dim'));
-            btn.classList.add('picked');
-            opts.forEach(o=>{ if(o !== btn) o.classList.add('dim'); });
-          }, {passive:false});
-        });
-        vibeGrid.appendChild(card);
-      });
-    }
-
-    /* Constellation */
-    const constellation = document.getElementById('constellation');
-    const tooltip = document.getElementById('tooltip');
-    const foundPill = document.getElementById('foundPill');
-    const memoryNotes = [
-      "Getting to know you more",
-      "Late-night conversations",
-      "Laughing over small things",
-      "Moments that don’t feel rushed",
-      "That comfortable, easy feeling",
-      "Seeing where this goes"
-    ];
-    let found = 0;
-    const heartsPos = [
-      {x:14, y:14},{x:38, y:10},{x:62, y:14},
-      {x:22, y:34},{x:52, y:30},{x:76, y:36}
-    ];
+    const memoryNotes=["Bend you over and take you from behind","Fuck your throat until tears run down your face","Make you squirt all over my cock","Fill your pussy and watch it drip out","Tie you up and tease you for hours","Cum all over your perfect tits"];
+    const constellation=document.getElementById('constellation');const tooltip=document.getElementById('tooltip');const foundPill=document.getElementById('foundPill');let found=0;
+    const heartsPos=[{x:14,y:14},{x:38,y:10},{x:62,y:14},{x:22,y:34},{x:52,y:30},{x:76,y:36}];
     Array.from(constellation.querySelectorAll('.spark')).forEach(n=>n.remove());
-    heartsPos.forEach((pos, i)=>{
-      const s = document.createElement('div');
-      s.className = 'spark';
-      s.style.left = `calc(${pos.x}% - 8px)`;
-      s.style.top = `calc(${pos.y}% - 8px)`;
-      s.dataset.opened = "0";
-      s.addEventListener('click', ()=>{
-        if(s.dataset.opened === "0"){
-          s.dataset.opened = "1";
-          found++;
-          foundPill.textContent = `${found} / 6 found`;
-        }
-        tooltip.innerHTML = `<strong>Looking forward to:</strong><span class="tip-text">${memoryNotes[i]}</span>`;
-      });
-      constellation.appendChild(s);
-    });
+    heartsPos.forEach((pos,i)=>{const s=document.createElement('div');s.className='spark';s.style.left=`calc(${pos.x}% - 8px)`;s.style.top=`calc(${pos.y}% - 8px)`;s.dataset.opened="0";s.addEventListener('click',()=>{if(s.dataset.opened==="0"){s.dataset.opened="1";found++;foundPill.textContent=`${found} / 6 found`;}tooltip.innerHTML=`<strong>Craving:</strong><span class="tip-text">${memoryNotes[i]}</span>`;});constellation.appendChild(s);});
 
-    /* Instant Reaction (new page) */
-    const growBtn = document.getElementById('growBtn');
-    const shaft = document.getElementById('shaft');
-    const head = document.getElementById('head');
-    const reactionMsg = document.getElementById('reactionMsg');
-    if (growBtn && shaft && head) {
-      growBtn.addEventListener('click', () => {
-        shaft.classList.add('growing');
-        head.classList.add('growing');
-        reactionMsg.classList.add('show');
-        setTimeout(() => {
-          shaft.classList.remove('growing');
-          head.classList.remove('growing');
-        }, 4200);
-        growBtn.style.transform = 'scale(0.96)';
-        setTimeout(() => growBtn.style.transform = 'scale(1)', 180);
-      });
-    }
+    const growBtn=document.getElementById('growBtn');const shaft=document.getElementById('shaft');const head=document.getElementById('head');const reactionMsg=document.getElementById('reactionMsg');
+    if(growBtn&&shaft&&head){growBtn.addEventListener('click',()=>{shaft.classList.add('growing');head.classList.add('growing');reactionMsg.classList.add('show');setTimeout(()=>{shaft.classList.remove('growing');head.classList.remove('growing');},4200);growBtn.style.transform='scale(0.96)';setTimeout(()=>growBtn.style.transform='scale(1)',180);});}
 
-    /* Fireworks */
-    const yesBtn = document.getElementById('yesBtn');
-    const noBtn = document.getElementById('noBtn');
-    const yesMsg = document.getElementById('yesMsg');
-    const fwCanvas = document.getElementById('fireworks');
-    const fwCtx = fwCanvas.getContext('2d');
-    let fireworksOn = false;
-    let animating = false;
-    let rockets = [];
-    let sparks = [];
-    let launchTimer = null;
-    function rand(min, max){ return min + Math.random() * (max - min); }
-    function resizeFireworks(){
-      const rect = fwCanvas.getBoundingClientRect();
-      const dpr = Math.max(1, window.devicePixelRatio || 1);
-      fwCanvas.width = Math.floor(rect.width * dpr);
-      fwCanvas.height = Math.floor(rect.height * dpr);
-      fwCtx.setTransform(1,0,0,1,0,0);
-    }
+    const yesBtn=document.getElementById('yesBtn');const noBtn=document.getElementById('noBtn');const yesMsg=document.getElementById('yesMsg');const fwCanvas=document.getElementById('fireworks');const fwCtx=fwCanvas.getContext('2d');let fireworksOn=false;let animating=false;let rockets=[];let sparks=[];let launchTimer=null;
+    function rand(min,max){return min+Math.random()*(max-min);}
+    function resizeFireworks(){const rect=fwCanvas.getBoundingClientRect();const dpr=Math.max(1,window.devicePixelRatio||1);fwCanvas.width=Math.floor(rect.width*dpr);fwCanvas.height=Math.floor(rect.height*dpr);fwCtx.setTransform(1,0,0,1,0,0);}
     resizeFireworks();
-    function launchRocket(x){
-      const dpr = Math.max(1, window.devicePixelRatio || 1);
-      rockets.push({
-        x,
-        y: fwCanvas.height + 16*dpr,
-        vx: rand(-0.22, 0.22) * dpr,
-        vy: rand(-8.4, -7.2) * dpr,
-        ay: 0.10 * dpr,
-        explodeY: rand(fwCanvas.height*0.18, fwCanvas.height*0.42),
-        life: 240
-      });
-    }
-    function explode(x, y){
-      const dpr = Math.max(1, window.devicePixelRatio || 1);
-      const count = Math.floor(rand(52, 78));
-      const baseHue = rand(310, 355);
-      for(let i=0;i<count;i++){
-        const a = Math.random() * Math.PI * 2;
-        const speed = rand(2.2, 4.3) * dpr;
-        sparks.push({
-          x, y,
-          vx: Math.cos(a)*speed,
-          vy: Math.sin(a)*speed,
-          ay: 0.085 * dpr,
-          drag: 0.986,
-          age: 0,
-          life: rand(90, 135),
-          size: rand(1.2, 2.4) * dpr,
-          hue: baseHue + rand(-10, 18),
-          alpha: 1
-        });
-      }
-      if(sparks.length > 3200) sparks.splice(0, sparks.length - 3200);
-    }
-    function scheduleLaunches(){
-      launchTimer = setInterval(()=>{
-        if(!fireworksOn) return;
-        resizeFireworks();
-        const n = Math.random() < 0.35 ? 2 : 1;
-        for(let k=0;k<n;k++){
-          const x = rand(fwCanvas.width*0.15, fwCanvas.width*0.85);
-          launchRocket(x);
-        }
-        if(!animating){
-          animating = true;
-          requestAnimationFrame(animateFireworks);
-        }
-      }, 1000);
-    }
-    function startFireworks(){
-      if(fireworksOn) return;
-      fireworksOn = true;
-      resizeFireworks();
-      launchRocket(fwCanvas.width * 0.33);
-      launchRocket(fwCanvas.width * 0.67);
-      if(!animating){
-        animating = true;
-        requestAnimationFrame(animateFireworks);
-      }
-      scheduleLaunches();
-    }
-    function animateFireworks(){
-      if(!animating) return;
-      fwCtx.globalCompositeOperation = 'source-over';
-      fwCtx.fillStyle = 'rgba(255,255,255,0.10)';
-      fwCtx.fillRect(0,0,fwCanvas.width, fwCanvas.height);
-      for(let i=rockets.length-1;i>=0;i--){
-        const r = rockets[i];
-        r.life--;
-        r.vy += r.ay;
-        r.x += r.vx;
-        r.y += r.vy;
-        fwCtx.beginPath();
-        fwCtx.arc(r.x, r.y, 2.2, 0, Math.PI*2);
-        fwCtx.fillStyle = 'rgba(255,77,141,0.90)';
-        fwCtx.fill();
-        fwCtx.beginPath();
-        fwCtx.moveTo(r.x, r.y);
-        fwCtx.lineTo(r.x - r.vx*2.2, r.y - r.vy*2.2);
-        fwCtx.strokeStyle = 'rgba(255,133,168,0.55)';
-        fwCtx.lineWidth = 2;
-        fwCtx.stroke();
-        if(r.y <= r.explodeY || r.vy > -1.6 || r.life <= 0){
-          explode(r.x, r.y);
-          rockets.splice(i,1);
-        }
-      }
-      fwCtx.globalCompositeOperation = 'lighter';
-      for(let i=sparks.length-1;i>=0;i--){
-        const p = sparks[i];
-        p.age++;
-        p.vx *= p.drag;
-        p.vy *= p.drag;
-        p.vy += p.ay;
-        p.x += p.vx;
-        p.y += p.vy;
-        const t = 1 - (p.age / p.life);
-        p.alpha = Math.max(0, t);
-        fwCtx.beginPath();
-        fwCtx.arc(p.x, p.y, p.size, 0, Math.PI*2);
-        fwCtx.fillStyle = `hsla(${p.hue}, 95%, 72%, ${p.alpha})`;
-        fwCtx.fill();
-        if(p.age >= p.life) sparks.splice(i,1);
-      }
-      fwCtx.globalCompositeOperation = 'source-over';
-      if(!fireworksOn && rockets.length === 0 && sparks.length === 0){
-        animating = false;
-        fwCtx.clearRect(0,0,fwCanvas.width, fwCanvas.height);
-        return;
-      }
-      requestAnimationFrame(animateFireworks);
-    }
-    yesBtn.addEventListener('click', ()=>{
-      yesMsg.style.display = 'block';
-      startFireworks();
-      yesBtn.animate([{transform:'scale(1)'},{transform:'scale(1.02)'},{transform:'scale(1)'}], {duration:240, easing:'ease-out'});
-    });
-    function placeNoSafely(randomize){
-      const cta = document.getElementById('valCta');
-      const ctaRect = cta.getBoundingClientRect();
-      const yesRect = yesBtn.getBoundingClientRect();
-      const btnW = noBtn.offsetWidth || 130;
-      const btnH = noBtn.offsetHeight || 40;
-      const noGo = {
-        left: (yesRect.left - ctaRect.left) - 18,
-        right: (yesRect.right - ctaRect.left) + 18,
-        top: (yesRect.top - ctaRect.top) - 18,
-        bottom: (yesRect.bottom - ctaRect.top) + 18
-      };
-      const padL = 22, padR = 22, padB = 16;
-      const minX = padL;
-      const maxX = ctaRect.width - padR - btnW;
-      const minY = Math.max(noGo.bottom + 24, ctaRect.height * 0.66);
-      const maxY = ctaRect.height - padB - btnH;
-      const safeMinY = Math.min(minY, maxY);
-      let x = (ctaRect.width/2) - (btnW/2);
-      let y = Math.max(safeMinY, ctaRect.height * 0.78);
-      if(randomize){
-        for(let tries=0; tries<50; tries++){
-          x = minX + Math.random() * Math.max(8, (maxX - minX));
-          y = safeMinY + Math.random() * Math.max(8, (maxY - safeMinY));
-          const intersects =
-            x < noGo.right &&
-            x + btnW > noGo.left &&
-            y < noGo.bottom &&
-            y + btnH > noGo.top;
-          if(!intersects) break;
-        }
-      }
-      noBtn.style.left = x + "px";
-      noBtn.style.top = y + "px";
-      noBtn.style.transform = "translateX(0)";
-    }
-    placeNoSafely(false);
-    noBtn.addEventListener('click', (e)=>{
-      e.preventDefault();
-      placeNoSafely(true);
-      noBtn.animate(
-        [{transform:'translateX(0) scale(1)'},{transform:'translateX(0) scale(1.06)'},{transform:'translateX(0) scale(1)'}],
-        {duration:240, easing:'ease-out'}
-      );
-    });
-    window.addEventListener('resize', ()=>{
-      resizeFireworks();
-      placeNoSafely(false);
-      requestAnimationFrame(resizeScratch);
-    });
+    function launchRocket(x){const dpr=Math.max(1,window.devicePixelRatio||1);rockets.push({x,y:fwCanvas.height+16*dpr,vx:rand(-0.22,0.22)*dpr,vy:rand(-8.4,-7.2)*dpr,ay:0.10*dpr,explodeY:rand(fwCanvas.height*0.18,fwCanvas.height*0.42),life:240});}
+    function explode(x,y){const dpr=Math.max(1,window.devicePixelRatio||1);const count=Math.floor(rand(52,78));const baseHue=rand(310,355);for(let i=0;i<count;i++){const a=Math.random()*Math.PI*2;const speed=rand(2.2,4.3)*dpr;sparks.push({x,y,vx:Math.cos(a)*speed,vy:Math.sin(a)*speed,ay:0.085*dpr,drag:0.986,age:0,life:rand(90,135),size:rand(1.2,2.4)*dpr,hue:baseHue+rand(-10,18),alpha:1});}if(sparks.length>3200)sparks.splice(0,sparks.length-3200);}
+    function scheduleLaunches(){launchTimer=setInterval(()=>{if(!fireworksOn)return;resizeFireworks();const n=Math.random()<0.35?2:1;for(let k=0;k<n;k++){const x=rand(fwCanvas.width*0.15,fwCanvas.width*0.85);launchRocket(x);}if(!animating){animating=true;requestAnimationFrame(animateFireworks);}},1000);}
+    function startFireworks(){if(fireworksOn)return;fireworksOn=true;resizeFireworks();launchRocket(fwCanvas.width*0.33);launchRocket(fwCanvas.width*0.67);if(!animating){animating=true;requestAnimationFrame(animateFireworks);}scheduleLaunches();}
+    function animateFireworks(){if(!animating)return;fwCtx.globalCompositeOperation='source-over';fwCtx.fillStyle='rgba(255,255,255,0.10)';fwCtx.fillRect(0,0,fwCanvas.width,fwCanvas.height);
+    for(let i=rockets.length-1;i>=0;i--){const r=rockets[i];r.life--;r.vy+=r.ay;r.x+=r.vx;r.y+=r.vy;fwCtx.beginPath();fwCtx.arc(r.x,r.y,2.2,0,Math.PI*2);fwCtx.fillStyle='rgba(255,77,141,0.90)';fwCtx.fill();fwCtx.beginPath();fwCtx.moveTo(r.x,r.y);fwCtx.lineTo(r.x-r.vx*2.2,r.y-r.vy*2.2);fwCtx.strokeStyle='rgba(255,133,168,0.55)';fwCtx.lineWidth=2;fwCtx.stroke();if(r.y<=r.explodeY||r.vy>-1.6||r.life<=0){explode(r.x,r.y);rockets.splice(i,1);}}
+    fwCtx.globalCompositeOperation='lighter';for(let i=sparks.length-1;i>=0;i--){const p=sparks[i];p.age++;p.vx*=p.drag;p.vy*=p.drag;p.vy+=p.ay;p.x+=p.vx;p.y+=p.vy;const t=1-(p.age/p.life);p.alpha=Math.max(0,t);fwCtx.beginPath();fwCtx.arc(p.x,p.y,p.size,0,Math.PI*2);fwCtx.fillStyle=`hsla(${p.hue},95%,72%,${p.alpha})`;fwCtx.fill();if(p.age>=p.life)sparks.splice(i,1);}
+    fwCtx.globalCompositeOperation='source-over';if(!fireworksOn&&rockets.length===0&&sparks.length===0){animating=false;fwCtx.clearRect(0,0,fwCanvas.width,fwCanvas.height);return;}requestAnimationFrame(animateFireworks);}
+    yesBtn.addEventListener('click',()=>{yesMsg.style.display='block';startFireworks();yesBtn.animate([{transform:'scale(1)'},{transform:'scale(1.02)'},{transform:'scale(1)'}],{duration:240,easing:'ease-out'});});
+    function placeNoSafely(randomize){const cta=document.getElementById('valCta');const ctaRect=cta.getBoundingClientRect();const yesRect=yesBtn.getBoundingClientRect();const btnW=noBtn.offsetWidth||130;const btnH=noBtn.offsetHeight||40;const noGo={left:(yesRect.left-ctaRect.left)-18,right:(yesRect.right-ctaRect.left)+18,top:(yesRect.top-ctaRect.top)-18,bottom:(yesRect.bottom-ctaRect.top)+18};const padL=22,padR=22,padB=16;const minX=padL;const maxX=ctaRect.width-padR-btnW;const minY=Math.max(noGo.bottom+24,ctaRect.height*0.66);const maxY=ctaRect.height-padB-btnH;const safeMinY=Math.min(minY,maxY);let x=(ctaRect.width/2)-(btnW/2);let y=Math.max(safeMinY,ctaRect.height*0.78);if(randomize){for(let tries=0;tries<50;tries++){x=minX+Math.random()*Math.max(8,(maxX-minX));y=safeMinY+Math.random()*Math.max(8,(maxY-safeMinY));const intersects=x<noGo.right&&x+btnW>noGo.left&&y<noGo.bottom&&y+btnH>noGo.top;if(!intersects)break;}}noBtn.style.left=x+"px";noBtn.style.top=y+"px";noBtn.style.transform="translateX(0)";}placeNoSafely(false);
+    noBtn.addEventListener('click',(e)=>{e.preventDefault();placeNoSafely(true);noBtn.animate([{transform:'translateX(0) scale(1)'},{transform:'translateX(0) scale(1.06)'},{transform:'translateX(0) scale(1)'}],{duration:240,easing:'ease-out'});});
+    window.addEventListener('resize',()=>{resizeFireworks();placeNoSafely(false);requestAnimationFrame(resizeScratch);});
   </script>
 </body>
 </html>
