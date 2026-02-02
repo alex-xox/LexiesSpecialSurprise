@@ -4,12 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Lexie — My Favorite Person</title>
-
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-
   <style>
     :root{
       --bg1:#fff0f6;
@@ -24,7 +22,6 @@
       --shadow2: 0 10px 30px rgba(35, 10, 25, .14);
       --radius: 22px;
     }
-
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
@@ -37,8 +34,6 @@
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       overflow:hidden;
     }
-
-    /* subtle floating hearts in background */
     .bg-hearts{
       position:fixed; inset:0; pointer-events:none; overflow:hidden;
       filter: drop-shadow(0 8px 12px rgba(0,0,0,.06));
@@ -65,8 +60,6 @@
       10%{opacity:.85}
       to{ transform: translateY(-120vh) rotate(45deg); opacity:0;}
     }
-
-    /* Layout */
     .wrap{
       height:100%;
       display:flex;
@@ -80,7 +73,6 @@
       position:relative;
       perspective: 1400px;
     }
-
     .hint{
       position:absolute;
       top:-40px; left:0; right:0;
@@ -97,8 +89,6 @@
       border:1px solid rgba(240, 170, 200, .65);
       box-shadow: 0 8px 16px rgba(0,0,0,.05);
     }
-
-    /* Card Book */
     .book{
       width:100%;
       height:100%;
@@ -111,7 +101,7 @@
       padding:18px;
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 133, 168, .35);
-      touch-action: pan-y; /* vertical scroll allowed; horizontal swipe handled by JS */
+      touch-action: pan-y;
     }
     .book-inner{
       width:100%;
@@ -122,8 +112,6 @@
       overflow: hidden;
       box-shadow: inset 0 0 0 1px rgba(240, 170, 200, .25);
     }
-
-    /* Navigation tap zones (desktop) */
     .nav-zone{
       position:absolute; top:0; bottom:0;
       width:18%;
@@ -143,8 +131,6 @@
     .nav-left::after{ background: linear-gradient(90deg, rgba(255,77,141,.18), transparent); }
     .nav-right::after{ background: linear-gradient(270deg, rgba(255,77,141,.18), transparent); }
     .nav-zone:hover::after{opacity:1}
-
-    /* Pages stack */
     .pages{
       position:absolute; inset:0;
       border-radius: calc(var(--radius) - 8px);
@@ -160,21 +146,7 @@
       overflow:hidden;
       transition: transform 850ms cubic-bezier(.2,.9,.2,1);
     }
-    /* Paper edge */
-    .page::before{
-      content:"";
-      position:absolute; left:0; top:0; bottom:0;
-      width:14px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,.15)),
-        linear-gradient(90deg, rgba(240,215,228,.9), rgba(240,215,228,.2));
-      box-shadow: inset -1px 0 0 rgba(240,170,200,.25);
-      opacity:.95;
-      pointer-events:none;
-    }
     .page.flipped{ transform: rotateY(-180deg); }
-
-    /* Content + scrolling */
     .content{
       position:absolute;
       inset:0;
@@ -191,7 +163,6 @@
       flex:1;
       touch-action: pan-y;
     }
-
     .topline{
       display:flex;
       align-items:center;
@@ -211,7 +182,6 @@
       font-weight:700;
       color: rgba(120, 35, 70, .9);
     }
-
     h1,h2,h3{margin:0}
     .cover-name{
       font-family: "Great Vibes", cursive;
@@ -251,8 +221,6 @@
       background: linear-gradient(90deg, transparent, rgba(255,77,141,.30), transparent);
       margin: 8px 0;
     }
-
-    /* Cover decorations */
     .cover-frame{
       position:relative;
       flex:1;
@@ -283,7 +251,6 @@
     }
     .cover-frame::before{ left:-70px; top:-70px; }
     .cover-frame::after{ right:-80px; bottom:-80px; }
-
     .flourish{
       position:absolute;
       width:170px;
@@ -294,7 +261,6 @@
     }
     .flourish.tl{ left:10px; top:10px; transform: rotate(-6deg); }
     .flourish.br{ right:10px; bottom:10px; transform: rotate(174deg); opacity:.45; }
-
     .seal{
       margin-top: 2px;
       display:inline-flex;
@@ -328,7 +294,6 @@
     }
     .seal .mini-heart::before{ left:-8px; top:0; }
     .seal .mini-heart::after{ top:-8px; left:0; }
-
     .cover-tagline{
       font-family: "Playfair Display", serif;
       font-size: 15px;
@@ -336,8 +301,6 @@
       max-width: 52ch;
       line-height: 1.55;
     }
-
-    /* Reasons */
     .reasons{
       display:grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -373,8 +336,6 @@
       color: rgba(45, 20, 35, .88);
       font-weight:600;
     }
-
-    /* Barely-visible secrets */
     .secrets{
       margin-top: 18px;
       padding-bottom: 8px;
@@ -389,8 +350,6 @@
       text-shadow: 0 1px 0 rgba(255,255,255,.6);
       letter-spacing: .01em;
     }
-
-    /* Scratch */
     .scratch-wrap{
       display:grid;
       grid-template-columns: 1fr;
@@ -448,8 +407,6 @@
       border-radius: 14px;
       touch-action:none;
     }
-
-    /* Compliment Jar */
     .jar-page{ display:flex; flex-direction:column; gap:14px; flex:1; }
     .mini-panel{
       border-radius: 18px;
@@ -501,9 +458,12 @@
       align-items:center;
       justify-content:center;
       text-align:center;
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
-
-    /* Choose the Vibe (stacked choices) */
+    .jar-note.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
     .vibe-wrap{ flex:1; display:flex; flex-direction:column; gap:12px; min-height:0; }
     .vibe-grid{
       display:grid;
@@ -535,7 +495,6 @@
       pointer-events:none;
     }
     .vibe-card:hover::after{ opacity:.9; }
-
     .vibe-stack{
       display:flex;
       flex-direction:column;
@@ -544,7 +503,6 @@
       z-index:1;
       align-items:flex-start;
     }
-
     .vibe-option{
       width:100%;
       border: 1px solid rgba(255,77,141,.22);
@@ -572,8 +530,6 @@
       opacity:.55;
       filter: saturate(.85);
     }
-
-    /* Constellation */
     .constellation{
       position:relative;
       border-radius: 18px;
@@ -584,7 +540,7 @@
       box-shadow: 0 16px 30px rgba(0,0,0,.06);
       overflow:hidden;
       height: 300px;
-      padding-bottom: 128px; /* reserve space for tooltip + counter */
+      padding-bottom: 128px;
     }
     .spark{
       position:absolute;
@@ -606,57 +562,37 @@
     .spark::before{ left:-7px; top:0;}
     .spark::after{ top:-7px; left:0;}
     .spark:hover{ transform: rotate(45deg) scale(1.06); }
-
-    /* Tooltip (fixed size) */
     .tooltip{
-  position:absolute;
-  left:16px;
-  right:16px;
-  bottom:14px;
-
-  min-height: 110px;
-  padding:14px 16px;
-
-  border-radius:14px;
-  background: rgba(255,255,255,.88);
-  border: 1px solid rgba(240,170,200,.35);
-  box-shadow: 0 18px 40px rgba(0,0,0,.08);
-
-  font-size: 13px;
-  color: rgba(50,20,35,.9);
-
-  display:flex;
-  flex-direction: column;      /* 👈 stack vertically */
-  align-items: center;         /* 👈 center horizontally */
-  justify-content: flex-start;
-  gap:8px;
-
-  text-align: center;
-  z-index:3;
-}
-
-/* Header text */
-.tooltip strong{
-  font-weight:900;
-  white-space: nowrap;
-}
-
-/* Message text */
-.tooltip .tip-text{
-  max-width: 100%;
-  line-height:1.4;
-}
+      position:absolute;
+      left:16px;
+      right:16px;
+      bottom:14px;
+      min-height: 110px;
+      padding:14px 16px;
+      border-radius:14px;
+      background: rgba(255,255,255,.88);
+      border: 1px solid rgba(240,170,200,.35);
+      box-shadow: 0 18px 40px rgba(0,0,0,.08);
+      font-size: 13px;
+      color: rgba(50,20,35,.9);
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap:8px;
+      text-align: center;
+      z-index:3;
+    }
     .tooltip strong{
-  font-weight:900;
-  white-space: nowrap;
-  flex: 0 0 auto;
-}
-
-.tooltip .tip-text{
-  min-width: 0;
-}
-
-    /* Counter pinned BELOW tooltip */
+      font-weight:900;
+      white-space: nowrap;
+      flex: 0 0 auto;
+    }
+    .tooltip .tip-text{
+      min-width: 0;
+      max-width: 100%;
+      line-height:1.4;
+    }
     .found-counter{
       position:absolute;
       left:16px;
@@ -677,256 +613,126 @@
       color: rgba(90, 20, 55, .92);
       white-space:nowrap;
     }
-
-    /* Floating hearts on reveal (reuses your existing .heart class) */
-#heartBurst .heart {
-  animation: floatUp 2.8s ease-out forwards;
-  opacity: 0.7;
-}
-
-/* Reveal animation for text */
-.jar-note {
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.jar-note.revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Copy feedback */
-#saveDateBtn.copied::after {
-  content: "Copied! 💕";
-  position: absolute;
-  top: -36px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(255,77,141,0.92);
-  color: white;
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-size: 12px;
-  white-space: nowrap;
-  animation: fadeOut 1.8s forwards;
-}
-
-@keyframes fadeOut {
-  0%   { opacity: 1; transform: translateX(-50%) translateY(0); }
-  100% { opacity: 0; transform: translateX(-50%) translateY(-16px); }
-}
-    
-   /* ===== PAGE: Heat Meter ===== */
-.heat-wrap{
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:flex-start;
-  text-align:center;
-  padding-top:20px;
-}
-
-.heat-note{
-  margin:0;
-  font-size:14px;
-  color: rgba(60,25,45,.75);
-}
-
-.heat-widget{
-  margin-top: 34px;
-  width:min(420px, 92%);
-  border-radius: 18px;
-  background: rgba(255,255,255,.68);
-  border: 1px solid rgba(240,170,200,.28);
-  box-shadow: 0 14px 28px rgba(0,0,0,.06);
-  padding: 18px 16px 16px;
-}
-
-.heat-top{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  color: rgba(70,25,50,.88);
-  font-weight:900;
-  letter-spacing:.02em;
-}
-
-.heat-top span{
-  font-size:12px;
-  color: rgba(90,20,55,.55);
-  font-weight:800;
-}
-
-.heat-bar{
-  margin-top:12px;
-  height: 16px;
-  border-radius: 999px;
-  background: rgba(255,77,141,.10);
-  border: 1px solid rgba(255,77,141,.18);
-  overflow:hidden;
-  position:relative;
-}
-
-.heat-fill{
-  height:100%;
-  width: 18%;
-  border-radius: 999px;
-  background: linear-gradient(135deg, rgba(255,77,141,.95), rgba(255,133,168,.85));
-  box-shadow: 0 10px 18px rgba(255,77,141,.18);
-  transform-origin:left center;
-  transition: width .18s ease;
-}
-
-.heat-pad{
-  margin-top: 16px;
-  display:grid;
-  place-items:center;
-}
-
-.heat-button{
-  width: 140px;
-  height: 140px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,77,141,.26);
-  background:
-    radial-gradient(circle at 30% 30%, rgba(255,255,255,.70), rgba(255,255,255,.25)),
-    radial-gradient(circle at 55% 60%, rgba(255,77,141,.30), rgba(255,133,168,.08));
-  box-shadow: 0 18px 36px rgba(255,77,141,.18);
-  cursor:pointer;
-  position:relative;
-  user-select:none;
-  -webkit-tap-highlight-color: transparent;
-  transition: transform .12s ease, filter .12s ease;
-}
-
-.heat-button:active{ transform: scale(.99); }
-
-.heat-button::after{
-  content:"hold";
-  position:absolute;
-  bottom: 14px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color: rgba(90,20,55,.55);
-}
-
-.heat-icon{
-  width: 54px;
-  height: 54px;
-  transform: rotate(45deg);
-  background: linear-gradient(135deg, rgba(255,77,141,.95), rgba(255,133,168,.85));
-  border-radius: 14px;
-  box-shadow: 0 14px 26px rgba(255,77,141,.22);
-  position:relative;
-  margin-top: -4px;
-}
-
-.heat-icon::before,.heat-icon::after{
-  content:"";
-  position:absolute;
-  width: 54px; height:54px;
-  background: inherit;
-  border-radius:50%;
-}
-.heat-icon::before{ left:-27px; top:0; }
-.heat-icon::after{ top:-27px; left:0; }
-
-.heat-message{
-  margin-top: 18px;
-  padding: 12px 16px;
-  border-radius: 14px;
-  background: rgba(255,255,255,.86);
-  border: 1px solid rgba(240,170,200,.30);
-  box-shadow: 0 14px 30px rgba(0,0,0,.06);
-  font-family: "Playfair Display", serif;
-  font-size:18px;
-  color: rgba(70,25,50,.92);
-  opacity:0;
-  transform: translateY(6px);
-  transition: opacity .35s ease, transform .35s ease;
-}
-
-.heat-message.show{
-  opacity:1;
-  transform: translateY(0);
-}
-    
-    /* Final page */
-    .valentine-cta{
+    /* Instant Reaction Page */
+    .cock-container {
+      position: relative;
+      width: 140px;
+      height: 280px;
+      margin: 0 auto;
+    }
+    .testicles {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 110px;
+      height: 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .ball {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #ff85a8, #ff4d8d);
+      border-radius: 50%;
+      box-shadow: 
+        inset 0 6px 12px rgba(160,20,70,.4),
+        0 8px 16px rgba(0,0,0,.12);
+    }
+    .shaft {
+      position: absolute;
+      bottom: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 38px;
+      height: 140px;
+      background: linear-gradient(to top, #ff4d8d, #ff85a8);
+      border-radius: 19px 19px 0 0;
+      box-shadow: 
+        inset 0 10px 20px rgba(255,255,255,.25),
+        inset 0 -10px 20px rgba(160,20,70,.35),
+        0 12px 28px rgba(255,77,141,.3);
+      transition: height 0.9s cubic-bezier(0.34, 1.56, 0.64, 1), bottom 0.9s ease;
+    }
+    .shaft.growing {
+      height: 280px;
+      bottom: 50px;
+    }
+    .head {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 54px;
+      height: 54px;
+      background: #ff85a8;
+      border-radius: 50% 50% 40% 40% / 60% 60% 40% 40%;
+      box-shadow: 
+        inset 0 6px 12px rgba(255,255,255,.4),
+        0 8px 18px rgba(255,77,141,.35);
+      transition: bottom 0.9s ease;
+    }
+    .shaft.growing + .head {
+      bottom: 280px;
+    }
+    /* Floating hearts on date reveal */
+    #heartBurst .heart {
+      animation: floatUp 2.8s ease-out forwards;
+      opacity: 0.7;
+    }
+    /* Copy feedback */
+    #saveDateBtn.copied::after {
+      content: "Copied! 💕";
+      position: absolute;
+      top: -36px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255,77,141,0.92);
+      color: white;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      white-space: nowrap;
+      animation: fadeOut 1.8s forwards;
+    }
+    @keyframes fadeOut {
+      0%   { opacity: 1; transform: translateX(-50%) translateY(0); }
+      100% { opacity: 0; transform: translateX(-50%) translateY(-16px); }
+    }
+    .heartbeat-wrap{
       flex:1;
       display:flex;
       flex-direction:column;
       align-items:center;
-      justify-content:center;
-      gap:14px;
-      position:relative;
-      overflow:hidden;
-      padding: 6px 0 10px;
-    }
-    #fireworks{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      pointer-events:none;
-      z-index:1;
-    }
-    .yes-btn{
-      width:min(460px, 88%);
-      height:92px;
-      border:0;
-      border-radius: 20px;
-      font-weight: 1000;
-      font-size: 30px;
-      letter-spacing:.02em;
-      color:white;
-      cursor:pointer;
-      background: linear-gradient(135deg, rgba(255,77,141,.98), rgba(255,133,168,.84));
-      box-shadow: 0 22px 46px rgba(255,77,141,.28);
-      transition: transform .12s ease, filter .12s ease;
-      position:relative;
-      z-index:3;
-    }
-    .yes-btn:hover{ filter: brightness(1.02); }
-    .yes-btn:active{ transform: scale(.99); }
-
-    .no-btn{
-      width:130px;
-      height:40px;
-      border-radius: 999px;
-      border: 1px solid rgba(0,0,0,.18);
-      background: rgba(55,55,60,.92);
-      color: rgba(255,255,255,.92);
-      font-weight:900;
-      cursor:pointer;
-      box-shadow: 0 12px 24px rgba(0,0,0,.12);
-      z-index:2;
-      position:absolute;
-      left:50%;
-      transform: translateX(-50%);
-    }
-    .no-btn::after{ content:" :("; opacity:.85; font-weight:900; }
-
-    .yes-msg{
-      display:none;
-      position:relative;
-      z-index:3;
-      max-width: 60ch;
+      justify-content:flex-start;
       text-align:center;
-      padding: 10px 12px;
+      gap:32px;
+      padding-top:40px;
+    }
+    .heartbeat-note{
+      font-size:14px;
+      color: rgba(60,25,45,.75);
+      margin: 0;
+    }
+    .heart-message{
+      margin-top: 0;
+      padding: 12px 16px;
       border-radius: 14px;
       background: rgba(255,255,255,.86);
       border: 1px solid rgba(240,170,200,.30);
       box-shadow: 0 14px 30px rgba(0,0,0,.06);
-      color: rgba(50,20,35,.92);
-      font-size: 14px;
-      line-height: 1.35;
+      font-family: "Playfair Display", serif;
+      font-size:18px;
+      color: rgba(70,25,50,.92);
+      opacity:0;
+      transform: translateY(6px);
+      transition: opacity .35s ease, transform .35s ease;
     }
-
+    .heart-message.show{
+      opacity:1;
+      transform: translateY(0);
+    }
     /* Mobile tweaks */
     @media (max-width: 820px){
       .content{ padding: 34px 18px 18px 44px; }
@@ -935,7 +741,6 @@
       .nav-zone{ width:14%; }
       .constellation{ height: 260px; padding-bottom: 126px; }
       .tooltip{ min-height: 96px; bottom:56px; }
-      .yes-btn{ height:86px; font-size:28px; }
       .cover-frame{ padding: 18px 14px; }
       .flourish{ width:140px; height:140px; }
       .jar-btn{ height:52px; font-size:15px; }
@@ -944,31 +749,25 @@
     }
   </style>
 </head>
-
 <body>
   <div class="bg-hearts" id="bgHearts" aria-hidden="true"></div>
-
   <div class="wrap">
     <div class="stage">
       <div class="hint">
         Swipe <kbd>←</kbd>/<kbd>→</kbd> on mobile • click edges on desktop • arrows work too
       </div>
-
       <div class="book" id="book">
         <div class="book-inner">
           <div class="nav-zone nav-left" id="navLeft" title="Previous page"></div>
           <div class="nav-zone nav-right" id="navRight" title="Next page"></div>
-
           <div class="pages" id="pages">
-
             <!-- PAGE 1: Cover -->
-            <section class="page" data-index="0" style="z-index:7">
+            <section class="page" data-index="0" style="z-index:9">
               <div class="content">
                 <div class="topline">
                   <span class="badge">Valentine’s Card</span>
-                  <span id="pageCountA">Page 1 / 7</span>
+                  <span id="pageCountA">Page 1 / 9</span>
                 </div>
-
                 <div class="cover-frame">
                   <svg class="flourish tl" viewBox="0 0 200 200" aria-hidden="true">
                     <path d="M35 120c26-8 35-28 44-48 10-23 22-44 52-52 30-8 57 6 64 32 6 23-6 49-33 58-24 8-42-2-56-18 2 20 15 38 39 45 30 9 65-8 74-40"
@@ -977,7 +776,6 @@
                     <circle cx="118" cy="58" r="10" fill="rgba(255,77,141,.22)"/>
                     <circle cx="140" cy="44" r="6" fill="rgba(255,133,168,.18)"/>
                   </svg>
-
                   <svg class="flourish br" viewBox="0 0 200 200" aria-hidden="true">
                     <path d="M35 120c26-8 35-28 44-48 10-23 22-44 52-52 30-8 57 6 64 32 6 23-6 49-33 58-24 8-42-2-56-18 2 20 15 38 39 45 30 9 65-8 74-40"
                           fill="none" stroke="rgba(255,77,141,.55)" stroke-width="8" stroke-linecap="round"/>
@@ -985,22 +783,17 @@
                     <circle cx="118" cy="58" r="10" fill="rgba(255,77,141,.22)"/>
                     <circle cx="140" cy="44" r="6" fill="rgba(255,133,168,.18)"/>
                   </svg>
-
                   <div class="cover-name engraved">Lexie</div>
                   <div class="subtitle">My Favorite Person</div>
-
                   <div class="seal">
                     <span class="mini-heart" aria-hidden="true"></span>
                     <span>for you, always</span>
                   </div>
-
                   <div class="divider" style="max-width:520px;"></div>
-
                   <div class="cover-tagline">
                     A little book of reasons, tiny surprises, and one very important question.
                   </div>
                 </div>
-
                 <div style="margin-top:auto; display:flex; gap:12px; align-items:center; justify-content:space-between;">
                   <div class="note" style="margin:0; opacity:.85">Tip: swipe left and right</div>
                   <div class="badge" style="background:rgba(255,255,255,.65)">♥</div>
@@ -1009,21 +802,18 @@
             </section>
 
             <!-- PAGE 2: Reasons -->
-            <section class="page" data-index="1" style="z-index:6">
+            <section class="page" data-index="1" style="z-index:8">
               <div class="content">
                 <div class="topline">
                   <span class="badge">Chapter One</span>
                   <span>15 Reasons I Like You</span>
                 </div>
-
                 <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:rgba(70,25,50,.92)">
                   15 Reasons I Like You
                 </h2>
-
                 <div class="scrollable">
                   <p class="note" style="margin-top:0">Just a few… but you know I could keep going.</p>
                   <div class="reasons" id="reasonsGrid"></div>
-
                   <div class="secrets" aria-hidden="true">
                     <div class="line">Your perfect tits</div>
                     <div class="line">Your pretty little pussy</div>
@@ -1035,30 +825,25 @@
             </section>
 
             <!-- PAGE 3: Scratch -->
-            <section class="page" data-index="2" style="z-index:5">
+            <section class="page" data-index="2" style="z-index:7">
               <div class="content">
                 <div class="topline">
                   <span class="badge">Interactive</span>
                   <span>Scratch to Reveal</span>
                 </div>
-
                 <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:rgba(70,25,50,.92)">
                   Little Surprise
                 </h2>
-
                 <div class="scrollable">
                   <p class="note" style="margin-top:0">Scratch the panel to reveal the message.</p>
-
                   <div class="scratch-wrap">
                     <div class="panel">
                       <h3>Scratch to Reveal</h3>
                       <p>Use your finger or mouse. Scratch enough and it shows through.</p>
-
                       <div class="scratch-area" id="scratchArea">
                         <div class="scratch-under">You make me truly happy, Lexie.</div>
                         <canvas id="scratchCanvas"></canvas>
                       </div>
-
                       <div style="height:10px"></div>
                     </div>
                   </div>
@@ -1067,49 +852,84 @@
             </section>
 
             <!-- PAGE 4: Compliment Jar -->
-            <section class="page" data-index="3" style="z-index:4">
+            <section class="page" data-index="3" style="z-index:6">
               <div class="content">
                 <div class="topline">
                   <span class="badge">Interactive</span>
                   <span>Compliment Jar</span>
                 </div>
-
                 <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:rgba(70,25,50,.92); text-align:center">
                   Compliment Jar 💌
                 </h2>
-
                 <div class="jar-page">
                   <div class="mini-panel">
                     <h3>Pull a note</h3>
                     <p class="note" style="margin:0; text-align:center; max-width:none">
                       Tap the button to get a random compliment.
                     </p>
-
                     <button class="jar-btn" id="jarBtn" type="button">Get a compliment ✨</button>
-
                     <div class="jar-note" id="jarNote">Tap the button 💗</div>
                   </div>
                 </div>
               </div>
             </section>
 
-            <!-- PAGE 5: Choose the Vibe -->
-            <section class="page" data-index="4" style="z-index:3">
+            <!-- PAGE 5: Future Date Jar -->
+            <section class="page" data-index="4" style="z-index:5">
+              <div class="content">
+                <div class="topline">
+                  <span class="badge">Interactive</span>
+                  <span>Future Date Jar</span>
+                </div>
+                <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:rgba(70,25,50,.92); text-align:center; display:flex; align-items:center; justify-content:center; gap:12px; margin:0;">
+                  <svg width="42" height="42" viewBox="0 0 100 100" aria-hidden="true" style="flex-shrink:0;">
+                    <defs>
+                      <linearGradient id="jarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#ff85a8" />
+                        <stop offset="100%" stop-color="#ff4d8d" />
+                      </linearGradient>
+                    </defs>
+                    <path d="M30 20 Q20 40 20 60 Q20 80 35 90 L65 90 Q80 80 80 60 Q80 40 70 20 Z" fill="none" stroke="url(#jarGrad)" stroke-width="6" stroke-linecap="round"/>
+                    <path d="M50 35 Q 35 20 35 35 Q35 50 50 65 Q65 50 65 35 Q65 20 50 35 Z" fill="rgba(255,77,141,0.85)" transform="scale(0.7) translate(21,8)"/>
+                  </svg>
+                  Future Date Jar 📅💕
+                </h2>
+                <div class="jar-page">
+                  <div class="mini-panel">
+                    <h3>Pick Our Next Adventure</h3>
+                    <p class="note" style="margin:0 0 16px; text-align:center; max-width:none">
+                      Tap to pull a date idea I can't wait to experience with you.
+                    </p>
+                    <button class="jar-btn" id="dateJarBtn" type="button">Pull a Date ✨</button>
+                    <div class="jar-note" id="dateNote" style="min-height:110px; position:relative; overflow:hidden;">
+                      Tap to reveal our next memory-in-the-making 💗
+                    </div>
+                    <div id="heartBurst" class="bg-hearts" style="position:absolute; inset:0; pointer-events:none; opacity:0; transition:opacity 0.4s;"></div>
+                    <div style="margin-top:16px; text-align:center;">
+                      <span id="dateCounter" class="pill" style="font-size:13px; padding:6px 14px;">0 / 20 pulled</span>
+                    </div>
+                    <button class="vibe-option" id="saveDateBtn" type="button" style="margin:16px auto 0; width:180px; display:none; font-size:14px; padding:10px;">
+                      Save this date 📋
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- PAGE 6: Choose the Vibe -->
+            <section class="page" data-index="5" style="z-index:4">
               <div class="content">
                 <div class="topline">
                   <span class="badge">Interactive</span>
                   <span>Choose the Vibe</span>
                 </div>
-
                 <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:rgba(70,25,50,.92); text-align:center">
                   Choose the Vibe 🎧
                 </h2>
-
                 <div class="vibe-wrap">
                   <p class="note" style="margin:0 auto; text-align:center; max-width:62ch">
                     Tap one. The one you pick will get darker.
                   </p>
-
                   <div class="scrollable">
                     <div class="vibe-grid" id="vibeGrid"></div>
                     <div style="height:10px"></div>
@@ -1118,27 +938,23 @@
               </div>
             </section>
 
-            <!-- PAGE 6: Constellation -->
-            <section class="page" data-index="5" style="z-index:2">
+            <!-- PAGE 7: Constellation -->
+            <section class="page" data-index="6" style="z-index:3">
               <div class="content">
                 <div class="topline">
                   <span class="badge">Interactive</span>
                   <span>Tap the Hearts</span>
                 </div>
-
                 <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:rgba(70,25,50,.92)">
                   A Little Constellation
                 </h2>
-
                 <p class="note" style="margin-top:-6px">
                   Tap the hearts to reveal something I’m looking forward to.
                 </p>
-
                 <div class="constellation" id="constellation">
                   <div class="tooltip" id="tooltip">
                     <strong>Tap a heart</strong> to reveal something I’m looking forward to.
                   </div>
-
                   <div class="found-counter" id="foundCounter">
                     <span class="pill" id="foundPill">0 / 6 found</span>
                   </div>
@@ -1146,129 +962,65 @@
               </div>
             </section>
 
-            <!-- PAGE 7: Future Date Jar (enhanced) -->
-<section class="page" data-index="4" style="z-index:3">  <!-- adjust index/z-index as needed -->
-  <div class="content">
-    <div class="topline">
-      <span class="badge">Interactive</span>
-      <span>Future Date Jar</span>
-    </div>
-    <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:rgba(70,25,50,.92); text-align:center; display:flex; align-items:center; justify-content:center; gap:12px; margin:0;">
-      <svg width="42" height="42" viewBox="0 0 100 100" aria-hidden="true" style="flex-shrink:0;">
-        <defs>
-          <linearGradient id="jarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#ff85a8" />
-            <stop offset="100%" stop-color="#ff4d8d" />
-          </linearGradient>
-        </defs>
-        <!-- Simple jar shape -->
-        <path d="M30 20 Q20 40 20 60 Q20 80 35 90 L65 90 Q80 80 80 60 Q80 40 70 20 Z" fill="none" stroke="url(#jarGrad)" stroke-width="6" stroke-linecap="round"/>
-        <!-- Heart inside jar -->
-        <path d="M50 35 Q 35 20 35 35 Q35 50 50 65 Q65 50 65 35 Q65 20 50 35 Z" fill="rgba(255,77,141,0.85)" transform="scale(0.7) translate(21,8)"/>
-      </svg>
-      Future Date Jar 📅💕
-    </h2>
-    <div class="jar-page">
-      <div class="mini-panel">
-        <h3>Pick Our Next Adventure</h3>
-        <p class="note" style="margin:0 0 16px; text-align:center; max-width:none">
-          Tap to pull a date idea I can't wait to experience with you.
-        </p>
-        <button class="jar-btn" id="dateJarBtn" type="button">Pull a Date ✨</button>
-        
-        <div class="jar-note" id="dateNote" style="min-height:110px; position:relative; overflow:hidden;">
-          Tap to reveal our next memory-in-the-making 💗
-        </div>
-        
-        <!-- Floating hearts container (for animation) -->
-        <div id="heartBurst" class="bg-hearts" style="position:absolute; inset:0; pointer-events:none; opacity:0; transition:opacity 0.4s;"></div>
-        
-        <div style="margin-top:16px; text-align:center;">
-          <span id="dateCounter" class="pill" style="font-size:13px; padding:6px 14px;">0 / 20 pulled</span>
-        </div>
-        
-        <button class="vibe-option" id="saveDateBtn" type="button" style="margin:16px auto 0; width:180px; display:none; font-size:14px; padding:10px;">
-          Save this date 📋
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
-            
-           <!-- PAGE 8: Heat Meter -->
-<section class="page">
-  <div class="content">
-    <div class="topline">
-      <span class="badge">Interactive</span>
-      <span>Just… wow</span>
-    </div>
+            <!-- PAGE 8: Instant Reaction (replaces heartbeat) -->
+            <section class="page" data-index="7" style="z-index:2">
+              <div class="content">
+                <div class="topline">
+                  <span class="badge">Intimate</span>
+                  <span>Instant Reaction</span>
+                </div>
+                <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:rgba(70,25,50,.92); text-align:center">
+                  What You Do To Me
+                </h2>
+                <div class="heartbeat-wrap" style="align-items:center; gap:32px; padding-top:40px;">
+                  <p class="heartbeat-note" style="margin-bottom:20px;">
+                    Press the button below
+                  </p>
+                  <div class="cock-container" id="cockContainer">
+                    <div class="testicles">
+                      <div class="ball left"></div>
+                      <div class="ball right"></div>
+                    </div>
+                    <div class="shaft" id="shaft"></div>
+                    <div class="head" id="head"></div>
+                  </div>
+                  <div class="heart-message" id="reactionMsg" style="margin-top:0;">
+                    Yeah… that’s what thinking about you does.
+                  </div>
+                  <button class="jar-btn" id="growBtn" type="button" style="margin-top:24px; width:220px; height:60px; font-size:18px;">
+                    Make It Happen 😈
+                  </button>
+                </div>
+              </div>
+            </section>
 
-    <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:rgba(70,25,50,.92); text-align:center">
-      You Have That Effect
-    </h2>
-
-    <div class="heat-wrap">
-      <p class="heat-note">Press and hold.</p>
-
-      <div class="heat-widget">
-        <div class="heat-top">
-          <div>Intensity</div>
-          <span id="heatPct">18%</span>
-        </div>
-
-        <div class="heat-bar" aria-hidden="true">
-          <div class="heat-fill" id="heatFill"></div>
-        </div>
-
-        <div class="heat-pad">
-          <button class="heat-button" id="heatBtn" type="button" aria-label="Hold to increase intensity">
-            <div class="heat-icon" aria-hidden="true"></div>
-          </button>
-        </div>
-
-        <div class="heat-message" id="heatMsg">
-          You have that effect on me.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-            
-            <!-- PAGE 9: FINAL -->
-            <section class="page" data-index="6" style="z-index:1">
+            <!-- PAGE 9: Final -->
+            <section class="page" data-index="8" style="z-index:1">
               <div class="content">
                 <div class="topline">
                   <span class="badge">Final Page</span>
                   <span>One question</span>
                 </div>
-
                 <h2 style="font-family:'Playfair Display',serif; font-size:30px; color:rgba(70,25,50,.92); text-align:center">
                   Will you be my valentine?
                 </h2>
-
                 <div class="valentine-cta" id="valCta">
                   <canvas id="fireworks"></canvas>
-
                   <button class="yes-btn" id="yesBtn" type="button">YES!! 💖</button>
-
                   <div class="yes-msg" id="yesMsg">
                     YAY!! 💗<br>
                     You just made my year
                   </div>
-
                   <button class="no-btn" id="noBtn" type="button">no</button>
                 </div>
-
                 <p class="note" style="text-align:center; margin-top:auto; opacity:.9; max-width:none">
                   (If “no” runs away… it’s just shy.)
                 </p>
               </div>
             </section>
-
           </div>
         </div>
       </div>
-
     </div>
   </div>
 
@@ -1294,10 +1046,9 @@
       }
     })();
 
-    /* Page flip logic + swipe */
+    /* Page flip + swipe */
     const pages = Array.from(document.querySelectorAll('.page'));
     let current = 0;
-
     function updatePageCounters(){
       const total = pages.length;
       const el = document.getElementById('pageCountA');
@@ -1312,18 +1063,14 @@
     }
     function next(){ goTo(current + 1); }
     function prev(){ goTo(current - 1); }
-
     document.getElementById('navRight').addEventListener('click', next);
     document.getElementById('navLeft').addEventListener('click', prev);
-
     window.addEventListener('keydown', (e)=>{
       if(e.key === 'ArrowRight') next();
       if(e.key === 'ArrowLeft') prev();
     });
-
     const book = document.getElementById('book');
     let touchStartX = 0, touchStartY = 0, tracking = false;
-
     book.addEventListener('touchstart', (e)=>{
       if(!e.touches || e.touches.length !== 1) return;
       const t = e.touches[0];
@@ -1331,7 +1078,6 @@
       touchStartY = t.clientY;
       tracking = true;
     }, {passive:true});
-
     book.addEventListener('touchmove', (e)=>{
       if(!tracking || !e.touches || e.touches.length !== 1) return;
       const t = e.touches[0];
@@ -1339,7 +1085,6 @@
       const dy = t.clientY - touchStartY;
       if(Math.abs(dx) > 18 && Math.abs(dx) > Math.abs(dy) + 10) e.preventDefault();
     }, {passive:false});
-
     book.addEventListener('touchend', (e)=>{
       if(!tracking) return;
       tracking = false;
@@ -1351,7 +1096,6 @@
       if(dx < -60) next();
       else if(dx > 60) prev();
     }, {passive:true});
-
     goTo(0);
 
     /* Helpers */
@@ -1365,7 +1109,7 @@
     }
     function randomFrom(a){ return a[Math.floor(Math.random()*a.length)] }
 
-    /* Reasons list (random order) */
+    /* Reasons */
     const reasons = [
       "How easy you are to talk to",
       "Your laugh",
@@ -1392,24 +1136,21 @@
       reasonsGrid.appendChild(item);
     });
 
-    /* Scratch (fully opaque cover) */
+    /* Scratch */
     const scratchArea = document.getElementById('scratchArea');
     const canvas = document.getElementById('scratchCanvas');
     const ctx = canvas.getContext('2d', { willReadFrequently: true });
     let isDrawing = false;
-
     function drawScratchCover(){
       const dpr = Math.max(1, window.devicePixelRatio || 1);
       ctx.setTransform(1,0,0,1,0,0);
       ctx.clearRect(0,0,canvas.width,canvas.height);
-
       const grad = ctx.createLinearGradient(0,0,canvas.width,canvas.height);
       grad.addColorStop(0, 'rgba(255,77,141,1)');
       grad.addColorStop(1, 'rgba(255,133,168,1)');
       ctx.globalCompositeOperation = 'source-over';
       ctx.fillStyle = grad;
       ctx.fillRect(0,0,canvas.width,canvas.height);
-
       ctx.globalAlpha = 0.16;
       for(let i=0;i<16;i++){
         const y = (i/16)*canvas.height;
@@ -1420,7 +1161,6 @@
         ctx.strokeStyle = 'rgba(255,255,255,0.85)';
         ctx.stroke();
       }
-
       ctx.globalAlpha = 0.14;
       for(let i=0;i<900;i++){
         const x = Math.random()*canvas.width;
@@ -1433,30 +1173,26 @@
       }
       ctx.globalAlpha = 1;
     }
-
     function resizeScratch(){
       const rect = scratchArea.getBoundingClientRect();
       const dpr = Math.max(1, window.devicePixelRatio || 1);
-      canvas.width  = Math.floor(rect.width * dpr);
+      canvas.width = Math.floor(rect.width * dpr);
       canvas.height = Math.floor(rect.height * dpr);
       canvas.style.width = rect.width + "px";
       canvas.style.height = rect.height + "px";
       drawScratchCover();
     }
-
     function scratchAt(clientX, clientY){
       const rect = canvas.getBoundingClientRect();
       const dpr = Math.max(1, window.devicePixelRatio || 1);
       const x = (clientX - rect.left) * dpr;
       const y = (clientY - rect.top) * dpr;
-
       ctx.globalCompositeOperation = 'destination-out';
       ctx.beginPath();
       ctx.arc(x, y, 24 * dpr, 0, Math.PI*2);
       ctx.fill();
       ctx.globalCompositeOperation = 'source-over';
     }
-
     canvas.addEventListener('pointerdown', (e)=>{
       isDrawing = true;
       canvas.setPointerCapture?.(e.pointerId);
@@ -1497,7 +1233,7 @@
       "You make the world feel softer around the edges.",
       "Your vibe is unmatched."
     ];
-    const jarBtn  = document.getElementById('jarBtn');
+    const jarBtn = document.getElementById('jarBtn');
     const jarNote = document.getElementById('jarNote');
     if(jarBtn){
       jarBtn.addEventListener('click', ()=>{
@@ -1506,7 +1242,102 @@
       });
     }
 
-    /* Choose the Vibe (randomize order on load + stacked buttons) */
+    /* Future Date Jar */
+    const dateIdeas = [
+      "Drive to the coast just to watch the sunrise with coffee in hand",
+      "Build a blanket fort and binge our favorite show under fairy lights",
+      "Cook something new together (even if it turns out terrible — we'll laugh)",
+      "Stargaze on a clear night with blankets and your playlist",
+      "Slow dance in the kitchen at 2 a.m. to whatever song comes on",
+      "Go to a bookstore and pick books for each other to read aloud",
+      "Have a picnic in the park with your favorite snacks and no phones",
+      "Take a spontaneous road trip — no destination, just us and music",
+      "Try a pottery or painting class and make something messy and cute",
+      "Stay in with face masks, wine, and deep talks about everything",
+      "Visit a new coffee shop and rate their lattes like critics",
+      "Watch the sunset from somewhere high up and talk about the future",
+      "Have a game night with silly bets and your favorite snacks",
+      "Go thrifting and find outfits for each other to try on",
+      "Cuddle up during a thunderstorm with hot cocoa and stories",
+      "Take a late-night drive with windows down and sing terribly",
+      "Make a time capsule with letters and mementos for future us",
+      "Have breakfast in bed and plan our dream day together",
+      "Visit an aquarium or museum and make up backstories for everything",
+      "Just lay in bed talking until the sun comes up — no rush"
+    ];
+    const dateJarBtn = document.getElementById('dateJarBtn');
+    const dateNote = document.getElementById('dateNote');
+    const saveDateBtn = document.getElementById('saveDateBtn');
+    const dateCounter = document.getElementById('dateCounter');
+    const heartBurst = document.getElementById('heartBurst');
+    let remainingDates = shuffle(dateIdeas.slice());
+    let pulledCount = 0;
+    const totalDates = dateIdeas.length;
+    function updateCounter() {
+      dateCounter.textContent = `${pulledCount} / ${totalDates} pulled`;
+    }
+    function createFloatingHeart() {
+      const h = document.createElement('div');
+      h.className = 'heart';
+      const size = 12 + Math.random() * 14;
+      const left = 20 + Math.random() * 60;
+      h.style.left = left + '%';
+      h.style.bottom = '-20px';
+      h.style.width = size + 'px';
+      h.style.height = size + 'px';
+      h.style.animationDuration = (2 + Math.random() * 1.2) + 's';
+      heartBurst.appendChild(h);
+      setTimeout(() => h.remove(), 3500);
+    }
+    if (dateJarBtn && dateNote) {
+      updateCounter();
+      dateJarBtn.addEventListener('click', () => {
+        if (remainingDates.length === 0) {
+          remainingDates = shuffle(dateIdeas.slice());
+          pulledCount = 0;
+          updateCounter();
+          dateNote.textContent = "All dates discovered! Starting over... 💞";
+          saveDateBtn.style.display = 'none';
+          return;
+        }
+        const idea = remainingDates.pop();
+        pulledCount++;
+        updateCounter();
+        dateNote.style.opacity = '0';
+        dateNote.style.transform = 'translateY(12px)';
+        setTimeout(() => {
+          dateNote.textContent = idea;
+          dateNote.classList.add('revealed');
+          dateNote.style.opacity = '1';
+          dateNote.style.transform = 'translateY(0)';
+          heartBurst.style.opacity = '0.8';
+          for (let i = 0; i < 5; i++) {
+            setTimeout(createFloatingHeart, i * 180);
+          }
+          setTimeout(() => heartBurst.style.opacity = '0', 2200);
+        }, 300);
+        saveDateBtn.style.display = 'block';
+        saveDateBtn.classList.remove('copied');
+        saveDateBtn.textContent = 'Save this date 📋';
+      });
+      saveDateBtn.addEventListener('click', () => {
+        const text = dateNote.textContent.trim();
+        if (text && text !== "Tap to reveal our next memory-in-the-making 💗") {
+          navigator.clipboard.writeText(text).then(() => {
+            saveDateBtn.classList.add('copied');
+            saveDateBtn.textContent = 'Saved!';
+            setTimeout(() => {
+              saveDateBtn.classList.remove('copied');
+              saveDateBtn.textContent = 'Save this date 📋';
+            }, 2200);
+          }).catch(err => {
+            console.error('Copy failed', err);
+          });
+        }
+      });
+    }
+
+    /* Vibe choices */
     const vibePairs = [
       ["Late nights 🌙", "Early mornings ☀️"],
       ["Staying in 🛋️", "Going out ✨"],
@@ -1525,14 +1356,12 @@
       shuffle(vibePairs).forEach((pair)=>{
         const card = document.createElement('div');
         card.className = "vibe-card";
-
         card.innerHTML = `
           <div class="vibe-stack">
             <button class="vibe-option" type="button">${pair[0]}</button>
             <button class="vibe-option" type="button">${pair[1]}</button>
           </div>
         `;
-
         const opts = Array.from(card.querySelectorAll('.vibe-option'));
         opts.forEach(btn=>{
           btn.addEventListener('click', (e)=>{
@@ -1543,16 +1372,14 @@
             opts.forEach(o=>{ if(o !== btn) o.classList.add('dim'); });
           }, {passive:false});
         });
-
         vibeGrid.appendChild(card);
       });
     }
 
-    /* Constellation (Things I'm looking forward to) */
+    /* Constellation */
     const constellation = document.getElementById('constellation');
     const tooltip = document.getElementById('tooltip');
     const foundPill = document.getElementById('foundPill');
-
     const memoryNotes = [
       "Getting to know you more",
       "Late-night conversations",
@@ -1562,8 +1389,6 @@
       "Seeing where this goes"
     ];
     let found = 0;
-
-    // Keep hearts safely above tooltip/counter space
     const heartsPos = [
       {x:14, y:14},{x:38, y:10},{x:62, y:14},
       {x:22, y:34},{x:52, y:30},{x:76, y:36}
@@ -1573,7 +1398,7 @@
       const s = document.createElement('div');
       s.className = 'spark';
       s.style.left = `calc(${pos.x}% - 8px)`;
-      s.style.top  = `calc(${pos.y}% - 8px)`;
+      s.style.top = `calc(${pos.y}% - 8px)`;
       s.dataset.opened = "0";
       s.addEventListener('click', ()=>{
         if(s.dataset.opened === "0"){
@@ -1586,369 +1411,199 @@
       constellation.appendChild(s);
     });
 
-    /* Future Date Jar - Enhanced */
-const dateIdeas = [
-  "Drive to the coast just to watch the sunrise with coffee in hand",
-  "Build a blanket fort and binge our favorite show under fairy lights",
-  "Cook something new together (even if it turns out terrible — we'll laugh)",
-  "Stargaze on a clear night with blankets and your playlist",
-  "Slow dance in the kitchen at 2 a.m. to whatever song comes on",
-  "Go to a bookstore and pick books for each other to read aloud",
-  "Have a picnic in the park with your favorite snacks and no phones",
-  "Take a spontaneous road trip — no destination, just us and music",
-  "Try a pottery or painting class and make something messy and cute",
-  "Stay in with face masks, wine, and deep talks about everything",
-  "Visit a new coffee shop and rate their lattes like critics",
-  "Watch the sunset from somewhere high up and talk about the future",
-  "Have a game night with silly bets and your favorite snacks",
-  "Go thrifting and find outfits for each other to try on",
-  "Cuddle up during a thunderstorm with hot cocoa and stories",
-  "Take a late-night drive with windows down and sing terribly",
-  "Make a time capsule with letters and mementos for future us",
-  "Have breakfast in bed and plan our dream day together",
-  "Visit an aquarium or museum and make up backstories for everything",
-  "Just lay in bed talking until the sun comes up — no rush"
-];
-
-const dateJarBtn = document.getElementById('dateJarBtn');
-const dateNote = document.getElementById('dateNote');
-const saveDateBtn = document.getElementById('saveDateBtn');
-const dateCounter = document.getElementById('dateCounter');
-const heartBurst = document.getElementById('heartBurst');
-
-let remainingDates = shuffle(dateIdeas.slice()); // copy + shuffle
-let pulledCount = 0;
-const totalDates = dateIdeas.length;
-
-function updateCounter() {
-  dateCounter.textContent = `${pulledCount} / ${totalDates} pulled`;
-}
-
-function createFloatingHeart() {
-  const h = document.createElement('div');
-  h.className = 'heart';
-  const size = 12 + Math.random() * 14;
-  const left = 20 + Math.random() * 60;
-  h.style.left = left + '%';
-  h.style.bottom = '-20px';
-  h.style.width = size + 'px';
-  h.style.height = size + 'px';
-  h.style.animationDuration = (2 + Math.random() * 1.2) + 's';
-  heartBurst.appendChild(h);
-  setTimeout(() => h.remove(), 3500);
-}
-
-if (dateJarBtn && dateNote) {
-  updateCounter();
-
-  dateJarBtn.addEventListener('click', () => {
-    if (remainingDates.length === 0) {
-      // Reshuffle when all are pulled
-      remainingDates = shuffle(dateIdeas.slice());
-      pulledCount = 0;
-      updateCounter();
-      dateNote.textContent = "All dates discovered! Starting over... 💞";
-      saveDateBtn.style.display = 'none';
-      return;
-    }
-
-    const idea = remainingDates.pop();
-    pulledCount++;
-    updateCounter();
-
-    // Reveal with animation
-    dateNote.style.opacity = '0';
-    dateNote.style.transform = 'translateY(12px)';
-    setTimeout(() => {
-      dateNote.textContent = idea;
-      dateNote.classList.add('revealed');
-      dateNote.style.opacity = '1';
-      dateNote.style.transform = 'translateY(0)';
-      
-      // Floating hearts burst
-      heartBurst.style.opacity = '0.8';
-      for (let i = 0; i < 5; i++) {
-        setTimeout(createFloatingHeart, i * 180);
-      }
-      setTimeout(() => heartBurst.style.opacity = '0', 2200);
-    }, 300);
-
-    // Show save button
-    saveDateBtn.style.display = 'block';
-    saveDateBtn.classList.remove('copied');
-    saveDateBtn.textContent = 'Save this date 📋';
-  });
-
-  // Copy to clipboard
-  saveDateBtn.addEventListener('click', () => {
-    const text = dateNote.textContent.trim();
-    if (text && text !== "Tap to reveal our next memory-in-the-making 💗") {
-      navigator.clipboard.writeText(text).then(() => {
-        saveDateBtn.classList.add('copied');
-        saveDateBtn.textContent = 'Saved!';
+    /* Instant Reaction (new page) */
+    const growBtn = document.getElementById('growBtn');
+    const shaft = document.getElementById('shaft');
+    const head = document.getElementById('head');
+    const reactionMsg = document.getElementById('reactionMsg');
+    if (growBtn && shaft && head) {
+      growBtn.addEventListener('click', () => {
+        shaft.classList.add('growing');
+        head.classList.add('growing');
+        reactionMsg.classList.add('show');
         setTimeout(() => {
-          saveDateBtn.classList.remove('copied');
-          saveDateBtn.textContent = 'Save this date 📋';
-        }, 2200);
-      }).catch(err => {
-        console.error('Copy failed', err);
+          shaft.classList.remove('growing');
+          head.classList.remove('growing');
+        }, 4200);
+        growBtn.style.transform = 'scale(0.96)';
+        setTimeout(() => growBtn.style.transform = 'scale(1)', 180);
       });
     }
-  });
-}
-    
-/* Erection Interaction - Mirrors heartbeat logic */
-const erection = document.getElementById('erection3d');
-const erectionMsg = document.getElementById('erectionMsg');
-if (erection && erectionMsg) {
-  let holdTimer = null;
-  const startHold = () => {
-    erection.classList.add('fast');
-    holdTimer = setTimeout(() => {
-      erectionMsg.classList.add('show');
-    }, 600);
-  };
-  const endHold = () => {
-    erection.classList.remove('fast');
-    clearTimeout(holdTimer);
-    erectionMsg.classList.remove('show');
-  };
-  erection.addEventListener('pointerdown', (e) => {
-    e.preventDefault();
-    startHold();
-  });
-  erection.addEventListener('pointerup', endHold);
-  erection.addEventListener('pointerleave', endHold);
-  erection.addEventListener('pointercancel', endHold);
-}
-    
-    /* FINAL PAGE: realistic fireworks (launch -> explode -> fall), continuous after YES */
-const yesBtn = document.getElementById('yesBtn');
-const noBtn  = document.getElementById('noBtn');
-const yesMsg = document.getElementById('yesMsg');
-const fwCanvas = document.getElementById('fireworks');
-const fwCtx = fwCanvas.getContext('2d');
 
-let fireworksOn = false;
-let animating = false;
-
-let rockets = [];   // launch phase
-let sparks  = [];   // explosion phase
-let launchTimer = null;
-
-function rand(min, max){ return min + Math.random() * (max - min); }
-
-function resizeFireworks(){
-  const rect = fwCanvas.getBoundingClientRect();
-  const dpr = Math.max(1, window.devicePixelRatio || 1);
-  fwCanvas.width  = Math.floor(rect.width  * dpr);
-  fwCanvas.height = Math.floor(rect.height * dpr);
-  fwCtx.setTransform(1,0,0,1,0,0);
-}
-resizeFireworks();
-
-function launchRocket(x){
-  const dpr = Math.max(1, window.devicePixelRatio || 1);
-  rockets.push({
-    x,
-    y: fwCanvas.height + 16*dpr,
-    vx: rand(-0.22, 0.22) * dpr,
-    vy: rand(-8.4, -7.2) * dpr,          // realistic launch speed
-    ay: 0.10 * dpr,                      // gravity
-    explodeY: rand(fwCanvas.height*0.18, fwCanvas.height*0.42),
-    life: 240
-  });
-}
-
-function explode(x, y){
-  const dpr = Math.max(1, window.devicePixelRatio || 1);
-  const count = Math.floor(rand(52, 78)); // enough to read as “a firework”
-  const baseHue = rand(310, 355);
-
-  for(let i=0;i<count;i++){
-    const a = Math.random() * Math.PI * 2;
-    const speed = rand(2.2, 4.3) * dpr;
-    sparks.push({
-      x, y,
-      vx: Math.cos(a)*speed,
-      vy: Math.sin(a)*speed,
-      ay: 0.085 * dpr,      // gravity for sparks
-      drag: 0.986,          // slows outward motion
-      age: 0,
-      life: rand(90, 135),  // ~1.2–1.8s fall/drift
-      size: rand(1.2, 2.4) * dpr,
-      hue: baseHue + rand(-10, 18),
-      alpha: 1
-    });
-  }
-
-  if(sparks.length > 3200) sparks.splice(0, sparks.length - 3200);
-}
-
-function scheduleLaunches(){
-  // cadence: explode/drift for ~1–2s, then ~0.5s later another
-  // This interval is the “pause between launches”.
-  launchTimer = setInterval(()=>{
-    if(!fireworksOn) return;
-    resizeFireworks();
-
-    // 1 firework usually, 2 sometimes (clearly distinct positions)
-    const n = Math.random() < 0.35 ? 2 : 1;
-    for(let k=0;k<n;k++){
-      const x = rand(fwCanvas.width*0.15, fwCanvas.width*0.85);
-      launchRocket(x);
+    /* Fireworks */
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const yesMsg = document.getElementById('yesMsg');
+    const fwCanvas = document.getElementById('fireworks');
+    const fwCtx = fwCanvas.getContext('2d');
+    let fireworksOn = false;
+    let animating = false;
+    let rockets = [];
+    let sparks = [];
+    let launchTimer = null;
+    function rand(min, max){ return min + Math.random() * (max - min); }
+    function resizeFireworks(){
+      const rect = fwCanvas.getBoundingClientRect();
+      const dpr = Math.max(1, window.devicePixelRatio || 1);
+      fwCanvas.width = Math.floor(rect.width * dpr);
+      fwCanvas.height = Math.floor(rect.height * dpr);
+      fwCtx.setTransform(1,0,0,1,0,0);
     }
-
-    if(!animating){
-      animating = true;
+    resizeFireworks();
+    function launchRocket(x){
+      const dpr = Math.max(1, window.devicePixelRatio || 1);
+      rockets.push({
+        x,
+        y: fwCanvas.height + 16*dpr,
+        vx: rand(-0.22, 0.22) * dpr,
+        vy: rand(-8.4, -7.2) * dpr,
+        ay: 0.10 * dpr,
+        explodeY: rand(fwCanvas.height*0.18, fwCanvas.height*0.42),
+        life: 240
+      });
+    }
+    function explode(x, y){
+      const dpr = Math.max(1, window.devicePixelRatio || 1);
+      const count = Math.floor(rand(52, 78));
+      const baseHue = rand(310, 355);
+      for(let i=0;i<count;i++){
+        const a = Math.random() * Math.PI * 2;
+        const speed = rand(2.2, 4.3) * dpr;
+        sparks.push({
+          x, y,
+          vx: Math.cos(a)*speed,
+          vy: Math.sin(a)*speed,
+          ay: 0.085 * dpr,
+          drag: 0.986,
+          age: 0,
+          life: rand(90, 135),
+          size: rand(1.2, 2.4) * dpr,
+          hue: baseHue + rand(-10, 18),
+          alpha: 1
+        });
+      }
+      if(sparks.length > 3200) sparks.splice(0, sparks.length - 3200);
+    }
+    function scheduleLaunches(){
+      launchTimer = setInterval(()=>{
+        if(!fireworksOn) return;
+        resizeFireworks();
+        const n = Math.random() < 0.35 ? 2 : 1;
+        for(let k=0;k<n;k++){
+          const x = rand(fwCanvas.width*0.15, fwCanvas.width*0.85);
+          launchRocket(x);
+        }
+        if(!animating){
+          animating = true;
+          requestAnimationFrame(animateFireworks);
+        }
+      }, 1000);
+    }
+    function startFireworks(){
+      if(fireworksOn) return;
+      fireworksOn = true;
+      resizeFireworks();
+      launchRocket(fwCanvas.width * 0.33);
+      launchRocket(fwCanvas.width * 0.67);
+      if(!animating){
+        animating = true;
+        requestAnimationFrame(animateFireworks);
+      }
+      scheduleLaunches();
+    }
+    function animateFireworks(){
+      if(!animating) return;
+      fwCtx.globalCompositeOperation = 'source-over';
+      fwCtx.fillStyle = 'rgba(255,255,255,0.10)';
+      fwCtx.fillRect(0,0,fwCanvas.width, fwCanvas.height);
+      for(let i=rockets.length-1;i>=0;i--){
+        const r = rockets[i];
+        r.life--;
+        r.vy += r.ay;
+        r.x += r.vx;
+        r.y += r.vy;
+        fwCtx.beginPath();
+        fwCtx.arc(r.x, r.y, 2.2, 0, Math.PI*2);
+        fwCtx.fillStyle = 'rgba(255,77,141,0.90)';
+        fwCtx.fill();
+        fwCtx.beginPath();
+        fwCtx.moveTo(r.x, r.y);
+        fwCtx.lineTo(r.x - r.vx*2.2, r.y - r.vy*2.2);
+        fwCtx.strokeStyle = 'rgba(255,133,168,0.55)';
+        fwCtx.lineWidth = 2;
+        fwCtx.stroke();
+        if(r.y <= r.explodeY || r.vy > -1.6 || r.life <= 0){
+          explode(r.x, r.y);
+          rockets.splice(i,1);
+        }
+      }
+      fwCtx.globalCompositeOperation = 'lighter';
+      for(let i=sparks.length-1;i>=0;i--){
+        const p = sparks[i];
+        p.age++;
+        p.vx *= p.drag;
+        p.vy *= p.drag;
+        p.vy += p.ay;
+        p.x += p.vx;
+        p.y += p.vy;
+        const t = 1 - (p.age / p.life);
+        p.alpha = Math.max(0, t);
+        fwCtx.beginPath();
+        fwCtx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+        fwCtx.fillStyle = `hsla(${p.hue}, 95%, 72%, ${p.alpha})`;
+        fwCtx.fill();
+        if(p.age >= p.life) sparks.splice(i,1);
+      }
+      fwCtx.globalCompositeOperation = 'source-over';
+      if(!fireworksOn && rockets.length === 0 && sparks.length === 0){
+        animating = false;
+        fwCtx.clearRect(0,0,fwCanvas.width, fwCanvas.height);
+        return;
+      }
       requestAnimationFrame(animateFireworks);
     }
-  }, 1000); // <-- time between launches
-}
-
-function startFireworks(){
-  if(fireworksOn) return;
-  fireworksOn = true;
-
-  resizeFireworks();
-
-  // initial burst: two rockets so it’s obviously multiple fireworks
-  launchRocket(fwCanvas.width * 0.33);
-  launchRocket(fwCanvas.width * 0.67);
-
-  if(!animating){
-    animating = true;
-    requestAnimationFrame(animateFireworks);
-  }
-
-  scheduleLaunches();
-}
-
-function animateFireworks(){
-  if(!animating) return;
-
-  // soft trail fade (lower alpha = longer trails / smoother look)
-  fwCtx.globalCompositeOperation = 'source-over';
-  fwCtx.fillStyle = 'rgba(255,255,255,0.10)';
-  fwCtx.fillRect(0,0,fwCanvas.width, fwCanvas.height);
-
-  // rockets
-  for(let i=rockets.length-1;i>=0;i--){
-    const r = rockets[i];
-    r.life--;
-
-    r.vy += r.ay;
-    r.x  += r.vx;
-    r.y  += r.vy;
-
-    // draw rocket + tail
-    fwCtx.beginPath();
-    fwCtx.arc(r.x, r.y, 2.2, 0, Math.PI*2);
-    fwCtx.fillStyle = 'rgba(255,77,141,0.90)';
-    fwCtx.fill();
-
-    fwCtx.beginPath();
-    fwCtx.moveTo(r.x, r.y);
-    fwCtx.lineTo(r.x - r.vx*2.2, r.y - r.vy*2.2);
-    fwCtx.strokeStyle = 'rgba(255,133,168,0.55)';
-    fwCtx.lineWidth = 2;
-    fwCtx.stroke();
-
-    // explode near target height or when slowing
-    if(r.y <= r.explodeY || r.vy > -1.6 || r.life <= 0){
-      explode(r.x, r.y);
-      rockets.splice(i,1);
-    }
-  }
-
-  // sparks
-  fwCtx.globalCompositeOperation = 'lighter';
-  for(let i=sparks.length-1;i>=0;i--){
-    const p = sparks[i];
-    p.age++;
-
-    p.vx *= p.drag;
-    p.vy *= p.drag;
-    p.vy += p.ay;
-
-    p.x += p.vx;
-    p.y += p.vy;
-
-    const t = 1 - (p.age / p.life);
-    p.alpha = Math.max(0, t);
-
-    fwCtx.beginPath();
-    fwCtx.arc(p.x, p.y, p.size, 0, Math.PI*2);
-    fwCtx.fillStyle = `hsla(${p.hue}, 95%, 72%, ${p.alpha})`;
-    fwCtx.fill();
-
-    if(p.age >= p.life) sparks.splice(i,1);
-  }
-  fwCtx.globalCompositeOperation = 'source-over';
-
-  if(!fireworksOn && rockets.length === 0 && sparks.length === 0){
-    animating = false;
-    fwCtx.clearRect(0,0,fwCanvas.width, fwCanvas.height);
-    return;
-  }
-
-  requestAnimationFrame(animateFireworks);
-}
-
-yesBtn.addEventListener('click', ()=>{
-  yesMsg.style.display = 'block';
-  startFireworks();
-  yesBtn.animate([{transform:'scale(1)'},{transform:'scale(1.02)'},{transform:'scale(1)'}], {duration:240, easing:'ease-out'});
-});
-    /* NO teleports safely (never overlaps YES; always below) */
+    yesBtn.addEventListener('click', ()=>{
+      yesMsg.style.display = 'block';
+      startFireworks();
+      yesBtn.animate([{transform:'scale(1)'},{transform:'scale(1.02)'},{transform:'scale(1)'}], {duration:240, easing:'ease-out'});
+    });
     function placeNoSafely(randomize){
       const cta = document.getElementById('valCta');
       const ctaRect = cta.getBoundingClientRect();
       const yesRect = yesBtn.getBoundingClientRect();
-
       const btnW = noBtn.offsetWidth || 130;
       const btnH = noBtn.offsetHeight || 40;
-
       const noGo = {
         left: (yesRect.left - ctaRect.left) - 18,
         right: (yesRect.right - ctaRect.left) + 18,
         top: (yesRect.top - ctaRect.top) - 18,
         bottom: (yesRect.bottom - ctaRect.top) + 18
       };
-
       const padL = 22, padR = 22, padB = 16;
       const minX = padL;
       const maxX = ctaRect.width - padR - btnW;
-
       const minY = Math.max(noGo.bottom + 24, ctaRect.height * 0.66);
       const maxY = ctaRect.height - padB - btnH;
       const safeMinY = Math.min(minY, maxY);
-
       let x = (ctaRect.width/2) - (btnW/2);
       let y = Math.max(safeMinY, ctaRect.height * 0.78);
-
       if(randomize){
         for(let tries=0; tries<50; tries++){
           x = minX + Math.random() * Math.max(8, (maxX - minX));
           y = safeMinY + Math.random() * Math.max(8, (maxY - safeMinY));
-
           const intersects =
             x < noGo.right &&
             x + btnW > noGo.left &&
             y < noGo.bottom &&
             y + btnH > noGo.top;
-
           if(!intersects) break;
         }
       }
-
       noBtn.style.left = x + "px";
-      noBtn.style.top  = y + "px";
+      noBtn.style.top = y + "px";
       noBtn.style.transform = "translateX(0)";
     }
-
     placeNoSafely(false);
-
     noBtn.addEventListener('click', (e)=>{
       e.preventDefault();
       placeNoSafely(true);
@@ -1957,7 +1612,6 @@ yesBtn.addEventListener('click', ()=>{
         {duration:240, easing:'ease-out'}
       );
     });
-
     window.addEventListener('resize', ()=>{
       resizeFireworks();
       placeNoSafely(false);
