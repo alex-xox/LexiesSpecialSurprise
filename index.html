@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Lexie — My Favorite Fuck</title>
 
-  <!-- ───────────────────────────────────────────────
-       GOOGLE FONTS
-  ─────────────────────────────────────────────── -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -33,13 +31,8 @@
     /* ───────────────────────────────────────────────
        GLOBAL RESET & BODY
     ─────────────────────────────────────────────── */
-    * {
-      box-sizing: border-box;
-    }
-    html, body {
-      height: 100%;
-      margin: 0;
-    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
     body {
       color: var(--ink);
       background:
@@ -54,34 +47,20 @@
        BACKGROUND FLOATING HEARTS
     ─────────────────────────────────────────────── */
     .bg-hearts {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-      filter: drop-shadow(0 8px 12px rgba(0,0,0,.06));
-      opacity: .55;
+      position: fixed; inset: 0; pointer-events: none; overflow: hidden;
+      filter: drop-shadow(0 8px 12px rgba(0,0,0,.06)); opacity: .55;
     }
     .heart {
-      position: absolute;
-      width: 16px;
-      height: 16px;
-      transform: rotate(45deg);
+      position: absolute; width: 16px; height: 16px; transform: rotate(45deg);
       background: linear-gradient(135deg, rgba(255,77,141,.85), rgba(255,133,168,.75));
-      border-radius: 4px;
-      animation: floatUp linear infinite;
+      border-radius: 4px; animation: floatUp linear infinite;
     }
-    .heart::before,
-    .heart::after {
-      content: "";
-      position: absolute;
-      width: 16px;
-      height: 16px;
-      background: inherit;
-      border-radius: 50%;
+    .heart::before, .heart::after {
+      content: ""; position: absolute; width: 16px; height: 16px;
+      background: inherit; border-radius: 50%;
     }
     .heart::before { left: -8px; top: 0; }
     .heart::after  { top: -8px; left: 0; }
-
     @keyframes floatUp {
       from { transform: translateY(20vh) rotate(45deg); opacity: 0; }
       10%  { opacity: .85; }
@@ -89,85 +68,46 @@
     }
 
     /* ───────────────────────────────────────────────
-       MAIN LAYOUT
+       MAIN LAYOUT & BOOK
     ─────────────────────────────────────────────── */
-    .wrap {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-    .stage {
-      width: min(980px, 96vw);
-      height: min(660px, 86vh);
-      position: relative;
-      perspective: 1400px;
-    }
+    .wrap { height: 100%; display: flex; align-items: center; justify-content: center; padding: 20px; }
+    .stage { width: min(980px, 96vw); height: min(660px, 86vh); position: relative; perspective: 1400px; }
+
     .hint {
-      position: absolute;
-      top: -40px;
-      left: 0;
-      right: 0;
-      text-align: center;
-      font-size: 13px;
-      color: rgba(60,25,45,.65);
-      user-select: none;
+      position: absolute; top: -40px; left: 0; right: 0; text-align: center; font-size: 13px;
+      color: rgba(60,25,45,.65); user-select: none;
     }
     .hint kbd {
-      font: 600 12px/1 Inter, sans-serif;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.65);
-      border: 1px solid rgba(240,170,200,.65);
+      font: 600 12px/1 Inter, sans-serif; padding: 6px 10px; border-radius: 999px;
+      background: rgba(255,255,255,.65); border: 1px solid rgba(240,170,200,.65);
       box-shadow: 0 8px 16px rgba(0,0,0,.05);
     }
 
     .book {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      border-radius: var(--radius);
+      width: 100%; height: 100%; position: relative; border-radius: var(--radius);
       box-shadow: var(--shadow);
-      background:
-        radial-gradient(120% 180% at 0% 0%, rgba(255,255,255,.85), rgba(255,255,255,.15)),
-        linear-gradient(135deg, rgba(255,255,255,.65), rgba(255,255,255,.35));
-      padding: 18px;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,133,168,.35);
-      touch-action: pan-y;
+      background: radial-gradient(120% 180% at 0% 0%, rgba(255,255,255,.85), rgba(255,255,255,.15)),
+                  linear-gradient(135deg, rgba(255,255,255,.65), rgba(255,255,255,.35));
+      padding: 18px; backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,133,168,.35); touch-action: pan-y;
     }
     .book-inner {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      border-radius: calc(var(--radius) - 8px);
+      width: 100%; height: 100%; position: relative; border-radius: calc(var(--radius) - 8px);
       background: linear-gradient(135deg, rgba(255,255,255,.88), rgba(255,255,255,.76));
-      overflow: hidden;
-      box-shadow: inset 0 0 0 1px rgba(240,170,200,.25);
+      overflow: hidden; box-shadow: inset 0 0 0 1px rgba(240,170,200,.25);
     }
 
     /* ───────────────────────────────────────────────
-       NAVIGATION ZONES (click edges to flip pages)
+       NAVIGATION ZONES
     ─────────────────────────────────────────────── */
     .nav-zone {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 18%;
-      z-index: 80;
-      cursor: pointer;
-      user-select: none;
-      -webkit-tap-highlight-color: transparent;
+      position: absolute; top: 0; bottom: 0; width: 18%; z-index: 80;
+      cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent;
     }
     .nav-left  { left: 0; }
     .nav-right { right: 0; }
     .nav-zone::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transition: opacity .2s ease;
+      content: ""; position: absolute; inset: 0; opacity: 0; transition: opacity .2s ease;
     }
     .nav-left::after  { background: linear-gradient(90deg, rgba(255,77,141,.18), transparent); }
     .nav-right::after { background: linear-gradient(270deg, rgba(255,77,141,.18), transparent); }
@@ -176,351 +116,190 @@
     /* ───────────────────────────────────────────────
        PAGE STACK & FLIP ANIMATION
     ─────────────────────────────────────────────── */
-    .pages {
-      position: absolute;
-      inset: 0;
-      border-radius: calc(var(--radius) - 8px);
-    }
+    .pages { position: absolute; inset: 0; border-radius: calc(var(--radius) - 8px); }
     .page {
-      position: absolute;
-      inset: 0;
-      border-radius: calc(var(--radius) - 8px);
+      position: absolute; inset: 0; border-radius: calc(var(--radius) - 8px);
       background: linear-gradient(135deg, var(--paper), var(--paper2));
-      transform-style: preserve-3d;
-      transform-origin: left center;
-      box-shadow: var(--shadow2);
-      border: 1px solid rgba(240,170,200,.35);
-      overflow: hidden;
-      transition: transform 850ms cubic-bezier(.2,.9,.2,1);
+      transform-style: preserve-3d; transform-origin: left center;
+      box-shadow: var(--shadow2); border: 1px solid rgba(240,170,200,.35);
+      overflow: hidden; transition: transform 850ms cubic-bezier(.2,.9,.2,1);
     }
-    .page.flipped {
-      transform: rotateY(-180deg);
-    }
+    .page.flipped { transform: rotateY(-180deg); }
 
     .content {
-      position: absolute;
-      inset: 0;
-      padding: 40px 42px 28px 56px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      overflow: hidden;
+      position: absolute; inset: 0; padding: 40px 42px 28px 56px;
+      display: flex; flex-direction: column; gap: 16px; overflow: hidden;
     }
     .scrollable {
-      overflow: auto;
-      -webkit-overflow-scrolling: touch;
-      padding-right: 10px;
-      flex: 1;
-      touch-action: pan-y;
+      overflow: auto; -webkit-overflow-scrolling: touch; padding-right: 10px;
+      flex: 1; touch-action: pan-y;
     }
 
     /* ───────────────────────────────────────────────
-       COMMON TYPOGRAPHY & UI ELEMENTS
+       COMMON UI ELEMENTS
     ─────────────────────────────────────────────── */
     .topline {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      color: var(--muted);
-      font-size: 12px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      color: var(--muted); font-size: 12px; letter-spacing: .08em; text-transform: uppercase;
     }
     .badge {
-      padding: 7px 10px;
-      border-radius: 999px;
-      background: rgba(255,77,141,.10);
-      border: 1px solid rgba(255,77,141,.22);
-      box-shadow: 0 8px 16px rgba(0,0,0,.04);
-      font-weight: 700;
-      color: rgba(120, 35, 70, .9);
+      padding: 7px 10px; border-radius: 999px; background: rgba(255,77,141,.10);
+      border: 1px solid rgba(255,77,141,.22); box-shadow: 0 8px 16px rgba(0,0,0,.04);
+      font-weight: 700; color: rgba(120, 35, 70, .9);
     }
     h1, h2, h3 { margin: 0; }
 
     .cover-name {
-      font-family: "Great Vibes", cursive;
-      font-size: clamp(56px, 7.6vw, 92px);
-      line-height: 1;
-      letter-spacing: .02em;
-      color: rgba(90, 20, 55, .95);
-      text-shadow:
-        0 2px 0 rgba(255,255,255,.85),
-        0 18px 44px rgba(255,77,141,.20);
+      font-family: "Great Vibes", cursive; font-size: clamp(56px, 7.6vw, 92px);
+      line-height: 1; letter-spacing: .02em; color: rgba(90, 20, 55, .95);
+      text-shadow: 0 2px 0 rgba(255,255,255,.85), 0 18px 44px rgba(255,77,141,.20);
     }
     .engraved::after {
-      content: "";
-      position: absolute;
-      left: 0; right: 0;
-      bottom: -10px;
-      height: 2px;
+      content: ""; position: absolute; left: 0; right: 0; bottom: -10px; height: 2px;
       background: linear-gradient(90deg, transparent, rgba(255,77,141,.55), transparent);
       filter: blur(.2px);
     }
     .subtitle {
-      font-family: "Playfair Display", serif;
-      font-weight: 600;
-      font-size: clamp(18px, 2.2vw, 26px);
-      color: rgba(70, 30, 50, .88);
+      font-family: "Playfair Display", serif; font-weight: 600;
+      font-size: clamp(18px, 2.2vw, 26px); color: rgba(70, 30, 50, .88);
     }
-    .note {
-      color: rgba(60,25,45,.75);
-      font-size: 14px;
-      line-height: 1.45;
-      max-width: 56ch;
-    }
+    .note { color: rgba(60,25,45,.75); font-size: 14px; line-height: 1.45; max-width: 56ch; }
     .divider {
-      height: 1px;
-      width: 100%;
+      height: 1px; width: 100%;
       background: linear-gradient(90deg, transparent, rgba(255,77,141,.30), transparent);
       margin: 8px 0;
     }
 
     /* ───────────────────────────────────────────────
-       COVER PAGE DECORATIONS
+       COVER PAGE STYLING
     ─────────────────────────────────────────────── */
     .cover-frame {
-      position: relative;
-      flex: 1;
-      border-radius: 18px;
+      position: relative; flex: 1; border-radius: 18px;
       background:
         radial-gradient(900px 420px at 20% 15%, rgba(255,255,255,.9), rgba(255,255,255,.55)),
         linear-gradient(135deg, rgba(255,77,141,.07), rgba(255,133,168,.06));
-      border: 1px solid rgba(240,170,200,.30);
-      box-shadow: 0 18px 34px rgba(0,0,0,.06);
-      padding: 22px 20px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      gap: 12px;
+      border: 1px solid rgba(240,170,200,.30); box-shadow: 0 18px 34px rgba(0,0,0,.06);
+      padding: 22px 20px; overflow: hidden; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center; gap: 12px;
     }
     .cover-frame::before,
     .cover-frame::after {
-      content: "";
-      position: absolute;
-      width: 220px; height: 220px;
-      border-radius: 999px;
+      content: ""; position: absolute; width: 220px; height: 220px; border-radius: 999px;
       background: radial-gradient(circle at 30% 30%, rgba(255,77,141,.18), transparent);
-      opacity: .9;
-      pointer-events: none;
+      opacity: .9; pointer-events: none;
     }
     .cover-frame::before { left: -70px; top: -70px; }
     .cover-frame::after  { right: -80px; bottom: -80px; }
 
     .flourish {
-      position: absolute;
-      width: 170px;
-      height: 170px;
-      opacity: .55;
-      pointer-events: none;
-      filter: drop-shadow(0 10px 20px rgba(255,77,141,.10));
+      position: absolute; width: 170px; height: 170px; opacity: .55;
+      pointer-events: none; filter: drop-shadow(0 10px 20px rgba(255,77,141,.10));
     }
     .flourish.tl { left: 10px; top: 10px; transform: rotate(-6deg); }
     .flourish.br { right: 10px; bottom: 10px; transform: rotate(174deg); opacity: .45; }
 
     .seal {
-      margin-top: 2px;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.72);
-      border: 1px solid rgba(240,170,200,.32);
-      box-shadow: 0 12px 22px rgba(0,0,0,.05);
-      color: rgba(70, 25, 50, .86);
-      font-weight: 800;
-      font-size: 12px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
+      margin-top: 2px; display: inline-flex; align-items: center; gap: 10px;
+      padding: 10px 14px; border-radius: 999px; background: rgba(255,255,255,.72);
+      border: 1px solid rgba(240,170,200,.32); box-shadow: 0 12px 22px rgba(0,0,0,.05);
+      color: rgba(70, 25, 50, .86); font-weight: 800; font-size: 12px;
+      letter-spacing: .08em; text-transform: uppercase;
     }
     .seal .mini-heart {
-      width: 16px; height: 16px;
-      transform: rotate(45deg);
+      width: 16px; height: 16px; transform: rotate(45deg);
       background: linear-gradient(135deg, rgba(255,77,141,.92), rgba(255,133,168,.72));
-      border-radius: 4px;
-      position: relative;
-      box-shadow: 0 10px 18px rgba(255,77,141,.18);
+      border-radius: 4px; position: relative; box-shadow: 0 10px 18px rgba(255,77,141,.18);
     }
     .seal .mini-heart::before,
     .seal .mini-heart::after {
-      content: "";
-      position: absolute;
-      width: 16px;
-      height: 16px;
-      background: inherit;
-      border-radius: 50%;
+      content: ""; position: absolute; width: 16px; height: 16px;
+      background: inherit; border-radius: 50%;
     }
     .seal .mini-heart::before { left: -8px; top: 0; }
     .seal .mini-heart::after  { top: -8px; left: 0; }
 
     .cover-tagline {
-      font-family: "Playfair Display", serif;
-      font-size: 15px;
-      color: rgba(60,25,45,.76);
-      max-width: 52ch;
-      line-height: 1.55;
+      font-family: "Playfair Display", serif; font-size: 15px;
+      color: rgba(60,25,45,.76); max-width: 52ch; line-height: 1.55;
     }
 
     /* ───────────────────────────────────────────────
        REASONS GRID
     ─────────────────────────────────────────────── */
     .reasons {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px 14px;
-      margin-top: 10px;
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 14px; margin-top: 10px;
     }
     .reason {
-      display: flex;
-      gap: 10px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      background: rgba(255,255,255,.62);
-      border: 1px solid rgba(240,170,200,.25);
-      box-shadow: 0 10px 18px rgba(0,0,0,.04);
-      align-items: flex-start;
-      min-height: 44px;
+      display: flex; gap: 10px; padding: 10px 12px; border-radius: 14px;
+      background: rgba(255,255,255,.62); border: 1px solid rgba(240,170,200,.25);
+      box-shadow: 0 10px 18px rgba(0,0,0,.04); align-items: flex-start; min-height: 44px;
     }
     .dot {
-      width: 22px;
-      height: 22px;
-      border-radius: 999px;
+      width: 22px; height: 22px; border-radius: 999px;
       background: linear-gradient(135deg, rgba(255,77,141,.92), rgba(255,133,168,.65));
-      display: grid;
-      place-items: center;
-      color: white;
-      font-weight: 900;
-      font-size: 12px;
-      flex: 0 0 auto;
-      box-shadow: 0 10px 18px rgba(255,77,141,.20);
+      display: grid; place-items: center; color: white; font-weight: 900; font-size: 12px;
+      flex: 0 0 auto; box-shadow: 0 10px 18px rgba(255,77,141,.20);
     }
     .reason span {
-      font-size: 13px;
-      line-height: 1.25;
-      color: rgba(45, 20, 35, .88);
-      font-weight: 600;
+      font-size: 13px; line-height: 1.25; color: rgba(45, 20, 35, .88); font-weight: 600;
     }
 
     .secrets {
-      margin-top: 18px;
-      padding-bottom: 8px;
-      font-family: "Playfair Display", serif;
-      font-size: 12.5px;
-      line-height: 1.7;
-      color: rgba(90, 20, 55, .65);
-      user-select: none;
+      margin-top: 18px; padding-bottom: 8px; font-family: "Playfair Display", serif;
+      font-size: 12.5px; line-height: 1.7; color: rgba(90, 20, 55, .65); user-select: none;
     }
-    .secrets .line {
-      margin: 4px 0;
-    }
+    .secrets .line { margin: 4px 0; }
 
     /* ───────────────────────────────────────────────
        SCRATCH CARD
     ─────────────────────────────────────────────── */
     .scratch-wrap {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-      align-items: stretch;
-      margin-top: 8px;
+      display: grid; grid-template-columns: 1fr; gap: 16px; align-items: stretch; margin-top: 8px;
     }
     .panel {
-      border-radius: 18px;
-      background: rgba(255,255,255,.68);
-      border: 1px solid rgba(240,170,200,.28);
-      box-shadow: 0 12px 22px rgba(0,0,0,.05);
-      padding: 14px;
-      position: relative;
-      overflow: hidden;
-      min-height: 340px;
+      border-radius: 18px; background: rgba(255,255,255,.68);
+      border: 1px solid rgba(240,170,200,.28); box-shadow: 0 12px 22px rgba(0,0,0,.05);
+      padding: 14px; position: relative; overflow: hidden; min-height: 340px;
     }
     .panel h3 {
-      font-family: "Playfair Display", serif;
-      font-size: 18px;
-      color: rgba(70, 25, 50, .9);
-      margin: 0 0 6px;
+      font-family: "Playfair Display", serif; font-size: 18px;
+      color: rgba(70, 25, 50, .9); margin: 0 0 6px;
     }
     .panel p {
-      margin: 0 0 12px;
-      font-size: 13px;
-      color: rgba(60,25,45,.72);
-      line-height: 1.35;
+      margin: 0 0 12px; font-size: 13px; color: rgba(60,25,45,.72); line-height: 1.35;
     }
     .scratch-area {
-      position: relative;
-      height: 230px;
-      border-radius: 14px;
-      overflow: hidden;
+      position: relative; height: 230px; border-radius: 14px; overflow: hidden;
       border: 1px dashed rgba(255,77,141,.35);
       background: linear-gradient(135deg, rgba(255,77,141,.10), rgba(255,133,168,.08));
     }
     .scratch-under {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-family: "Great Vibes", cursive;
-      font-size: 38px;
-      color: rgba(90, 20, 55, .92);
-      user-select: none;
-      pointer-events: none;
-      padding: 0 14px;
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      text-align: center; font-family: "Great Vibes", cursive; font-size: 38px;
+      color: rgba(90, 20, 55, .92); user-select: none; pointer-events: none; padding: 0 14px;
     }
     #scratchCanvas {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      display: block;
-      border-radius: 14px;
-      touch-action: none;
+      position: absolute; inset: 0; width: 100%; height: 100%; display: block;
+      border-radius: 14px; touch-action: none;
     }
 
     /* ───────────────────────────────────────────────
-       JAR PAGES (Dirty Talk & Future Fuck)
+       JAR PAGES
     ─────────────────────────────────────────────── */
-    .jar-page {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      flex: 1;
-    }
+    .jar-page { display: flex; flex-direction: column; gap: 14px; flex: 1; }
     .mini-panel {
-      border-radius: 18px;
-      background: rgba(255,255,255,.62);
-      border: 1px solid rgba(240,170,200,.25);
-      box-shadow: 0 12px 22px rgba(0,0,0,.05);
-      padding: 18px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      min-height: 380px;
+      border-radius: 18px; background: rgba(255,255,255,.62);
+      border: 1px solid rgba(240,170,200,.25); box-shadow: 0 12px 22px rgba(0,0,0,.05);
+      padding: 18px; flex: 1; display: flex; flex-direction: column; gap: 14px; min-height: 380px;
     }
     .mini-panel h3 {
-      font-family: "Playfair Display", serif;
-      font-size: 20px;
-      margin: 0;
-      color: rgba(70, 25, 50, .9);
-      text-align: center;
+      font-family: "Playfair Display", serif; font-size: 20px; margin: 0;
+      color: rgba(70, 25, 50, .9); text-align: center;
     }
     .jar-btn {
-      align-self: center;
-      margin-top: 8px;
-      width: min(360px, 86%);
-      height: 54px;
-      border: 0;
-      border-radius: 16px;
-      cursor: pointer;
-      font-weight: 1000;
-      font-size: 16px;
-      color: white;
+      align-self: center; margin-top: 8px; width: min(360px, 86%); height: 54px; border: 0;
+      border-radius: 16px; cursor: pointer; font-weight: 1000; font-size: 16px; color: white;
       background: linear-gradient(135deg, rgba(255,77,141,.96), rgba(255,133,168,.84));
       box-shadow: 0 18px 34px rgba(255,77,141,.20);
       transition: transform .12s ease, filter .12s ease;
@@ -528,276 +307,134 @@
     .jar-btn:hover { filter: brightness(1.02); }
     .jar-btn:active { transform: scale(.99); }
     .jar-note {
-      margin-top: auto;
-      padding: 16px 14px;
-      border-radius: 14px;
-      background: rgba(255,255,255,.88);
-      border: 1px solid rgba(240,170,200,.28);
-      color: rgba(50, 20, 35, .88);
-      font-size: 14px;
-      line-height: 1.45;
-      min-height: 130px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+      margin-top: auto; padding: 16px 14px; border-radius: 14px;
+      background: rgba(255,255,255,.88); border: 1px solid rgba(240,170,200,.28);
+      color: rgba(50, 20, 35, .88); font-size: 14px; line-height: 1.45; min-height: 130px;
+      display: flex; align-items: center; justify-content: center; text-align: center;
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
-    .jar-note.revealed {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .jar-note.revealed { opacity: 1; transform: translateY(0); }
 
     /* ───────────────────────────────────────────────
-       VIBE CHOICES GRID
+       VIBE GRID
     ─────────────────────────────────────────────── */
-    .vibe-wrap {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      min-height: 0;
-    }
+    .vibe-wrap { flex: 1; display: flex; flex-direction: column; gap: 12px; min-height: 0; }
     .vibe-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 8px;
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px; margin-top: 8px;
     }
     .vibe-card {
-      border-radius: 16px;
-      background: rgba(255,255,255,.68);
-      border: 1px solid rgba(240,170,200,.26);
-      box-shadow: 0 12px 22px rgba(0,0,0,.05);
-      padding: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      min-height: 120px;
-      position: relative;
-      overflow: hidden;
-      touch-action: manipulation;
+      border-radius: 16px; background: rgba(255,255,255,.68);
+      border: 1px solid rgba(240,170,200,.26); box-shadow: 0 12px 22px rgba(0,0,0,.05);
+      padding: 12px; display: flex; flex-direction: column; gap: 10px; min-height: 120px;
+      position: relative; overflow: hidden; touch-action: manipulation;
     }
     .vibe-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      opacity: 0;
+      content: ""; position: absolute; inset: 0; opacity: 0;
       background: radial-gradient(600px 160px at 10% 0%, rgba(255,77,141,.14), transparent 55%);
-      transition: opacity .2s ease;
-      pointer-events: none;
+      transition: opacity .2s ease; pointer-events: none;
     }
     .vibe-card:hover::after { opacity: .9; }
     .vibe-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      position: relative;
-      z-index: 1;
-      align-items: flex-start;
+      display: flex; flex-direction: column; gap: 10px; position: relative; z-index: 1; align-items: flex-start;
     }
     .vibe-option {
-      width: 100%;
-      border: 1px solid rgba(255,77,141,.22);
-      background: rgba(255,77,141,.10);
-      color: rgba(90, 20, 55, .92);
-      box-shadow: 0 10px 18px rgba(0,0,0,.04);
-      padding: 10px 12px;
-      border-radius: 999px;
-      font-weight: 900;
-      font-size: 13px;
-      cursor: pointer;
-      transition: transform .10s ease, filter .12s ease, background .12s ease,
-                  border-color .12s ease, opacity .12s ease;
-      -webkit-tap-highlight-color: transparent;
-      user-select: none;
-      text-align: center;
-      white-space: nowrap;
+      width: 100%; border: 1px solid rgba(255,77,141,.22); background: rgba(255,77,141,.10);
+      color: rgba(90, 20, 55, .92); box-shadow: 0 10px 18px rgba(0,0,0,.04);
+      padding: 10px 12px; border-radius: 999px; font-weight: 900; font-size: 13px;
+      cursor: pointer; transition: all .12s ease; -webkit-tap-highlight-color: transparent;
+      user-select: none; text-align: center; white-space: nowrap;
     }
     .vibe-option:active { transform: scale(.99); }
     .vibe-option.picked {
-      background: rgba(255,77,141,.22);
-      border-color: rgba(255,77,141,.36);
-      filter: brightness(1.03);
+      background: rgba(255,77,141,.22); border-color: rgba(255,77,141,.36); filter: brightness(1.03);
     }
-    .vibe-option.dim {
-      opacity: .55;
-      filter: saturate(.85);
-    }
+    .vibe-option.dim { opacity: .55; filter: saturate(.85); }
 
     /* ───────────────────────────────────────────────
-       CONSTELLATION INTERACTIVE
+       CONSTELLATION
     ─────────────────────────────────────────────── */
     .constellation {
-      position: relative;
-      border-radius: 18px;
+      position: relative; border-radius: 18px;
       background:
         radial-gradient(800px 300px at 20% 20%, rgba(255,255,255,.9), rgba(255,255,255,.45)),
         linear-gradient(135deg, rgba(255,77,141,.08), rgba(255,133,168,.06));
-      border: 1px solid rgba(255,77,141,.18);
-      box-shadow: 0 16px 30px rgba(0,0,0,.06);
-      overflow: hidden;
-      height: 300px;
-      padding-bottom: 128px;
+      border: 1px solid rgba(255,77,141,.18); box-shadow: 0 16px 30px rgba(0,0,0,.06);
+      overflow: hidden; height: 300px; padding-bottom: 128px;
     }
     .spark {
-      position: absolute;
-      width: 14px;
-      height: 14px;
-      transform: rotate(45deg);
-      border-radius: 3px;
-      background: linear-gradient(135deg, rgba(255,77,141,.92), rgba(255,133,168,.7));
-      cursor: pointer;
-      box-shadow: 0 12px 20px rgba(255,77,141,.22);
-      transition: transform .12s ease;
-      z-index: 2;
+      position: absolute; width: 14px; height: 14px; transform: rotate(45deg);
+      border-radius: 3px; background: linear-gradient(135deg, rgba(255,77,141,.92), rgba(255,133,168,.7));
+      cursor: pointer; box-shadow: 0 12px 20px rgba(255,77,141,.22);
+      transition: transform .12s ease; z-index: 2;
     }
     .spark::before,
     .spark::after {
-      content: "";
-      position: absolute;
-      width: 14px;
-      height: 14px;
-      background: inherit;
-      border-radius: 50%;
+      content: ""; position: absolute; width: 14px; height: 14px;
+      background: inherit; border-radius: 50%;
     }
     .spark::before { left: -7px; top: 0; }
     .spark::after  { top: -7px; left: 0; }
     .spark:hover { transform: rotate(45deg) scale(1.06); }
 
     .tooltip {
-      position: absolute;
-      left: 16px;
-      right: 16px;
-      bottom: 14px;
-      min-height: 110px;
-      padding: 14px 16px;
-      border-radius: 14px;
-      background: rgba(255,255,255,.88);
-      border: 1px solid rgba(240,170,200,.35);
-      box-shadow: 0 18px 40px rgba(0,0,0,.08);
-      font-size: 13px;
-      color: rgba(50,20,35,.9);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 8px;
-      text-align: center;
-      z-index: 3;
+      position: absolute; left: 16px; right: 16px; bottom: 14px; min-height: 110px;
+      padding: 14px 16px; border-radius: 14px; background: rgba(255,255,255,.88);
+      border: 1px solid rgba(240,170,200,.35); box-shadow: 0 18px 40px rgba(0,0,0,.08);
+      font-size: 13px; color: rgba(50,20,35,.9); display: flex; flex-direction: column;
+      align-items: center; justify-content: flex-start; gap: 8px; text-align: center; z-index: 3;
     }
-    .tooltip strong {
-      font-weight: 900;
-      white-space: nowrap;
-      flex: 0 0 auto;
-    }
-    .tooltip .tip-text {
-      min-width: 0;
-      max-width: 100%;
-      line-height: 1.4;
-    }
+    .tooltip strong { font-weight: 900; white-space: nowrap; flex: 0 0 auto; }
+    .tooltip .tip-text { min-width: 0; max-width: 100%; line-height: 1.4; }
 
     .found-counter {
-      position: absolute;
-      left: 16px;
-      right: 16px;
-      bottom: 14px;
-      display: flex;
-      justify-content: center;
-      pointer-events: none;
-      z-index: 3;
+      position: absolute; left: 16px; right: 16px; bottom: 14px;
+      display: flex; justify-content: center; pointer-events: none; z-index: 3;
     }
     .pill {
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: rgba(255,77,141,.10);
-      border: 1px solid rgba(255,77,141,.22);
-      font-weight: 900;
-      font-size: 12px;
-      color: rgba(90, 20, 55, .92);
-      white-space: nowrap;
+      padding: 6px 12px; border-radius: 999px; background: rgba(255,77,141,.10);
+      border: 1px solid rgba(255,77,141,.22); font-weight: 900; font-size: 12px;
+      color: rgba(90, 20, 55, .92); white-space: nowrap;
     }
 
     /* ───────────────────────────────────────────────
-       FINAL VALENTINE PROPOSAL PAGE
+       FINAL PAGE (PROPOSAL)
     ─────────────────────────────────────────────── */
     .valentine-cta {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      position: relative;
-      overflow: hidden;
+      flex: 1; display: flex; flex-direction: column; align-items: center;
+      justify-content: center; gap: 14px; position: relative; overflow: hidden;
       padding: 6px 0 10px;
     }
     #fireworks {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1;
+      position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;
     }
     .yes-btn {
-      width: min(460px, 88%);
-      height: 92px;
-      border: 0;
-      border-radius: 20px;
-      font-weight: 1000;
-      font-size: 30px;
-      letter-spacing: .02em;
-      color: white;
-      cursor: pointer;
-      background: linear-gradient(135deg, rgba(255,77,141,.98), rgba(255,133,168,.84));
+      width: min(460px, 88%); height: 92px; border: 0; border-radius: 20px;
+      font-weight: 1000; font-size: 30px; letter-spacing: .02em; color: white;
+      cursor: pointer; background: linear-gradient(135deg, rgba(255,77,141,.98), rgba(255,133,168,.84));
       box-shadow: 0 22px 46px rgba(255,77,141,.28);
-      transition: transform .12s ease, filter .12s ease;
-      position: relative;
-      z-index: 3;
+      transition: transform .12s ease, filter .12s ease; position: relative; z-index: 3;
     }
     .yes-btn:hover { filter: brightness(1.02); }
     .yes-btn:active { transform: scale(.99); }
 
     .no-btn {
-      width: 130px;
-      height: 40px;
-      border-radius: 999px;
-      border: 1px solid rgba(0,0,0,.18);
-      background: rgba(55,55,60,.92);
-      color: rgba(255,255,255,.92);
-      font-weight: 900;
-      cursor: pointer;
-      box-shadow: 0 12px 24px rgba(0,0,0,.12);
-      z-index: 2;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
+      width: 130px; height: 40px; border-radius: 999px; border: 1px solid rgba(0,0,0,.18);
+      background: rgba(55,55,60,.92); color: rgba(255,255,255,.92); font-weight: 900;
+      cursor: pointer; box-shadow: 0 12px 24px rgba(0,0,0,.12); z-index: 2;
+      position: absolute; left: 50%; transform: translateX(-50%);
     }
-    .no-btn::after {
-      content: " :(";
-      opacity: .85;
-      font-weight: 900;
-    }
+    .no-btn::after { content: " :("; opacity: .85; font-weight: 900; }
 
     .yes-msg {
-      display: none;
-      position: relative;
-      z-index: 3;
-      max-width: 60ch;
-      text-align: center;
-      padding: 10px 12px;
-      border-radius: 14px;
-      background: rgba(255,255,255,.86);
-      border: 1px solid rgba(240,170,200,.30);
-      box-shadow: 0 14px 30px rgba(0,0,0,.06);
-      color: rgba(50,20,35,.92);
-      font-size: 14px;
-      line-height: 1.35;
+      display: none; position: relative; z-index: 3; max-width: 60ch; text-align: center;
+      padding: 10px 12px; border-radius: 14px; background: rgba(255,255,255,.86);
+      border: 1px solid rgba(240,170,200,.30); box-shadow: 0 14px 30px rgba(0,0,0,.06);
+      color: rgba(50,20,35,.92); font-size: 14px; line-height: 1.35;
     }
 
     /* ───────────────────────────────────────────────
-       MOBILE RESPONSIVE TWEAKS
+       MOBILE RESPONSIVE
     ─────────────────────────────────────────────── */
     @media (max-width: 820px) {
       .content          { padding: 34px 18px 18px 44px; }
@@ -829,19 +466,19 @@
       <div class="book" id="book">
         <div class="book-inner">
 
-          <!-- Left / Right click zones -->
+          <!-- Navigation zones -->
           <div class="nav-zone nav-left"  id="navLeft"  title="Previous page"></div>
           <div class="nav-zone nav-right" id="navRight" title="Next page"></div>
 
-          <!-- All pages container -->
+          <!-- All pages -->
           <div class="pages" id="pages">
 
-            <!-- PAGE 1 ──────────────────────────────────────── Cover -->
+            <!-- PAGE 1: Cover -->
             <section class="page" data-index="0" style="z-index:8">
               <div class="content">
                 <div class="topline">
                   <span class="badge">Valentine’s Card</span>
-                  <span id="pageCountA">Page 1 / 8</span>
+                  <span id="pageCountA">Page 1 / 7</span>
                 </div>
 
                 <div class="cover-frame">
@@ -882,7 +519,7 @@
               </div>
             </section>
 
-            <!-- PAGE 2 ──────────────────────────────────────── Reasons -->
+            <!-- PAGE 2: 15 Reasons -->
             <section class="page" data-index="1" style="z-index:7">
               <div class="content">
                 <div class="topline">
@@ -908,7 +545,7 @@
               </div>
             </section>
 
-            <!-- PAGE 3 ──────────────────────────────────────── Scratch to Reveal -->
+            <!-- PAGE 3: Scratch -->
             <section class="page" data-index="2" style="z-index:6">
               <div class="content">
                 <div class="topline">
@@ -940,7 +577,7 @@
               </div>
             </section>
 
-            <!-- PAGE 4 ──────────────────────────────────────── Dirty Talk Jar -->
+            <!-- PAGE 4: Dirty Talk Jar -->
             <section class="page" data-index="3" style="z-index:5">
               <div class="content">
                 <div class="topline">
@@ -958,18 +595,14 @@
                     <p class="note" style="margin:0; text-align:center; max-width:none">
                       Tap for something nasty I want to whisper in your ear.
                     </p>
-                    <button class="jar-btn" id="jarBtn" type="button">
-                      Get dirty talk 🔥
-                    </button>
-                    <div class="jar-note" id="jarNote">
-                      Tap the button 💦
-                    </div>
+                    <button class="jar-btn" id="jarBtn" type="button">Get dirty talk 🔥</button>
+                    <div class="jar-note" id="jarNote">Tap the button 💦</div>
                   </div>
                 </div>
               </div>
             </section>
 
-            <!-- PAGE 5 ──────────────────────────────────────── Future Fuck Jar -->
+            <!-- PAGE 5: Future Fuck Jar -->
             <section class="page" data-index="4" style="z-index:4">
               <div class="content">
                 <div class="topline">
@@ -981,14 +614,12 @@
                   <svg width="42" height="42" viewBox="0 0 100 100" aria-hidden="true" style="flex-shrink:0;">
                     <defs>
                       <linearGradient id="jarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#ff85a8"/>
-                        <stop offset="100%" stop-color="#ff4d8d"/>
+                        <stop offset="0%" stop-color="#ff85a8" />
+                        <stop offset="100%" stop-color="#ff4d8d" />
                       </linearGradient>
                     </defs>
-                    <path d="M30 20 Q20 40 20 60 Q20 80 35 90 L65 90 Q80 80 80 60 Q80 40 70 20 Z"
-                          fill="none" stroke="url(#jarGrad)" stroke-width="6" stroke-linecap="round"/>
-                    <path d="M50 35 Q 35 20 35 35 Q35 50 50 65 Q65 50 65 35 Q65 20 50 35 Z"
-                          fill="rgba(255,77,141,0.85)" transform="scale(0.7) translate(21,8)"/>
+                    <path d="M30 20 Q20 40 20 60 Q20 80 35 90 L65 90 Q80 80 80 60 Q80 40 70 20 Z" fill="none" stroke="url(#jarGrad)" stroke-width="6" stroke-linecap="round"/>
+                    <path d="M50 35 Q 35 20 35 35 Q35 50 50 65 Q65 50 65 35 Q65 20 50 35 Z" fill="rgba(255,77,141,0.85)" transform="scale(0.7) translate(21,8)"/>
                   </svg>
                   Future Fuck Jar 🔥💕
                 </h2>
@@ -999,9 +630,7 @@
                     <p class="note" style="margin:0 0 16px; text-align:center; max-width:none">
                       Tap to pull a nasty idea I’m dying to do with you.
                     </p>
-                    <button class="jar-btn" id="dateJarBtn" type="button">
-                      Pull a Fuck ✨
-                    </button>
+                    <button class="jar-btn" id="dateJarBtn" type="button">Pull a Fuck ✨</button>
 
                     <div class="jar-note" id="dateNote" style="min-height:110px; position:relative; overflow:hidden;">
                       Tap to reveal how I’ll use you next 💦
@@ -1023,7 +652,7 @@
               </div>
             </section>
 
-            <!-- PAGE 6 ──────────────────────────────────────── Choose the Vibe -->
+            <!-- PAGE 6: Choose the Vibe -->
             <section class="page" data-index="5" style="z-index:3">
               <div class="content">
                 <div class="topline">
@@ -1048,7 +677,7 @@
               </div>
             </section>
 
-            <!-- PAGE 7 ──────────────────────────────────────── Constellation -->
+            <!-- PAGE 7: Constellation -->
             <section class="page" data-index="6" style="z-index:2">
               <div class="content">
                 <div class="topline">
@@ -1075,7 +704,7 @@
               </div>
             </section>
 
-            <!-- PAGE 8 ──────────────────────────────────────── Final Proposal -->
+            <!-- PAGE 8: Final Proposal -->
             <section class="page" data-index="7" style="z-index:1">
               <div class="content">
                 <div class="topline">
@@ -1109,131 +738,124 @@
               </div>
             </section>
 
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+          </div> <!-- .pages -->
+        </div> <!-- .book-inner -->
+      </div> <!-- .book -->
+    </div> <!-- .stage -->
+  </div> <!-- .wrap -->
 
   <!-- ───────────────────────────────────────────────
-       JAVASCRIPT ─ All logic below
+       JAVASCRIPT
   ─────────────────────────────────────────────── -->
   <script>
     // ───────────────────────────────────────────────
-    // 1. Floating background hearts
+    // 1. Background hearts
     // ───────────────────────────────────────────────
     (function createFloatingHearts() {
       const container = document.getElementById('bgHearts');
       const count = 18;
-
       for (let i = 0; i < count; i++) {
         const heart = document.createElement('div');
         heart.className = 'heart';
-
         const left   = Math.random() * 100;
         const size   = 10 + Math.random() * 16;
         const dur    = 8 + Math.random() * 10;
         const delay  = Math.random() * dur;
-
         heart.style.left           = left + 'vw';
         heart.style.bottom         = (-10 - Math.random() * 30) + 'vh';
         heart.style.width          = size + 'px';
         heart.style.height         = size + 'px';
         heart.style.animationDuration = dur + 's';
         heart.style.animationDelay    = (-delay) + 's';
-
         container.appendChild(heart);
       }
     })();
 
     // ───────────────────────────────────────────────
-    // 2. Page flip logic + swipe support
+    // 2. Page navigation system
     // ───────────────────────────────────────────────
-    const pages   = Array.from(document.querySelectorAll('.page'));
-    let current   = 0;
+    const allPages = Array.from(document.querySelectorAll('.page'));
+    let currentPageIndex = 0;
 
-    function updatePageCounters() {
-      const total = pages.length;
+    function updatePageCounter() {
+      const total = allPages.length;
       const counter = document.getElementById('pageCountA');
-      if (counter) counter.textContent = `Page ${current + 1} / ${total}`;
+      if (counter) counter.textContent = `Page ${currentPageIndex + 1} / ${total}`;
     }
 
-    function goToPage(index) {
-      index = Math.max(0, Math.min(pages.length - 1, index));
-      current = index;
+    function goToPage(targetIndex) {
+      targetIndex = Math.max(0, Math.min(allPages.length - 1, targetIndex));
+      currentPageIndex = targetIndex;
 
-      pages.forEach((page, i) => {
-        if (i < current) {
+      allPages.forEach((page, idx) => {
+        if (idx < currentPageIndex) {
           page.classList.add('flipped');
         } else {
           page.classList.remove('flipped');
         }
-        page.style.zIndex = pages.length - i;
+        page.style.zIndex = allPages.length - idx;
       });
 
-      updatePageCounters();
+      updatePageCounter();
     }
 
-    function nextPage() { goToPage(current + 1); }
-    function prevPage() { goToPage(current - 1); }
+    function goNext()  { goToPage(currentPageIndex + 1); }
+    function goPrev()  { goToPage(currentPageIndex - 1); }
 
-    document.getElementById('navRight').addEventListener('click', nextPage);
-    document.getElementById('navLeft').addEventListener('click', prevPage);
+    document.getElementById('navRight').addEventListener('click', goNext);
+    document.getElementById('navLeft').addEventListener('click', goPrev);
 
     window.addEventListener('keydown', e => {
-      if (e.key === 'ArrowRight') nextPage();
-      if (e.key === 'ArrowLeft') prevPage();
+      if (e.key === 'ArrowRight') goNext();
+      if (e.key === 'ArrowLeft') goPrev();
     });
 
-    // Touch / swipe support
-    const bookElement = document.getElementById('book');
+    // ───────────────────────────────────────────────
+    // 3. Touch / Swipe support (FIXED & IMPROVED)
+    // ───────────────────────────────────────────────
+    const book = document.getElementById('book');
     let touchStartX = 0;
     let touchStartY = 0;
-    let isTracking  = false;
 
-    bookElement.addEventListener('touchstart', e => {
-      if (!e.touches || e.touches.length !== 1) return;
-      const touch = e.touches[0];
-      touchStartX = touch.clientX;
-      touchStartY = touch.clientY;
-      isTracking = true;
+    book.addEventListener('touchstart', e => {
+      if (e.touches.length !== 1) return;
+      const t = e.touches[0];
+      touchStartX = t.clientX;
+      touchStartY = t.clientY;
     }, { passive: true });
 
-    bookElement.addEventListener('touchmove', e => {
-      if (!isTracking || !e.touches || e.touches.length !== 1) return;
-      const touch = e.touches[0];
-      const dx = touch.clientX - touchStartX;
-      const dy = touch.clientY - touchStartY;
-
-      if (Math.abs(dx) > 18 && Math.abs(dx) > Math.abs(dy) + 10) {
+    book.addEventListener('touchmove', e => {
+      if (e.touches.length !== 1) return;
+      const t = e.touches[0];
+      const dx = Math.abs(t.clientX - touchStartX);
+      const dy = Math.abs(t.clientY - touchStartY);
+      // Only prevent default if movement is mostly horizontal
+      if (dx > 20 && dx > dy) {
         e.preventDefault();
       }
     }, { passive: false });
 
-    bookElement.addEventListener('touchend', e => {
-      if (!isTracking) return;
-      isTracking = false;
+    book.addEventListener('touchend', e => {
+      if (e.changedTouches.length !== 1) return;
+      const t = e.changedTouches[0];
+      const dx = t.clientX - touchStartX;
+      const dy = t.clientY - touchStartY;
 
-      const touch = e.changedTouches?.[0];
-      if (!touch) return;
-
-      const dx = touch.clientX - touchStartX;
-      const dy = touch.clientY - touchStartY;
-
-      if (Math.abs(dy) > Math.abs(dx)) return;
-
-      if (dx < -60) nextPage();
-      else if (dx > 60) prevPage();
+      // More forgiving swipe detection
+      if (Math.abs(dy) < 100 && Math.abs(dx) > 60) {
+        if (dx < -60) goNext();
+        if (dx >  60) goPrev();
+      }
     }, { passive: true });
 
-    // Initialize
+    // Initialize to first page
     goToPage(0);
 
     // ───────────────────────────────────────────────
-    // 3. Utility functions
+    // 4. Utility helpers
     // ───────────────────────────────────────────────
-    function shuffleArray(array) {
-      const copy = array.slice();
+    function shuffle(arr) {
+      const copy = arr.slice();
       for (let i = copy.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [copy[i], copy[j]] = [copy[j], copy[i]];
@@ -1241,14 +863,14 @@
       return copy;
     }
 
-    function pickRandom(arr) {
+    function randomItem(arr) {
       return arr[Math.floor(Math.random() * arr.length)];
     }
 
     // ───────────────────────────────────────────────
-    // 4. Reasons grid population
+    // 5. Populate reasons grid
     // ───────────────────────────────────────────────
-    const reasonList = [
+    const reasonTexts = [
       "Your perfect tits bouncing while you ride me",
       "That tight little pussy gripping my dick",
       "The way your ass jiggles when I spank it",
@@ -1266,111 +888,104 @@
       "The way you scream when I make you squirt"
     ];
 
-    const reasonsContainer = document.getElementById('reasonsGrid');
-    reasonsContainer.innerHTML = "";
-    shuffleArray(reasonList).forEach((text, index) => {
-      const el = document.createElement('div');
-      el.className = 'reason';
-      el.innerHTML = `
-        <div class="dot">${index + 1}</div>
-        <span>${text}</span>
-      `;
-      reasonsContainer.appendChild(el);
+    const reasonsGrid = document.getElementById('reasonsGrid');
+    reasonsGrid.innerHTML = '';
+    shuffle(reasonTexts).forEach((text, i) => {
+      const div = document.createElement('div');
+      div.className = 'reason';
+      div.innerHTML = `<div class="dot">${i + 1}</div><span>${text}</span>`;
+      reasonsGrid.appendChild(div);
     });
 
     // ───────────────────────────────────────────────
-    // 5. Scratch-to-reveal canvas
+    // 6. Scratch card logic
     // ───────────────────────────────────────────────
-    const scratchContainer = document.getElementById('scratchArea');
-    const scratchCanvas     = document.getElementById('scratchCanvas');
-    const scratchCtx        = scratchCanvas.getContext('2d', { willReadFrequently: true });
+    const scratchArea = document.getElementById('scratchArea');
+    const scratchCanvas = document.getElementById('scratchCanvas');
+    const ctx = scratchCanvas.getContext('2d', { willReadFrequently: true });
     let isScratching = false;
 
-    function redrawScratchOverlay() {
-      const pixelRatio = Math.max(1, window.devicePixelRatio || 1);
-      scratchCtx.setTransform(1, 0, 0, 1, 0, 0);
-      scratchCtx.clearRect(0, 0, scratchCanvas.width, scratchCanvas.height);
+    function redrawCover() {
+      const dpr = Math.max(1, window.devicePixelRatio || 1);
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.clearRect(0, 0, scratchCanvas.width, scratchCanvas.height);
 
-      const gradient = scratchCtx.createLinearGradient(0, 0, scratchCanvas.width, scratchCanvas.height);
-      gradient.addColorStop(0, 'rgba(255,77,141,1)');
-      gradient.addColorStop(1, 'rgba(255,133,168,1)');
+      const grad = ctx.createLinearGradient(0, 0, scratchCanvas.width, scratchCanvas.height);
+      grad.addColorStop(0, 'rgba(255,77,141,1)');
+      grad.addColorStop(1, 'rgba(255,133,168,1)');
 
-      scratchCtx.globalCompositeOperation = 'source-over';
-      scratchCtx.fillStyle = gradient;
-      scratchCtx.fillRect(0, 0, scratchCanvas.width, scratchCanvas.height);
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, scratchCanvas.width, scratchCanvas.height);
 
-      scratchCtx.globalAlpha = 0.16;
+      ctx.globalAlpha = 0.16;
       for (let i = 0; i < 16; i++) {
-        const yPos = (i / 16) * scratchCanvas.height;
-        scratchCtx.beginPath();
-        scratchCtx.moveTo(-scratchCanvas.width * 0.2, yPos);
-        scratchCtx.lineTo(scratchCanvas.width * 1.2, yPos + 50 * pixelRatio);
-        scratchCtx.lineWidth = 3.2 * pixelRatio;
-        scratchCtx.strokeStyle = 'rgba(255,255,255,0.85)';
-        scratchCtx.stroke();
+        const y = (i / 16) * scratchCanvas.height;
+        ctx.beginPath();
+        ctx.moveTo(-scratchCanvas.width * 0.2, y);
+        ctx.lineTo(scratchCanvas.width * 1.2, y + 50 * dpr);
+        ctx.lineWidth = 3.2 * dpr;
+        ctx.strokeStyle = 'rgba(255,255,255,0.85)';
+        ctx.stroke();
       }
 
-      scratchCtx.globalAlpha = 0.14;
+      ctx.globalAlpha = 0.14;
       for (let i = 0; i < 900; i++) {
         const x = Math.random() * scratchCanvas.width;
         const y = Math.random() * scratchCanvas.height;
-        const radius = (Math.random() * 1.2 + 0.3) * pixelRatio;
-        scratchCtx.beginPath();
-        scratchCtx.arc(x, y, radius, 0, Math.PI * 2);
-        scratchCtx.fillStyle = Math.random() > 0.5 ? 'rgba(255,255,255,.75)' : 'rgba(255,255,255,.35)';
-        scratchCtx.fill();
+        const r = (Math.random() * 1.2 + 0.3) * dpr;
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, Math.PI * 2);
+        ctx.fillStyle = Math.random() > 0.5 ? 'rgba(255,255,255,.75)' : 'rgba(255,255,255,.35)';
+        ctx.fill();
       }
-
-      scratchCtx.globalAlpha = 1;
+      ctx.globalAlpha = 1;
     }
 
-    function resizeScratchCanvas() {
-      const bounds = scratchContainer.getBoundingClientRect();
-      const pixelRatio = Math.max(1, window.devicePixelRatio || 1);
-
-      scratchCanvas.width  = Math.floor(bounds.width  * pixelRatio);
-      scratchCanvas.height = Math.floor(bounds.height * pixelRatio);
-      scratchCanvas.style.width  = bounds.width  + 'px';
-      scratchCanvas.style.height = bounds.height + 'px';
-
-      redrawScratchOverlay();
+    function resizeCanvas() {
+      const rect = scratchArea.getBoundingClientRect();
+      const dpr = Math.max(1, window.devicePixelRatio || 1);
+      scratchCanvas.width = Math.floor(rect.width * dpr);
+      scratchCanvas.height = Math.floor(rect.height * dpr);
+      scratchCanvas.style.width = rect.width + 'px';
+      scratchCanvas.style.height = rect.height + 'px';
+      redrawCover();
     }
 
-    function scratch(x, y) {
-      const bounds = scratchCanvas.getBoundingClientRect();
-      const pixelRatio = Math.max(1, window.devicePixelRatio || 1);
-      const canvasX = (x - bounds.left) * pixelRatio;
-      const canvasY = (y - bounds.top)  * pixelRatio;
-
-      scratchCtx.globalCompositeOperation = 'destination-out';
-      scratchCtx.beginPath();
-      scratchCtx.arc(canvasX, canvasY, 24 * pixelRatio, 0, Math.PI * 2);
-      scratchCtx.fill();
-      scratchCtx.globalCompositeOperation = 'source-over';
+    function scratchAt(x, y) {
+      const rect = scratchCanvas.getBoundingClientRect();
+      const dpr = Math.max(1, window.devicePixelRatio || 1);
+      const cx = (x - rect.left) * dpr;
+      const cy = (y - rect.top) * dpr;
+      ctx.globalCompositeOperation = 'destination-out';
+      ctx.beginPath();
+      ctx.arc(cx, cy, 24 * dpr, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.globalCompositeOperation = 'source-over';
     }
 
     scratchCanvas.addEventListener('pointerdown', e => {
       isScratching = true;
-      if (scratchCanvas.setPointerCapture) scratchCanvas.setPointerCapture(e.pointerId);
-      scratch(e.clientX, e.clientY);
+      scratchCanvas.setPointerCapture?.(e.pointerId);
+      scratchAt(e.clientX, e.clientY);
       e.preventDefault();
     });
 
     scratchCanvas.addEventListener('pointermove', e => {
       if (!isScratching) return;
-      scratch(e.clientX, e.clientY);
+      scratchAt(e.clientX, e.clientY);
       e.preventDefault();
     });
 
-    const stopScratching = () => { isScratching = false; };
-    scratchCanvas.addEventListener('pointerup',     stopScratching);
-    scratchCanvas.addEventListener('pointercancel', stopScratching);
+    const endScratch = () => { isScratching = false; };
+    scratchCanvas.addEventListener('pointerup', endScratch);
+    scratchCanvas.addEventListener('pointercancel', endScratch);
 
-    window.addEventListener('resize', () => requestAnimationFrame(resizeScratchCanvas));
-    requestAnimationFrame(resizeScratchCanvas);
+    window.addEventListener('resize', () => requestAnimationFrame(resizeCanvas));
+    requestAnimationFrame(resizeCanvas);
 
     // ───────────────────────────────────────────────
-    // 6. Dirty Talk Jar
+    // 7. Dirty Talk Jar
     // ───────────────────────────────────────────────
     const dirtyTalks = [
       "Your pussy was made for my dick",
@@ -1395,25 +1010,21 @@
       "Cum on my dick right now"
     ];
 
-    const talkButton = document.getElementById('jarBtn');
+    const talkBtn = document.getElementById('jarBtn');
     const talkDisplay = document.getElementById('jarNote');
 
-    if (talkButton && talkDisplay) {
-      talkButton.addEventListener('click', () => {
-        talkDisplay.textContent = pickRandom(dirtyTalks);
+    if (talkBtn && talkDisplay) {
+      talkBtn.addEventListener('click', () => {
+        talkDisplay.textContent = randomItem(dirtyTalks);
         talkDisplay.animate(
-          [
-            { transform: 'scale(1)' },
-            { transform: 'scale(1.02)' },
-            { transform: 'scale(1)' }
-          ],
+          [{ transform: 'scale(1)' }, { transform: 'scale(1.02)' }, { transform: 'scale(1)' }],
           { duration: 220, easing: 'ease-out' }
         );
       });
     }
 
     // ───────────────────────────────────────────────
-    // 7. Future Fuck Jar (with copy & counter)
+    // 8. Future Fuck Jar
     // ───────────────────────────────────────────────
     const fuckIdeas = [
       "Bend you over the kitchen counter and fuck you raw",
@@ -1438,65 +1049,63 @@
       "Leave bite marks all over your body"
     ];
 
-    const fuckButton   = document.getElementById('dateJarBtn');
-    const fuckDisplay  = document.getElementById('dateNote');
-    const saveFuckBtn  = document.getElementById('saveDateBtn');
-    const fuckCounter  = document.getElementById('dateCounter');
-    const heartContainer = document.getElementById('heartBurst');
+    const fuckBtn = document.getElementById('dateJarBtn');
+    const fuckDisplay = document.getElementById('dateNote');
+    const saveFuckBtn = document.getElementById('saveDateBtn');
+    const fuckCounterEl = document.getElementById('dateCounter');
+    const heartBurstContainer = document.getElementById('heartBurst');
 
-    let remainingFucks = shuffleArray(fuckIdeas.slice());
-    let fuckCount = 0;
-    const totalFucks = fuckIdeas.length;
+    let remainingIdeas = shuffle(fuckIdeas.slice());
+    let pulled = 0;
+    const totalIdeas = fuckIdeas.length;
 
-    function updateFuckCounter() {
-      fuckCounter.textContent = `${fuckCount} / ${totalFucks} pulled`;
+    function updateCounterDisplay() {
+      fuckCounterEl.textContent = `${pulled} / ${totalIdeas} pulled`;
     }
 
-    function spawnFloatingHeart() {
-      const heart = document.createElement('div');
-      heart.className = 'heart';
+    function createHeart() {
+      const h = document.createElement('div');
+      h.className = 'heart';
       const size = 12 + Math.random() * 14;
-      const leftPos = 20 + Math.random() * 60;
-      heart.style.left = leftPos + '%';
-      heart.style.bottom = '-20px';
-      heart.style.width = size + 'px';
-      heart.style.height = size + 'px';
-      heart.style.animationDuration = (2 + Math.random() * 1.2) + 's';
-      heartContainer.appendChild(heart);
-      setTimeout(() => heart.remove(), 3500);
+      const left = 20 + Math.random() * 60;
+      h.style.left = left + '%';
+      h.style.bottom = '-20px';
+      h.style.width = size + 'px';
+      h.style.height = size + 'px';
+      h.style.animationDuration = (2 + Math.random() * 1.2) + 's';
+      heartBurstContainer.appendChild(h);
+      setTimeout(() => h.remove(), 3500);
     }
 
-    if (fuckButton && fuckDisplay) {
-      updateFuckCounter();
+    if (fuckBtn && fuckDisplay) {
+      updateCounterDisplay();
 
-      fuckButton.addEventListener('click', () => {
-        if (remainingFucks.length === 0) {
-          remainingFucks = shuffleArray(fuckIdeas.slice());
-          fuckCount = 0;
-          updateFuckCounter();
-          fuckDisplay.textContent = "All fucks discovered! Starting over... 💦";
+      fuckBtn.addEventListener('click', () => {
+        if (remainingIdeas.length === 0) {
+          remainingIdeas = shuffle(fuckIdeas.slice());
+          pulled = 0;
+          updateCounterDisplay();
+          fuckDisplay.textContent = "All ideas used! Resetting... 💦";
           saveFuckBtn.style.display = 'none';
           return;
         }
 
-        const idea = remainingFucks.pop();
-        fuckCount++;
-        updateFuckCounter();
+        const selected = remainingIdeas.pop();
+        pulled++;
+        updateCounterDisplay();
 
         fuckDisplay.style.opacity = '0';
         fuckDisplay.style.transform = 'translateY(12px)';
 
         setTimeout(() => {
-          fuckDisplay.textContent = idea;
+          fuckDisplay.textContent = selected;
           fuckDisplay.classList.add('revealed');
           fuckDisplay.style.opacity = '1';
           fuckDisplay.style.transform = 'translateY(0)';
 
-          heartContainer.style.opacity = '0.8';
-          for (let i = 0; i < 5; i++) {
-            setTimeout(spawnFloatingHeart, i * 180);
-          }
-          setTimeout(() => heartContainer.style.opacity = '0', 2200);
+          heartBurstContainer.style.opacity = '0.8';
+          for (let i = 0; i < 5; i++) setTimeout(createHeart, i * 180);
+          setTimeout(() => heartBurstContainer.style.opacity = '0', 2200);
         }, 300);
 
         saveFuckBtn.style.display = 'block';
@@ -1505,11 +1114,318 @@
       });
 
       saveFuckBtn.addEventListener('click', () => {
-        const textToCopy = fuckDisplay.textContent.trim();
-        if (textToCopy && textToCopy !== "Tap to reveal how I’ll use you next 💦") {
-          navigator.clipboard.writeText(textToCopy).then(() => {
+        const text = fuckDisplay.textContent.trim();
+        if (text && text !== "Tap to reveal how I’ll use you next 💦") {
+          navigator.clipboard.writeText(text).then(() => {
             saveFuckBtn.classList.add('copied');
             saveFuckBtn.textContent = 'Saved!';
             setTimeout(() => {
               saveFuckBtn.classList.remove('copied');
+              saveFuckBtn.textContent = 'Save this fuck 📋';
+            }, 2200);
+          }).catch(err => console.error('Copy failed:', err));
+        }
+      });
+    }
 
+    // ───────────────────────────────────────────────
+    // 9. Vibe choices
+    // ───────────────────────────────────────────────
+    const vibeOptions = [
+      ["Slow and deep", "Hard and fast"],
+      ["Gentle kisses", "Biting your neck"],
+      ["Missionary so I see your face", "Doggy so I spank your ass"],
+      ["You on top riding me", "Me pinning you down"],
+      ["Cum inside you", "Cum on your tits"],
+      ["Eat your pussy", "Make you suck me"],
+      ["Tease you for hours", "Fuck you senseless"],
+      ["In bed all night", "Quickie in public"],
+      ["Your moans quiet", "Your screams loud"]
+    ];
+
+    const vibeGridContainer = document.getElementById('vibeGrid');
+    if (vibeGridContainer) {
+      vibeGridContainer.innerHTML = '';
+      shuffle(vibeOptions).forEach(pair => {
+        const card = document.createElement('div');
+        card.className = 'vibe-card';
+        card.innerHTML = `
+          <div class="vibe-stack">
+            <button class="vibe-option" type="button">${pair[0]}</button>
+            <button class="vibe-option" type="button">${pair[1]}</button>
+          </div>
+        `;
+        const buttons = card.querySelectorAll('.vibe-option');
+        buttons.forEach(btn => {
+          btn.addEventListener('click', e => {
+            e.preventDefault();
+            e.stopPropagation();
+            buttons.forEach(b => b.classList.remove('picked', 'dim'));
+            btn.classList.add('picked');
+            buttons.forEach(b => { if (b !== btn) b.classList.add('dim'); });
+          }, { passive: false });
+        });
+        vibeGridContainer.appendChild(card);
+      });
+    }
+
+    // ───────────────────────────────────────────────
+    // 10. Constellation hearts
+    // ───────────────────────────────────────────────
+    const constellationEl = document.getElementById('constellation');
+    const tooltipEl = document.getElementById('tooltip');
+    const foundCounterEl = document.getElementById('foundPill');
+    let foundCount = 0;
+
+    const heartPositions = [
+      { x: 14, y: 14 }, { x: 38, y: 10 }, { x: 62, y: 14 },
+      { x: 22, y: 34 }, { x: 52, y: 30 }, { x: 76, y: 36 }
+    ];
+
+    const cravings = [
+      "Bend you over and take you from behind",
+      "Fuck your throat until tears run down your face",
+      "Make you squirt all over my dick",
+      "Fill your pussy and watch it drip out",
+      "Tie you up and tease you for hours",
+      "Cum all over your perfect tits"
+    ];
+
+    // Clear any existing sparks (in case of reload)
+    Array.from(constellationEl.querySelectorAll('.spark')).forEach(el => el.remove());
+
+    heartPositions.forEach((pos, index) => {
+      const spark = document.createElement('div');
+      spark.className = 'spark';
+      spark.style.left = `calc(${pos.x}% - 8px)`;
+      spark.style.top  = `calc(${pos.y}% - 8px)`;
+      spark.dataset.opened = "0";
+
+      spark.addEventListener('click', () => {
+        if (spark.dataset.opened === "0") {
+          spark.dataset.opened = "1";
+          foundCount++;
+          foundCounterEl.textContent = `${foundCount} / 6 found`;
+        }
+        tooltipEl.innerHTML = `<strong>Craving:</strong><span class="tip-text">${cravings[index]}</span>`;
+      });
+
+      constellationEl.appendChild(spark);
+    });
+
+    // ───────────────────────────────────────────────
+    // 11. Final fireworks on "yes"
+    // ───────────────────────────────────────────────
+    const yesButton = document.getElementById('yesBtn');
+    const noButton = document.getElementById('noBtn');
+    const yesMessage = document.getElementById('yesMsg');
+    const fireworksCanvas = document.getElementById('fireworks');
+    const ctxFire = fireworksCanvas.getContext('2d');
+
+    let fireworksActive = false;
+    let animationRunning = false;
+    let rockets = [];
+    let particles = [];
+    let launchInterval = null;
+
+    function randomRange(min, max) { return min + Math.random() * (max - min); }
+
+    function resizeCanvasFireworks() {
+      const rect = fireworksCanvas.getBoundingClientRect();
+      const dpr = Math.max(1, window.devicePixelRatio || 1);
+      fireworksCanvas.width = Math.floor(rect.width * dpr);
+      fireworksCanvas.height = Math.floor(rect.height * dpr);
+      ctxFire.setTransform(1, 0, 0, 1, 0, 0);
+    }
+    resizeCanvasFireworks();
+
+    function launch() {
+      const dpr = Math.max(1, window.devicePixelRatio || 1);
+      rockets.push({
+        x: randomRange(fireworksCanvas.width * 0.2, fireworksCanvas.width * 0.8),
+        y: fireworksCanvas.height,
+        vx: randomRange(-0.5, 0.5) * dpr,
+        vy: randomRange(-9, -6) * dpr,
+        ay: 0.12 * dpr,
+        explodeAt: randomRange(fireworksCanvas.height * 0.2, fireworksCanvas.height * 0.5),
+        life: 300
+      });
+    }
+
+    function burst(x, y) {
+      const dpr = Math.max(1, window.devicePixelRatio || 1);
+      const count = Math.floor(randomRange(50, 80));
+      const hue = randomRange(320, 360);
+      for (let i = 0; i < count; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const speed = randomRange(2, 5) * dpr;
+        particles.push({
+          x, y,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+          ay: 0.09 * dpr,
+          drag: 0.98,
+          life: randomRange(80, 140),
+          age: 0,
+          size: randomRange(1.5, 3) * dpr,
+          hue: hue + randomRange(-20, 20),
+          alpha: 1
+        });
+      }
+    }
+
+    function startFireworksLoop() {
+      if (launchInterval) clearInterval(launchInterval);
+      launchInterval = setInterval(() => {
+        if (!fireworksActive) return;
+        resizeCanvasFireworks();
+        const launches = Math.random() < 0.4 ? 2 : 1;
+        for (let i = 0; i < launches; i++) launch();
+      }, 900);
+    }
+
+    function animateFireworks() {
+      if (!animationRunning) return;
+
+      ctxFire.globalCompositeOperation = 'source-over';
+      ctxFire.fillStyle = 'rgba(0,0,0,0.08)';
+      ctxFire.fillRect(0, 0, fireworksCanvas.width, fireworksCanvas.height);
+
+      // Update & draw rockets
+      for (let i = rockets.length - 1; i >= 0; i--) {
+        const r = rockets[i];
+        r.vy += r.ay;
+        r.x += r.vx;
+        r.y += r.vy;
+        r.life--;
+
+        ctxFire.beginPath();
+        ctxFire.arc(r.x, r.y, 3, 0, Math.PI * 2);
+        ctxFire.fillStyle = 'rgba(255,100,180,0.9)';
+        ctxFire.fill();
+
+        if (r.y <= r.explodeAt || r.life <= 0 || r.vy > 0) {
+          burst(r.x, r.y);
+          rockets.splice(i, 1);
+        }
+      }
+
+      // Update & draw particles
+      ctxFire.globalCompositeOperation = 'lighter';
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.age++;
+        p.vx *= p.drag;
+        p.vy *= p.drag;
+        p.vy += p.ay;
+        p.x += p.vx;
+        p.y += p.vy;
+
+        const lifeLeft = 1 - (p.age / p.life);
+        p.alpha = Math.max(0, lifeLeft);
+
+        ctxFire.beginPath();
+        ctxFire.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctxFire.fillStyle = `hsla(${p.hue}, 100%, 70%, ${p.alpha})`;
+        ctxFire.fill();
+
+        if (p.age >= p.life) particles.splice(i, 1);
+      }
+
+      if (fireworksActive || rockets.length > 0 || particles.length > 0) {
+        requestAnimationFrame(animateFireworks);
+      } else {
+        animationRunning = false;
+        ctxFire.clearRect(0, 0, fireworksCanvas.width, fireworksCanvas.height);
+      }
+    }
+
+    function triggerFireworks() {
+      if (fireworksActive) return;
+      fireworksActive = true;
+      resizeCanvasFireworks();
+      launch(); launch(); // initial burst
+      if (!animationRunning) {
+        animationRunning = true;
+        requestAnimationFrame(animateFireworks);
+      }
+      startFireworksLoop();
+    }
+
+    yesButton.addEventListener('click', () => {
+      yesMessage.style.display = 'block';
+      triggerFireworks();
+      yesButton.animate(
+        [{ transform: 'scale(1)' }, { transform: 'scale(1.04)' }, { transform: 'scale(1)' }],
+        { duration: 300, easing: 'ease-out' }
+      );
+    });
+
+    // ───────────────────────────────────────────────
+    // 12. "No" button escape behavior
+    // ───────────────────────────────────────────────
+    function moveNoButtonRandomly() {
+      const container = document.getElementById('valCta');
+      const containerRect = container.getBoundingClientRect();
+      const yesRect = yesButton.getBoundingClientRect();
+      const btnWidth = noButton.offsetWidth || 130;
+      const btnHeight = noButton.offsetHeight || 40;
+
+      const safeZone = {
+        left: (yesRect.left - containerRect.left) - 30,
+        right: (yesRect.right - containerRect.left) + 30,
+        top: (yesRect.top - containerRect.top) - 30,
+        bottom: (yesRect.bottom - containerRect.top) + 30
+      };
+
+      const padding = 30;
+      const minX = padding;
+      const maxX = containerRect.width - padding - btnWidth;
+      const minY = Math.max(safeZone.bottom + 40, containerRect.height * 0.5);
+      const maxY = containerRect.height - padding - btnHeight;
+
+      let x = (containerRect.width / 2) - (btnWidth / 2);
+      let y = minY;
+
+      // Try to find a non-overlapping spot
+      for (let attempt = 0; attempt < 40; attempt++) {
+        x = minX + Math.random() * (maxX - minX);
+        y = minY + Math.random() * (maxY - minY);
+        const overlaps =
+          x < safeZone.right &&
+          x + btnWidth > safeZone.left &&
+          y < safeZone.bottom &&
+          y + btnHeight > safeZone.top;
+        if (!overlaps) break;
+      }
+
+      noButton.style.left = x + 'px';
+      noButton.style.top = y + 'px';
+      noButton.style.transform = 'translateX(0)';
+    }
+
+    noButton.addEventListener('click', e => {
+      e.preventDefault();
+      moveNoButtonRandomly();
+      noButton.animate(
+        [
+          { transform: 'translateX(0) scale(1)' },
+          { transform: 'translateX(0) scale(1.08)' },
+          { transform: 'translateX(0) scale(1)' }
+        ],
+        { duration: 240, easing: 'ease-out' }
+      );
+    });
+
+    // Initial position for "no"
+    moveNoButtonRandomly();
+
+    // Resize handling
+    window.addEventListener('resize', () => {
+      resizeCanvasFireworks();
+      moveNoButtonRandomly();
+      requestAnimationFrame(resizeCanvas);
+    });
+  </script>
+</body>
+</html>
