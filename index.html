@@ -11,9 +11,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
   <style>
-    /* ───────────────────────────────────────────────
-       ROOT VARIABLES
-    ─────────────────────────────────────────────── */
     :root {
       --bg1:     #fff0f6;
       --bg2:     #ffe3ec;
@@ -362,35 +359,57 @@
     }
 
     /* ───────────────────────────────────────────────
-       WETNESS COUNTER + CONTRACT STYLING (new)
+       NEW: WETNESS SLIDER + CONTRACT STYLING
     ─────────────────────────────────────────────── */
+    .wetness-container {
+      flex: 1; display: flex; flex-direction: column; align-items: center;
+      justify-content: center; gap: 40px; text-align: center; padding: 20px;
+    }
     .wetness-level {
-      font-size: 48px; font-weight: 900; color: var(--rose); min-height: 60px;
+      font-size: 60px; font-weight: 900; color: var(--rose); min-height: 80px;
+      text-shadow: 0 2px 10px rgba(255,77,141,0.4);
     }
     .wetness-desc {
-      font-family: 'Playfair Display', serif; font-size: 20px; color: rgba(70,25,50,.92);
-      max-width: 80%; min-height: 120px; padding: 20px; border-radius: 16px;
-      background: rgba(255,255,255,0.7); border: 1px solid rgba(255,77,141,0.3);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1); opacity: 0; transform: translateY(20px);
-      transition: all 0.4s ease;
+      font-family: 'Playfair Display', serif; font-size: 22px; color: rgba(70,25,50,.92);
+      max-width: 85%; min-height: 140px; padding: 24px; border-radius: 20px;
+      background: rgba(255,255,255,0.75); border: 2px solid rgba(255,77,141,0.35);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12); opacity: 0; transform: translateY(30px);
+      transition: all 0.5s ease;
     }
+    .wetness-slider {
+      width: 80%; max-width: 400px; height: 20px; -webkit-appearance: none;
+      background: linear-gradient(to right, #ffe3ec, #ff85a8);
+      border-radius: 10px; outline: none; opacity: 0.9; transition: opacity .2s;
+    }
+    .wetness-slider:hover { opacity: 1; }
+    .wetness-slider::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none; width: 40px; height: 40px;
+      background: var(--rose); border-radius: 50%; cursor: pointer;
+      box-shadow: 0 4px 12px rgba(255,77,141,0.5); transition: transform .2s;
+    }
+    .wetness-slider::-webkit-slider-thumb:hover { transform: scale(1.2); }
+    .wetness-slider::-moz-range-thumb {
+      width: 40px; height: 40px; background: var(--rose); border-radius: 50%;
+      cursor: pointer; box-shadow: 0 4px 12px rgba(255,77,141,0.5);
+      transition: transform .2s;
+    }
+    .wetness-slider::-moz-range-thumb:hover { transform: scale(1.2); }
 
+    .contract-container {
+      flex: 1; display: flex; flex-direction: column; align-items: center;
+      justify-content: center; gap: 24px; text-align: center; max-width: 90%; margin: 0 auto;
+      padding: 20px 0;
+    }
     .limit-item {
-      padding: 12px 20px;
-      background: rgba(255,255,255,0.7);
-      border: 1px solid rgba(255,77,141,0.3);
-      border-radius: 12px;
-      font-size: 17px;
-      color: rgba(70,25,50,0.9);
-      transition: all 0.4s ease;
-      cursor: default;
+      padding: 14px 24px; background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,77,141,0.3); border-radius: 14px;
+      font-size: 18px; color: rgba(70,25,50,0.9); transition: all 0.5s ease;
+      width: 100%; max-width: 500px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
     .limit-item.signed {
-      background: linear-gradient(135deg, rgba(255,77,141,0.25), rgba(255,133,168,0.15));
-      border-color: var(--rose);
-      text-decoration: line-through;
-      opacity: 0.7;
-      transform: scale(0.98);
+      background: linear-gradient(135deg, rgba(255,77,141,0.3), rgba(255,133,168,0.2));
+      border-color: var(--rose); text-decoration: line-through; opacity: 0.75;
+      transform: scale(0.97);
     }
 
     .valentine-cta {
@@ -439,6 +458,7 @@
       .jar-btn          { height: 52px; font-size: 15px; }
       .vibe-grid        { grid-template-columns: 1fr; }
       .vibe-card        { min-height: 112px; }
+      .wetness-slider   { width: 90%; }
     }
   </style>
 </head>
@@ -461,7 +481,7 @@
           <div class="pages" id="pages">
 
             <!-- PAGE 1: Cover -->
-            <section class="page" data-index="0" style="z-index:9">
+            <section class="page" data-index="0" style="z-index:10">
               <div class="content">
                 <div class="topline">
                   <span class="badge">Valentine’s Card</span>
@@ -507,7 +527,7 @@
             </section>
 
             <!-- PAGE 2: 15 Reasons -->
-            <section class="page" data-index="1" style="z-index:8">
+            <section class="page" data-index="1" style="z-index:9">
               <div class="content">
                 <div class="topline">
                   <span class="badge">Chapter One</span>
@@ -533,7 +553,7 @@
             </section>
 
             <!-- PAGE 3: Scratch -->
-            <section class="page" data-index="2" style="z-index:7">
+            <section class="page" data-index="2" style="z-index:8">
               <div class="content">
                 <div class="topline">
                   <span class="badge">Interactive</span>
@@ -565,7 +585,7 @@
             </section>
 
             <!-- PAGE 4: Dirty Talk Jar -->
-            <section class="page" data-index="3" style="z-index:6">
+            <section class="page" data-index="3" style="z-index:7">
               <div class="content">
                 <div class="topline">
                   <span class="badge">Interactive</span>
@@ -590,7 +610,7 @@
             </section>
 
             <!-- PAGE 5: Future Fuck Jar -->
-            <section class="page" data-index="4" style="z-index:5">
+            <section class="page" data-index="4" style="z-index:6">
               <div class="content">
                 <div class="topline">
                   <span class="badge">Interactive</span>
@@ -640,7 +660,7 @@
             </section>
 
             <!-- PAGE 6: Choose the Vibe -->
-            <section class="page" data-index="5" style="z-index:4">
+            <section class="page" data-index="5" style="z-index:5">
               <div class="content">
                 <div class="topline">
                   <span class="badge">Interactive</span>
@@ -665,7 +685,7 @@
             </section>
 
             <!-- PAGE 7: Constellation -->
-            <section class="page" data-index="6" style="z-index:3">
+            <section class="page" data-index="6" style="z-index:4">
               <div class="content">
                 <div class="topline">
                   <span class="badge">Interactive</span>
@@ -691,49 +711,38 @@
               </div>
             </section>
 
-            <!-- PAGE 8: Rate How Wet You Make Her -->
-            <section class="page" data-index="7" style="z-index:2">
+            <!-- PAGE 8: Rate How Wet You Make Her (Slider) -->
+            <section class="page" data-index="7" style="z-index:3">
               <div class="content">
                 <div class="topline">
                   <span class="badge">Interactive</span>
                   <span>How Wet You Make Her</span>
                 </div>
 
-                <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:rgba(70,25,50,.92); text-align:center; margin-bottom:20px;">
-                  Rate How Wet You Make Me
+                <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:rgba(70,25,50,.92); text-align:center; margin-bottom:30px;">
+                  How Wet Do I Make You?
                 </h2>
 
-                <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:30px; text-align:center;">
-                  <div id="wetnessLevel" style="font-size:48px; font-weight:900; color:var(--rose); min-height:60px;">
+                <div class="wetness-container scrollable">
+                  <div id="wetnessLevel" class="wetness-level">
                     Level 0
                   </div>
 
-                  <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center; max-width:500px;">
-                    <button class="jar-btn" onclick="setWetness(1)" style="width:80px; height:80px; font-size:18px;">1</button>
-                    <button class="jar-btn" onclick="setWetness(2)" style="width:80px; height:80px; font-size:18px;">2</button>
-                    <button class="jar-btn" onclick="setWetness(3)" style="width:80px; height:80px; font-size:18px;">3</button>
-                    <button class="jar-btn" onclick="setWetness(4)" style="width:80px; height:80px; font-size:18px;">4</button>
-                    <button class="jar-btn" onclick="setWetness(5)" style="width:80px; height:80px; font-size:18px;">5</button>
-                    <button class="jar-btn" onclick="setWetness(6)" style="width:80px; height:80px; font-size:18px;">6</button>
-                    <button class="jar-btn" onclick="setWetness(7)" style="width:80px; height:80px; font-size:18px;">7</button>
-                    <button class="jar-btn" onclick="setWetness(8)" style="width:80px; height:80px; font-size:18px;">8</button>
-                    <button class="jar-btn" onclick="setWetness(9)" style="width:80px; height:80px; font-size:18px;">9</button>
-                    <button class="jar-btn" onclick="setWetness(10)" style="width:80px; height:80px; font-size:18px;">10</button>
-                  </div>
+                  <input type="range" min="0" max="10" value="0" class="wetness-slider" id="wetnessSlider" oninput="updateWetness(this.value)">
 
-                  <div id="wetnessDesc" style="font-family:'Playfair Display',serif; font-size:20px; color:rgba(70,25,50,.92); max-width:80%; min-height:120px; padding:20px; border-radius:16px; background:rgba(255,255,255,0.7); border:1px solid rgba(255,77,141,0.3); box-shadow:0 10px 20px rgba(0,0,0,0.1); opacity:0; transform:translateY(20px); transition:all 0.4s ease;">
-                    Tap a number above…
+                  <div id="wetnessDesc" class="wetness-desc">
+                    Slide to tell me how soaked you are right now…
                   </div>
                 </div>
 
                 <p class="note" style="text-align:center; margin-top:auto; opacity:0.8;">
-                  Be honest, baby… how soaked are you for me right now?
+                  Be honest, baby… Daddy wants to know exactly how much you’re dripping.
                 </p>
               </div>
             </section>
 
-            <!-- PAGE 9: Safe Word + Limits Contract -->
-            <section class="page" data-index="8" style="z-index:1">
+            <!-- PAGE 9: Contract (hidden until yes is pressed) -->
+            <section class="page" data-index="8" style="z-index:2">
               <div class="content">
                 <div class="topline">
                   <span class="badge">Contract</span>
@@ -744,29 +753,29 @@
                   Will You Be My Perfect Little Slut?
                 </h2>
 
-                <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:24px; text-align:center; max-width:90%; margin:0 auto;">
+                <div class="contract-container scrollable">
                   <div style="font-size:18px; color:rgba(70,25,50,.9); line-height:1.5;">
-                    I, <strong>Lexie</strong>, agree to be used, ruined, and owned by Daddy.<br>
+                    I, <strong>Lexie</strong>, agree to be used, ruined, and owned completely by Daddy.<br>
                     I consent to:
                   </div>
 
-                  <div id="limitsList" style="width:100%; display:flex; flex-direction:column; gap:12px;">
-                    <div class="limit-item" data-limit="1">Being called a filthy slut</div>
-                    <div class="limit-item" data-limit="2">Rough choking & hair pulling</div>
-                    <div class="limit-item" data-limit="3">Spanking until my ass is red</div>
-                    <div class="limit-item" data-limit="4">Being fucked in every hole</div>
-                    <div class="limit-item" data-limit="5">Creampies with no pulling out</div>
+                  <div id="limitsList" style="width:100%; display:flex; flex-direction:column; gap:14px; margin:20px 0;">
+                    <div class="limit-item" data-limit="1">Being called a filthy cum-hungry slut</div>
+                    <div class="limit-item" data-limit="2">Rough choking & hair pulling while fucked</div>
+                    <div class="limit-item" data-limit="3">Spanking until my ass is bright red</div>
+                    <div class="limit-item" data-limit="4">Being fucked in every hole, no mercy</div>
+                    <div class="limit-item" data-limit="5">Creampies deep inside with no pulling out</div>
                     <div class="limit-item" data-limit="6">Begging for permission to cum</div>
-                    <div class="limit-item" data-limit="7">Swallowing every drop</div>
-                    <div class="limit-item" data-limit="8">Being tied up & used</div>
+                    <div class="limit-item" data-limit="7">Swallowing every last drop like a good girl</div>
+                    <div class="limit-item" data-limit="8">Being tied up, blindfolded & used however Daddy wants</div>
                   </div>
 
-                  <button id="signBtn" class="jar-btn" type="button" style="width:280px; height:70px; font-size:24px; margin-top:20px;">
+                  <button id="signBtn" class="jar-btn" type="button" style="width:280px; height:70px; font-size:24px;">
                     I Sign & Submit 💦
                   </button>
 
-                  <div id="signedMessage" style="font-family:'Playfair Display',serif; font-size:24px; color:var(--rose); margin-top:20px; opacity:0; transform:scale(0.8); transition:all 0.6s ease;">
-                    Good girl… contract sealed.
+                  <div id="signedMessage" style="font-family:'Playfair Display',serif; font-size:28px; color:var(--rose); margin-top:30px; opacity:0; transform:scale(0.8); transition:all 0.6s ease;">
+                    Good girl… contract sealed. You're mine now.
                   </div>
                 </div>
 
@@ -776,8 +785,8 @@
               </div>
             </section>
 
-            <!-- PAGE 10: Final Proposal -->
-            <section class="page" data-index="9" style="z-index:0">
+            <!-- PAGE 10: Final Proposal (yes/no page) -->
+            <section class="page" data-index="9" style="z-index:1">
               <div class="content">
                 <div class="topline">
                   <span class="badge">Final Page</span>
@@ -1242,18 +1251,16 @@
     });
 
     // ───────────────────────────────────────────────
-    // NEW: Wetness Counter
+    // Wetness Slider
     // ───────────────────────────────────────────────
-    function setWetness(level) {
+    function updateWetness(value) {
       const levelEl = document.getElementById('wetnessLevel');
       const descEl = document.getElementById('wetnessDesc');
 
-      if (!levelEl || !descEl) return;
-
-      levelEl.textContent = `Level ${level}`;
+      levelEl.textContent = `Level ${value}`;
 
       const descriptions = [
-        "",
+        "Tap or slide to tell me…",
         "Just a little tingle… cute.",
         "Getting warm down there, huh?",
         "My voice alone is doing this to you?",
@@ -1266,7 +1273,7 @@
         "Completely drenched. Ready to be ruined."
       ];
 
-      descEl.textContent = descriptions[level] || "Choose how wet I make you…";
+      descEl.textContent = descriptions[value];
       descEl.style.opacity = '1';
       descEl.style.transform = 'translateY(0)';
 
@@ -1277,7 +1284,7 @@
     }
 
     // ───────────────────────────────────────────────
-    // NEW: Contract Signing
+    // Contract Signing
     // ───────────────────────────────────────────────
     const signBtn = document.getElementById('signBtn');
     const signedMessage = document.getElementById('signedMessage');
@@ -1307,7 +1314,7 @@
     }
 
     // ───────────────────────────────────────────────
-    // Final fireworks
+    // Final Proposal + Show Contract on Yes
     // ───────────────────────────────────────────────
     const yesBtn = document.getElementById('yesBtn');
     const noBtn = document.getElementById('noBtn');
@@ -1414,97 +1421,4 @@
         fwCtx.fill();
         fwCtx.beginPath();
         fwCtx.moveTo(r.x, r.y);
-        fwCtx.lineTo(r.x - r.vx * 2.2, r.y - r.vy * 2.2);
-        fwCtx.strokeStyle = 'rgba(255,133,168,0.55)';
-        fwCtx.lineWidth = 2;
-        fwCtx.stroke();
-        if (r.y <= r.explodeY || r.vy > -1.6 || r.life <= 0) {
-          explode(r.x, r.y);
-          rockets.splice(i, 1);
-        }
-      }
-
-      fwCtx.globalCompositeOperation = 'lighter';
-      for (let i = sparks.length - 1; i >= 0; i--) {
-        const p = sparks[i];
-        p.age++;
-        p.vx *= p.drag;
-        p.vy *= p.drag;
-        p.vy += p.ay;
-        p.x += p.vx;
-        p.y += p.vy;
-        const t = 1 - (p.age / p.life);
-        p.alpha = Math.max(0, t);
-        fwCtx.beginPath();
-        fwCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        fwCtx.fillStyle = `hsla(${p.hue},95%,72%,${p.alpha})`;
-        fwCtx.fill();
-        if (p.age >= p.life) sparks.splice(i, 1);
-      }
-
-      fwCtx.globalCompositeOperation = 'source-over';
-
-      if (!fireworksOn && rockets.length === 0 && sparks.length === 0) {
-        animating = false;
-        fwCtx.clearRect(0, 0, fwCanvas.width, fwCanvas.height);
-        return;
-      }
-
-      requestAnimationFrame(animateFireworks);
-    }
-
-    yesBtn.addEventListener('click', () => {
-      yesMsg.style.display = 'block';
-      startFireworks();
-      yesBtn.animate([{transform:'scale(1)'},{transform:'scale(1.02)'},{transform:'scale(1)'}],{duration:240,easing:'ease-out'});
-    });
-
-    function placeNoSafely(randomize) {
-      const cta = document.getElementById('valCta');
-      const ctaRect = cta.getBoundingClientRect();
-      const yesRect = yesBtn.getBoundingClientRect();
-      const btnW = noBtn.offsetWidth || 130;
-      const btnH = noBtn.offsetHeight || 40;
-      const noGo = {
-        left: (yesRect.left - ctaRect.left) - 18,
-        right: (yesRect.right - ctaRect.left) + 18,
-        top: (yesRect.top - ctaRect.top) - 18,
-        bottom: (yesRect.bottom - ctaRect.top) + 18
-      };
-      const padL = 22, padR = 22, padB = 16;
-      const minX = padL;
-      const maxX = ctaRect.width - padR - btnW;
-      const minY = Math.max(noGo.bottom + 24, ctaRect.height * 0.66);
-      const maxY = ctaRect.height - padB - btnH;
-      const safeMinY = Math.min(minY, maxY);
-      let x = (ctaRect.width / 2) - (btnW / 2);
-      let y = Math.max(safeMinY, ctaRect.height * 0.78);
-      if (randomize) {
-        for (let tries = 0; tries < 50; tries++) {
-          x = minX + Math.random() * Math.max(8, (maxX - minX));
-          y = safeMinY + Math.random() * Math.max(8, (maxY - safeMinY));
-          const intersects = x < noGo.right && x + btnW > noGo.left && y < noGo.bottom && y + btnH > noGo.top;
-          if (!intersects) break;
-        }
-      }
-      noBtn.style.left = x + "px";
-      noBtn.style.top = y + "px";
-      noBtn.style.transform = "translateX(0)";
-    }
-
-    placeNoSafely(false);
-
-    noBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      placeNoSafely(true);
-      noBtn.animate([{transform:'translateX(0) scale(1)'},{transform:'translateX(0) scale(1.06)'},{transform:'translateX(0) scale(1)'}],{duration:240,easing:'ease-out'});
-    });
-
-    window.addEventListener('resize', () => {
-      resizeFireworks();
-      placeNoSafely(false);
-      requestAnimationFrame(resizeScratch);
-    });
-  </script>
-</body>
-</html>
+        fwCtx
