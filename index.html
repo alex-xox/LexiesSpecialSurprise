@@ -28,9 +28,6 @@
       --radius:  22px;
     }
 
-    /* ───────────────────────────────────────────────
-       GLOBAL RESET & BODY
-    ─────────────────────────────────────────────── */
     * { box-sizing: border-box; }
     html, body { height: 100%; margin: 0; }
     body {
@@ -43,9 +40,6 @@
       overflow: hidden;
     }
 
-    /* ───────────────────────────────────────────────
-       BACKGROUND FLOATING HEARTS
-    ─────────────────────────────────────────────── */
     .bg-hearts {
       position: fixed; inset: 0; pointer-events: none; overflow: hidden;
       filter: drop-shadow(0 8px 12px rgba(0,0,0,.06)); opacity: .55;
@@ -67,9 +61,6 @@
       to   { transform: translateY(-120vh) rotate(45deg); opacity: 0; }
     }
 
-    /* ───────────────────────────────────────────────
-       MAIN LAYOUT & BOOK
-    ─────────────────────────────────────────────── */
     .wrap { height: 100%; display: flex; align-items: center; justify-content: center; padding: 20px; }
     .stage { width: min(980px, 96vw); height: min(660px, 86vh); position: relative; perspective: 1400px; }
 
@@ -97,9 +88,6 @@
       overflow: hidden; box-shadow: inset 0 0 0 1px rgba(240,170,200,.25);
     }
 
-    /* ───────────────────────────────────────────────
-       NAVIGATION ZONES
-    ─────────────────────────────────────────────── */
     .nav-zone {
       position: absolute; top: 0; bottom: 0; width: 18%; z-index: 80;
       cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent;
@@ -113,9 +101,6 @@
     .nav-right::after { background: linear-gradient(270deg, rgba(255,77,141,.18), transparent); }
     .nav-zone:hover::after { opacity: 1; }
 
-    /* ───────────────────────────────────────────────
-       PAGE STACK & FLIP ANIMATION
-    ─────────────────────────────────────────────── */
     .pages { position: absolute; inset: 0; border-radius: calc(var(--radius) - 8px); }
     .page {
       position: absolute; inset: 0; border-radius: calc(var(--radius) - 8px);
@@ -135,9 +120,6 @@
       flex: 1; touch-action: pan-y;
     }
 
-    /* ───────────────────────────────────────────────
-       COMMON UI ELEMENTS
-    ─────────────────────────────────────────────── */
     .topline {
       display: flex; align-items: center; justify-content: space-between; gap: 12px;
       color: var(--muted); font-size: 12px; letter-spacing: .08em; text-transform: uppercase;
@@ -170,9 +152,6 @@
       margin: 8px 0;
     }
 
-    /* ───────────────────────────────────────────────
-       COVER PAGE STYLING
-    ─────────────────────────────────────────────── */
     .cover-frame {
       position: relative; flex: 1; border-radius: 18px;
       background:
@@ -223,9 +202,6 @@
       color: rgba(60,25,45,.76); max-width: 52ch; line-height: 1.55;
     }
 
-    /* ───────────────────────────────────────────────
-       REASONS GRID
-    ─────────────────────────────────────────────── */
     .reasons {
       display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 10px 14px; margin-top: 10px;
@@ -251,9 +227,6 @@
     }
     .secrets .line { margin: 4px 0; }
 
-    /* ───────────────────────────────────────────────
-       SCRATCH CARD
-    ─────────────────────────────────────────────── */
     .scratch-wrap {
       display: grid; grid-template-columns: 1fr; gap: 16px; align-items: stretch; margin-top: 8px;
     }
@@ -284,9 +257,6 @@
       border-radius: 14px; touch-action: none;
     }
 
-    /* ───────────────────────────────────────────────
-       JAR PAGES
-    ─────────────────────────────────────────────── */
     .jar-page { display: flex; flex-direction: column; gap: 14px; flex: 1; }
     .mini-panel {
       border-radius: 18px; background: rgba(255,255,255,.62);
@@ -315,9 +285,6 @@
     }
     .jar-note.revealed { opacity: 1; transform: translateY(0); }
 
-    /* ───────────────────────────────────────────────
-       VIBE GRID
-    ─────────────────────────────────────────────── */
     .vibe-wrap { flex: 1; display: flex; flex-direction: column; gap: 12px; min-height: 0; }
     .vibe-grid {
       display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -351,9 +318,6 @@
     }
     .vibe-option.dim { opacity: .55; filter: saturate(.85); }
 
-    /* ───────────────────────────────────────────────
-       CONSTELLATION
-    ─────────────────────────────────────────────── */
     .constellation {
       position: relative; border-radius: 18px;
       background:
@@ -398,8 +362,37 @@
     }
 
     /* ───────────────────────────────────────────────
-       FINAL PAGE (PROPOSAL)
+       WETNESS COUNTER + CONTRACT STYLING (new)
     ─────────────────────────────────────────────── */
+    .wetness-level {
+      font-size: 48px; font-weight: 900; color: var(--rose); min-height: 60px;
+    }
+    .wetness-desc {
+      font-family: 'Playfair Display', serif; font-size: 20px; color: rgba(70,25,50,.92);
+      max-width: 80%; min-height: 120px; padding: 20px; border-radius: 16px;
+      background: rgba(255,255,255,0.7); border: 1px solid rgba(255,77,141,0.3);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1); opacity: 0; transform: translateY(20px);
+      transition: all 0.4s ease;
+    }
+
+    .limit-item {
+      padding: 12px 20px;
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,77,141,0.3);
+      border-radius: 12px;
+      font-size: 17px;
+      color: rgba(70,25,50,0.9);
+      transition: all 0.4s ease;
+      cursor: default;
+    }
+    .limit-item.signed {
+      background: linear-gradient(135deg, rgba(255,77,141,0.25), rgba(255,133,168,0.15));
+      border-color: var(--rose);
+      text-decoration: line-through;
+      opacity: 0.7;
+      transform: scale(0.98);
+    }
+
     .valentine-cta {
       flex: 1; display: flex; flex-direction: column; align-items: center;
       justify-content: center; gap: 14px; position: relative; overflow: hidden;
@@ -433,9 +426,6 @@
       color: rgba(50,20,35,.92); font-size: 14px; line-height: 1.35;
     }
 
-    /* ───────────────────────────────────────────────
-       MOBILE RESPONSIVE
-    ─────────────────────────────────────────────── */
     @media (max-width: 820px) {
       .content          { padding: 34px 18px 18px 44px; }
       .reasons          { grid-template-columns: 1fr; }
@@ -454,25 +444,28 @@
 </head>
 <body>
 
-  <!-- Floating hearts background -->
   <div class="bg-hearts" id="bgHearts" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <div class="stage">
+      <div class="hint">
+        Swipe <kbd>←</kbd> / <kbd>→</kbd> on mobile • click edges on desktop • arrows work too
+      </div>
 
       <div class="book" id="book">
         <div class="book-inner">
 
-          <!-- Navigation zones -->
-          <div class="nav-zone nav-left"  id="navLeft"  title="Previous page"></div>
+          <div class="nav-zone nav-left" id="navLeft" title="Previous page"></div>
           <div class="nav-zone nav-right" id="navRight" title="Next page"></div>
 
-          <!-- All pages -->
           <div class="pages" id="pages">
 
             <!-- PAGE 1: Cover -->
-            <section class="page" data-index="0" style="z-index:8">
+            <section class="page" data-index="0" style="z-index:9">
               <div class="content">
                 <div class="topline">
                   <span class="badge">Valentine’s Card</span>
-                  <span id="pageCountA">Page 1 / 7</span>
+                  <span id="pageCountA">Page 1 / 9</span>
                 </div>
 
                 <div class="cover-frame">
@@ -514,7 +507,7 @@
             </section>
 
             <!-- PAGE 2: 15 Reasons -->
-            <section class="page" data-index="1" style="z-index:7">
+            <section class="page" data-index="1" style="z-index:8">
               <div class="content">
                 <div class="topline">
                   <span class="badge">Chapter One</span>
@@ -529,8 +522,18 @@
                   <p class="note" style="margin-top:0">I could list way more than 15...</p>
                   <div class="reasons" id="reasonsGrid"></div>
 
+                  <div class="secrets" aria-hidden="true">
+                    <div class="line">Your perfect tits</div>
+                    <div class="line">Your pretty little pussy</div>
+                    <div class="line">Your fat ass</div>
+                    <div class="line">How you'll do anything to please me</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
             <!-- PAGE 3: Scratch -->
-            <section class="page" data-index="2" style="z-index:6">
+            <section class="page" data-index="2" style="z-index:7">
               <div class="content">
                 <div class="topline">
                   <span class="badge">Interactive</span>
@@ -562,7 +565,7 @@
             </section>
 
             <!-- PAGE 4: Dirty Talk Jar -->
-            <section class="page" data-index="3" style="z-index:5">
+            <section class="page" data-index="3" style="z-index:6">
               <div class="content">
                 <div class="topline">
                   <span class="badge">Interactive</span>
@@ -587,7 +590,7 @@
             </section>
 
             <!-- PAGE 5: Future Fuck Jar -->
-            <section class="page" data-index="4" style="z-index:4">
+            <section class="page" data-index="4" style="z-index:5">
               <div class="content">
                 <div class="topline">
                   <span class="badge">Interactive</span>
@@ -637,7 +640,7 @@
             </section>
 
             <!-- PAGE 6: Choose the Vibe -->
-            <section class="page" data-index="5" style="z-index:3">
+            <section class="page" data-index="5" style="z-index:4">
               <div class="content">
                 <div class="topline">
                   <span class="badge">Interactive</span>
@@ -662,7 +665,7 @@
             </section>
 
             <!-- PAGE 7: Constellation -->
-            <section class="page" data-index="6" style="z-index:2">
+            <section class="page" data-index="6" style="z-index:3">
               <div class="content">
                 <div class="topline">
                   <span class="badge">Interactive</span>
@@ -688,8 +691,93 @@
               </div>
             </section>
 
-            <!-- PAGE 8: Final Proposal -->
-            <section class="page" data-index="7" style="z-index:1">
+            <!-- PAGE 8: Rate How Wet You Make Her -->
+            <section class="page" data-index="7" style="z-index:2">
+              <div class="content">
+                <div class="topline">
+                  <span class="badge">Interactive</span>
+                  <span>How Wet You Make Her</span>
+                </div>
+
+                <h2 style="font-family:'Playfair Display',serif; font-size:28px; color:rgba(70,25,50,.92); text-align:center; margin-bottom:20px;">
+                  Rate How Wet You Make Me
+                </h2>
+
+                <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:30px; text-align:center;">
+                  <div id="wetnessLevel" style="font-size:48px; font-weight:900; color:var(--rose); min-height:60px;">
+                    Level 0
+                  </div>
+
+                  <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center; max-width:500px;">
+                    <button class="jar-btn" onclick="setWetness(1)" style="width:80px; height:80px; font-size:18px;">1</button>
+                    <button class="jar-btn" onclick="setWetness(2)" style="width:80px; height:80px; font-size:18px;">2</button>
+                    <button class="jar-btn" onclick="setWetness(3)" style="width:80px; height:80px; font-size:18px;">3</button>
+                    <button class="jar-btn" onclick="setWetness(4)" style="width:80px; height:80px; font-size:18px;">4</button>
+                    <button class="jar-btn" onclick="setWetness(5)" style="width:80px; height:80px; font-size:18px;">5</button>
+                    <button class="jar-btn" onclick="setWetness(6)" style="width:80px; height:80px; font-size:18px;">6</button>
+                    <button class="jar-btn" onclick="setWetness(7)" style="width:80px; height:80px; font-size:18px;">7</button>
+                    <button class="jar-btn" onclick="setWetness(8)" style="width:80px; height:80px; font-size:18px;">8</button>
+                    <button class="jar-btn" onclick="setWetness(9)" style="width:80px; height:80px; font-size:18px;">9</button>
+                    <button class="jar-btn" onclick="setWetness(10)" style="width:80px; height:80px; font-size:18px;">10</button>
+                  </div>
+
+                  <div id="wetnessDesc" style="font-family:'Playfair Display',serif; font-size:20px; color:rgba(70,25,50,.92); max-width:80%; min-height:120px; padding:20px; border-radius:16px; background:rgba(255,255,255,0.7); border:1px solid rgba(255,77,141,0.3); box-shadow:0 10px 20px rgba(0,0,0,0.1); opacity:0; transform:translateY(20px); transition:all 0.4s ease;">
+                    Tap a number above…
+                  </div>
+                </div>
+
+                <p class="note" style="text-align:center; margin-top:auto; opacity:0.8;">
+                  Be honest, baby… how soaked are you for me right now?
+                </p>
+              </div>
+            </section>
+
+            <!-- PAGE 9: Safe Word + Limits Contract -->
+            <section class="page" data-index="8" style="z-index:1">
+              <div class="content">
+                <div class="topline">
+                  <span class="badge">Contract</span>
+                  <span>Our Dirty Agreement</span>
+                </div>
+
+                <h2 style="font-family:'Playfair Display',serif; font-size:32px; color:rgba(70,25,50,.92); text-align:center; margin:0 0 20px;">
+                  Will You Be My Perfect Little Slut?
+                </h2>
+
+                <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:24px; text-align:center; max-width:90%; margin:0 auto;">
+                  <div style="font-size:18px; color:rgba(70,25,50,.9); line-height:1.5;">
+                    I, <strong>Lexie</strong>, agree to be used, ruined, and owned by Daddy.<br>
+                    I consent to:
+                  </div>
+
+                  <div id="limitsList" style="width:100%; display:flex; flex-direction:column; gap:12px;">
+                    <div class="limit-item" data-limit="1">Being called a filthy slut</div>
+                    <div class="limit-item" data-limit="2">Rough choking & hair pulling</div>
+                    <div class="limit-item" data-limit="3">Spanking until my ass is red</div>
+                    <div class="limit-item" data-limit="4">Being fucked in every hole</div>
+                    <div class="limit-item" data-limit="5">Creampies with no pulling out</div>
+                    <div class="limit-item" data-limit="6">Begging for permission to cum</div>
+                    <div class="limit-item" data-limit="7">Swallowing every drop</div>
+                    <div class="limit-item" data-limit="8">Being tied up & used</div>
+                  </div>
+
+                  <button id="signBtn" class="jar-btn" type="button" style="width:280px; height:70px; font-size:24px; margin-top:20px;">
+                    I Sign & Submit 💦
+                  </button>
+
+                  <div id="signedMessage" style="font-family:'Playfair Display',serif; font-size:24px; color:var(--rose); margin-top:20px; opacity:0; transform:scale(0.8); transition:all 0.6s ease;">
+                    Good girl… contract sealed.
+                  </div>
+                </div>
+
+                <p class="note" style="text-align:center; margin-top:auto; opacity:0.8;">
+                  Safe word: "Red" — but we both know you won't need it…
+                </p>
+              </div>
+            </section>
+
+            <!-- PAGE 10: Final Proposal -->
+            <section class="page" data-index="9" style="z-index:0">
               <div class="content">
                 <div class="topline">
                   <span class="badge">Final Page</span>
@@ -722,18 +810,15 @@
               </div>
             </section>
 
-          </div> <!-- .pages -->
-        </div> <!-- .book-inner -->
-      </div> <!-- .book -->
-    </div> <!-- .stage -->
-  </div> <!-- .wrap -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <!-- ───────────────────────────────────────────────
-       JAVASCRIPT
-  ─────────────────────────────────────────────── -->
   <script>
     // ───────────────────────────────────────────────
-    // 1. Background hearts
+    // Background hearts
     // ───────────────────────────────────────────────
     (function createFloatingHearts() {
       const container = document.getElementById('bgHearts');
@@ -756,105 +841,89 @@
     })();
 
     // ───────────────────────────────────────────────
-    // 2. Page navigation system
+    // Page navigation
     // ───────────────────────────────────────────────
-    const allPages = Array.from(document.querySelectorAll('.page'));
-    let currentPageIndex = 0;
+    const pages = Array.from(document.querySelectorAll('.page'));
+    let current = 0;
 
-    function updatePageCounter() {
-      const total = allPages.length;
-      const counter = document.getElementById('pageCountA');
-      if (counter) counter.textContent = `Page ${currentPageIndex + 1} / ${total}`;
+    function updatePageCounters() {
+      const total = pages.length;
+      const el = document.getElementById('pageCountA');
+      if (el) el.textContent = `Page ${current + 1} / ${total}`;
     }
 
-    function goToPage(targetIndex) {
-      targetIndex = Math.max(0, Math.min(allPages.length - 1, targetIndex));
-      currentPageIndex = targetIndex;
-
-      allPages.forEach((page, idx) => {
-        if (idx < currentPageIndex) {
-          page.classList.add('flipped');
-        } else {
-          page.classList.remove('flipped');
-        }
-        page.style.zIndex = allPages.length - idx;
-      });
-
-      updatePageCounter();
+    function goTo(idx) {
+      idx = Math.max(0, Math.min(pages.length - 1, idx));
+      current = idx;
+      pages.forEach((p, i) => (i < current) ? p.classList.add('flipped') : p.classList.remove('flipped'));
+      pages.forEach((p, i) => p.style.zIndex = pages.length - i);
+      updatePageCounters();
     }
 
-    function goNext()  { goToPage(currentPageIndex + 1); }
-    function goPrev()  { goToPage(currentPageIndex - 1); }
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
 
-    document.getElementById('navRight').addEventListener('click', goNext);
-    document.getElementById('navLeft').addEventListener('click', goPrev);
+    document.getElementById('navRight').addEventListener('click', next);
+    document.getElementById('navLeft').addEventListener('click', prev);
 
-    window.addEventListener('keydown', e => {
-      if (e.key === 'ArrowRight') goNext();
-      if (e.key === 'ArrowLeft') goPrev();
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') next();
+      if (e.key === 'ArrowLeft') prev();
     });
 
-    // ───────────────────────────────────────────────
-    // 3. Touch / Swipe support (FIXED & IMPROVED)
-    // ───────────────────────────────────────────────
     const book = document.getElementById('book');
-    let touchStartX = 0;
-    let touchStartY = 0;
+    let touchStartX = 0, touchStartY = 0, tracking = false;
 
-    book.addEventListener('touchstart', e => {
-      if (e.touches.length !== 1) return;
+    book.addEventListener('touchstart', (e) => {
+      if (!e.touches || e.touches.length !== 1) return;
       const t = e.touches[0];
       touchStartX = t.clientX;
       touchStartY = t.clientY;
+      tracking = true;
     }, { passive: true });
 
-    book.addEventListener('touchmove', e => {
-      if (e.touches.length !== 1) return;
+    book.addEventListener('touchmove', (e) => {
+      if (!tracking || !e.touches || e.touches.length !== 1) return;
       const t = e.touches[0];
-      const dx = Math.abs(t.clientX - touchStartX);
-      const dy = Math.abs(t.clientY - touchStartY);
-      // Only prevent default if movement is mostly horizontal
-      if (dx > 20 && dx > dy) {
-        e.preventDefault();
-      }
-    }, { passive: false });
-
-    book.addEventListener('touchend', e => {
-      if (e.changedTouches.length !== 1) return;
-      const t = e.changedTouches[0];
       const dx = t.clientX - touchStartX;
       const dy = t.clientY - touchStartY;
+      if (Math.abs(dx) > 18 && Math.abs(dx) > Math.abs(dy) + 10) e.preventDefault();
+    }, { passive: false });
 
-      // More forgiving swipe detection
-      if (Math.abs(dy) < 100 && Math.abs(dx) > 60) {
-        if (dx < -60) goNext();
-        if (dx >  60) goPrev();
-      }
+    book.addEventListener('touchend', (e) => {
+      if (!tracking) return;
+      tracking = false;
+      const t = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0] : null;
+      if (!t) return;
+      const dx = t.clientX - touchStartX;
+      const dy = t.clientY - touchStartY;
+      if (Math.abs(dy) > Math.abs(dx)) return;
+      if (dx < -60) next();
+      else if (dx > 60) prev();
     }, { passive: true });
 
-    // Initialize to first page
-    goToPage(0);
+    goTo(0);
 
     // ───────────────────────────────────────────────
-    // 4. Utility helpers
+    // Helpers
     // ───────────────────────────────────────────────
     function shuffle(arr) {
-      const copy = arr.slice();
-      for (let i = copy.length - 1; i > 0; i--) {
+      const a = arr.slice();
+      for (let i = a.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [copy[i], copy[j]] = [copy[j], copy[i]];
+        [a[i], a[j]] = [a[j], a[i]];
       }
-      return copy;
+      return a;
     }
 
-    function randomItem(arr) {
-      return arr[Math.floor(Math.random() * arr.length)];
+    function randomFrom(a) {
+      return a[Math.floor(Math.random() * a.length)];
     }
 
     // ───────────────────────────────────────────────
-    // 5. Populate reasons grid
+    // Reasons
     // ───────────────────────────────────────────────
-    const reasonTexts = [
+    const reasons = [
       "Your perfect tits bouncing while you ride me",
       "That tight little pussy gripping my dick",
       "The way your ass jiggles when I spank it",
@@ -871,107 +940,102 @@
       "How obedient you are in bed",
       "The way you scream when I make you squirt"
     ];
-
     const reasonsGrid = document.getElementById('reasonsGrid');
-    reasonsGrid.innerHTML = '';
-    shuffle(reasonTexts).forEach((text, i) => {
-      const div = document.createElement('div');
-      div.className = 'reason';
-      div.innerHTML = `<div class="dot">${i + 1}</div><span>${text}</span>`;
-      reasonsGrid.appendChild(div);
+    reasonsGrid.innerHTML = "";
+    shuffle(reasons).forEach((text, idx) => {
+      const item = document.createElement('div');
+      item.className = 'reason';
+      item.innerHTML = `<div class="dot">${idx+1}</div><span>${text}</span>`;
+      reasonsGrid.appendChild(item);
     });
 
     // ───────────────────────────────────────────────
-    // 6. Scratch card logic
+    // Scratch card
     // ───────────────────────────────────────────────
     const scratchArea = document.getElementById('scratchArea');
-    const scratchCanvas = document.getElementById('scratchCanvas');
-    const ctx = scratchCanvas.getContext('2d', { willReadFrequently: true });
-    let isScratching = false;
+    const canvas = document.getElementById('scratchCanvas');
+    const ctx = canvas.getContext('2d', { willReadFrequently: true });
+    let isDrawing = false;
 
-    function redrawCover() {
+    function drawScratchCover() {
       const dpr = Math.max(1, window.devicePixelRatio || 1);
       ctx.setTransform(1, 0, 0, 1, 0, 0);
-      ctx.clearRect(0, 0, scratchCanvas.width, scratchCanvas.height);
-
-      const grad = ctx.createLinearGradient(0, 0, scratchCanvas.width, scratchCanvas.height);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
       grad.addColorStop(0, 'rgba(255,77,141,1)');
       grad.addColorStop(1, 'rgba(255,133,168,1)');
-
       ctx.globalCompositeOperation = 'source-over';
       ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, scratchCanvas.width, scratchCanvas.height);
-
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
       ctx.globalAlpha = 0.16;
       for (let i = 0; i < 16; i++) {
-        const y = (i / 16) * scratchCanvas.height;
+        const y = (i / 16) * canvas.height;
         ctx.beginPath();
-        ctx.moveTo(-scratchCanvas.width * 0.2, y);
-        ctx.lineTo(scratchCanvas.width * 1.2, y + 50 * dpr);
+        ctx.moveTo(-canvas.width * 0.2, y);
+        ctx.lineTo(canvas.width * 1.2, y + 50 * dpr);
         ctx.lineWidth = 3.2 * dpr;
         ctx.strokeStyle = 'rgba(255,255,255,0.85)';
         ctx.stroke();
       }
-
       ctx.globalAlpha = 0.14;
       for (let i = 0; i < 900; i++) {
-        const x = Math.random() * scratchCanvas.width;
-        const y = Math.random() * scratchCanvas.height;
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
         const r = (Math.random() * 1.2 + 0.3) * dpr;
         ctx.beginPath();
         ctx.arc(x, y, r, 0, Math.PI * 2);
-        ctx.fillStyle = Math.random() > 0.5 ? 'rgba(255,255,255,.75)' : 'rgba(255,255,255,.35)';
+        ctx.fillStyle = (Math.random() > 0.5) ? 'rgba(255,255,255,.75)' : 'rgba(255,255,255,.35)';
         ctx.fill();
       }
       ctx.globalAlpha = 1;
     }
 
-    function resizeCanvas() {
+    function resizeScratch() {
       const rect = scratchArea.getBoundingClientRect();
       const dpr = Math.max(1, window.devicePixelRatio || 1);
-      scratchCanvas.width = Math.floor(rect.width * dpr);
-      scratchCanvas.height = Math.floor(rect.height * dpr);
-      scratchCanvas.style.width = rect.width + 'px';
-      scratchCanvas.style.height = rect.height + 'px';
-      redrawCover();
+      canvas.width = Math.floor(rect.width * dpr);
+      canvas.height = Math.floor(rect.height * dpr);
+      canvas.style.width = rect.width + "px";
+      canvas.style.height = rect.height + "px";
+      drawScratchCover();
     }
 
-    function scratchAt(x, y) {
-      const rect = scratchCanvas.getBoundingClientRect();
+    function scratchAt(clientX, clientY) {
+      const rect = canvas.getBoundingClientRect();
       const dpr = Math.max(1, window.devicePixelRatio || 1);
-      const cx = (x - rect.left) * dpr;
-      const cy = (y - rect.top) * dpr;
+      const x = (clientX - rect.left) * dpr;
+      const y = (clientY - rect.top) * dpr;
       ctx.globalCompositeOperation = 'destination-out';
       ctx.beginPath();
-      ctx.arc(cx, cy, 24 * dpr, 0, Math.PI * 2);
+      ctx.arc(x, y, 24 * dpr, 0, Math.PI * 2);
       ctx.fill();
       ctx.globalCompositeOperation = 'source-over';
     }
 
-    scratchCanvas.addEventListener('pointerdown', e => {
-      isScratching = true;
-      scratchCanvas.setPointerCapture?.(e.pointerId);
+    canvas.addEventListener('pointerdown', (e) => {
+      isDrawing = true;
+      canvas.setPointerCapture?.(e.pointerId);
       scratchAt(e.clientX, e.clientY);
       e.preventDefault();
     });
 
-    scratchCanvas.addEventListener('pointermove', e => {
-      if (!isScratching) return;
+    canvas.addEventListener('pointermove', (e) => {
+      if (!isDrawing) return;
       scratchAt(e.clientX, e.clientY);
       e.preventDefault();
     });
 
-    const endScratch = () => { isScratching = false; };
-    scratchCanvas.addEventListener('pointerup', endScratch);
-    scratchCanvas.addEventListener('pointercancel', endScratch);
+    const stopScratch = () => { isDrawing = false; };
+    canvas.addEventListener('pointerup', stopScratch);
+    canvas.addEventListener('pointercancel', stopScratch);
 
-    window.addEventListener('resize', () => requestAnimationFrame(resizeCanvas));
-    requestAnimationFrame(resizeCanvas);
+    window.addEventListener('resize', () => requestAnimationFrame(resizeScratch));
+    requestAnimationFrame(resizeScratch);
 
     // ───────────────────────────────────────────────
-    // 7. Dirty Talk Jar
+    // Dirty Talk Jar
     // ───────────────────────────────────────────────
-    const dirtyTalks = [
+    const jarNotes = [
       "Your pussy was made for my dick",
       "I’m gonna fuck you until you can’t walk",
       "Cum for me like a good little slut",
@@ -993,24 +1057,19 @@
       "You’re my dirty little fucktoy",
       "Cum on my dick right now"
     ];
-
-    const talkBtn = document.getElementById('jarBtn');
-    const talkDisplay = document.getElementById('jarNote');
-
-    if (talkBtn && talkDisplay) {
-      talkBtn.addEventListener('click', () => {
-        talkDisplay.textContent = randomItem(dirtyTalks);
-        talkDisplay.animate(
-          [{ transform: 'scale(1)' }, { transform: 'scale(1.02)' }, { transform: 'scale(1)' }],
-          { duration: 220, easing: 'ease-out' }
-        );
+    const jarBtn = document.getElementById('jarBtn');
+    const jarNote = document.getElementById('jarNote');
+    if (jarBtn) {
+      jarBtn.addEventListener('click', () => {
+        jarNote.textContent = randomFrom(jarNotes);
+        jarNote.animate([{transform:'scale(1)'},{transform:'scale(1.02)'},{transform:'scale(1)'}],{duration:220,easing:'ease-out'});
       });
     }
 
     // ───────────────────────────────────────────────
-    // 8. Future Fuck Jar
+    // Future Fuck Jar
     // ───────────────────────────────────────────────
-    const fuckIdeas = [
+    const dateIdeas = [
       "Bend you over the kitchen counter and fuck you raw",
       "Tie you up and edge you for hours",
       "Fuck you in front of the mirror so you watch",
@@ -1032,22 +1091,20 @@
       "Make you cum twice before I finish",
       "Leave bite marks all over your body"
     ];
+    const dateJarBtn = document.getElementById('dateJarBtn');
+    const dateNote = document.getElementById('dateNote');
+    const saveDateBtn = document.getElementById('saveDateBtn');
+    const dateCounter = document.getElementById('dateCounter');
+    const heartBurst = document.getElementById('heartBurst');
+    let remainingDates = shuffle(dateIdeas.slice());
+    let pulledCount = 0;
+    const totalDates = dateIdeas.length;
 
-    const fuckBtn = document.getElementById('dateJarBtn');
-    const fuckDisplay = document.getElementById('dateNote');
-    const saveFuckBtn = document.getElementById('saveDateBtn');
-    const fuckCounterEl = document.getElementById('dateCounter');
-    const heartBurstContainer = document.getElementById('heartBurst');
-
-    let remainingIdeas = shuffle(fuckIdeas.slice());
-    let pulled = 0;
-    const totalIdeas = fuckIdeas.length;
-
-    function updateCounterDisplay() {
-      fuckCounterEl.textContent = `${pulled} / ${totalIdeas} pulled`;
+    function updateCounter() {
+      dateCounter.textContent = `${pulledCount} / ${totalDates} pulled`;
     }
 
-    function createHeart() {
+    function createFloatingHeart() {
       const h = document.createElement('div');
       h.className = 'heart';
       const size = 12 + Math.random() * 14;
@@ -1057,65 +1114,60 @@
       h.style.width = size + 'px';
       h.style.height = size + 'px';
       h.style.animationDuration = (2 + Math.random() * 1.2) + 's';
-      heartBurstContainer.appendChild(h);
+      heartBurst.appendChild(h);
       setTimeout(() => h.remove(), 3500);
     }
 
-    if (fuckBtn && fuckDisplay) {
-      updateCounterDisplay();
-
-      fuckBtn.addEventListener('click', () => {
-        if (remainingIdeas.length === 0) {
-          remainingIdeas = shuffle(fuckIdeas.slice());
-          pulled = 0;
-          updateCounterDisplay();
-          fuckDisplay.textContent = "All ideas used! Resetting... 💦";
-          saveFuckBtn.style.display = 'none';
+    if (dateJarBtn && dateNote) {
+      updateCounter();
+      dateJarBtn.addEventListener('click', () => {
+        if (remainingDates.length === 0) {
+          remainingDates = shuffle(dateIdeas.slice());
+          pulledCount = 0;
+          updateCounter();
+          dateNote.textContent = "All fucks discovered! Starting over... 💦";
+          saveDateBtn.style.display = 'none';
           return;
         }
-
-        const selected = remainingIdeas.pop();
-        pulled++;
-        updateCounterDisplay();
-
-        fuckDisplay.style.opacity = '0';
-        fuckDisplay.style.transform = 'translateY(12px)';
-
+        const idea = remainingDates.pop();
+        pulledCount++;
+        updateCounter();
+        dateNote.style.opacity = '0';
+        dateNote.style.transform = 'translateY(12px)';
         setTimeout(() => {
-          fuckDisplay.textContent = selected;
-          fuckDisplay.classList.add('revealed');
-          fuckDisplay.style.opacity = '1';
-          fuckDisplay.style.transform = 'translateY(0)';
-
-          heartBurstContainer.style.opacity = '0.8';
-          for (let i = 0; i < 5; i++) setTimeout(createHeart, i * 180);
-          setTimeout(() => heartBurstContainer.style.opacity = '0', 2200);
+          dateNote.textContent = idea;
+          dateNote.classList.add('revealed');
+          dateNote.style.opacity = '1';
+          dateNote.style.transform = 'translateY(0)';
+          heartBurst.style.opacity = '0.8';
+          for (let i = 0; i < 5; i++) {
+            setTimeout(createFloatingHeart, i * 180);
+          }
+          setTimeout(() => heartBurst.style.opacity = '0', 2200);
         }, 300);
-
-        saveFuckBtn.style.display = 'block';
-        saveFuckBtn.classList.remove('copied');
-        saveFuckBtn.textContent = 'Save this fuck 📋';
+        saveDateBtn.style.display = 'block';
+        saveDateBtn.classList.remove('copied');
+        saveDateBtn.textContent = 'Save this fuck 📋';
       });
-
-      saveFuckBtn.addEventListener('click', () => {
-        const text = fuckDisplay.textContent.trim();
+      saveDateBtn.addEventListener('click', () => {
+        const text = dateNote.textContent.trim();
         if (text && text !== "Tap to reveal how I’ll use you next 💦") {
           navigator.clipboard.writeText(text).then(() => {
-            saveFuckBtn.classList.add('copied');
-            saveFuckBtn.textContent = 'Saved!';
+            saveDateBtn.classList.add('copied');
+            saveDateBtn.textContent = 'Saved!';
             setTimeout(() => {
-              saveFuckBtn.classList.remove('copied');
-              saveFuckBtn.textContent = 'Save this fuck 📋';
+              saveDateBtn.classList.remove('copied');
+              saveDateBtn.textContent = 'Save this fuck 📋';
             }, 2200);
-          }).catch(err => console.error('Copy failed:', err));
+          }).catch(err => console.error('Copy failed', err));
         }
       });
     }
 
     // ───────────────────────────────────────────────
-    // 9. Vibe choices
+    // Vibe Choices
     // ───────────────────────────────────────────────
-    const vibeOptions = [
+    const vibePairs = [
       ["Slow and deep", "Hard and fast"],
       ["Gentle kisses", "Biting your neck"],
       ["Missionary so I see your face", "Doggy so I spank your ass"],
@@ -1126,47 +1178,36 @@
       ["In bed all night", "Quickie in public"],
       ["Your moans quiet", "Your screams loud"]
     ];
-
-    const vibeGridContainer = document.getElementById('vibeGrid');
-    if (vibeGridContainer) {
-      vibeGridContainer.innerHTML = '';
-      shuffle(vibeOptions).forEach(pair => {
+    const vibeGrid = document.getElementById('vibeGrid');
+    if (vibeGrid) {
+      vibeGrid.innerHTML = "";
+      shuffle(vibePairs).forEach((pair) => {
         const card = document.createElement('div');
-        card.className = 'vibe-card';
+        card.className = "vibe-card";
         card.innerHTML = `
           <div class="vibe-stack">
             <button class="vibe-option" type="button">${pair[0]}</button>
             <button class="vibe-option" type="button">${pair[1]}</button>
           </div>
         `;
-        const buttons = card.querySelectorAll('.vibe-option');
-        buttons.forEach(btn => {
-          btn.addEventListener('click', e => {
+        const opts = Array.from(card.querySelectorAll('.vibe-option'));
+        opts.forEach(btn => {
+          btn.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
-            buttons.forEach(b => b.classList.remove('picked', 'dim'));
+            opts.forEach(o => o.classList.remove('picked', 'dim'));
             btn.classList.add('picked');
-            buttons.forEach(b => { if (b !== btn) b.classList.add('dim'); });
+            opts.forEach(o => { if (o !== btn) o.classList.add('dim'); });
           }, { passive: false });
         });
-        vibeGridContainer.appendChild(card);
+        vibeGrid.appendChild(card);
       });
     }
 
     // ───────────────────────────────────────────────
-    // 10. Constellation hearts
+    // Constellation
     // ───────────────────────────────────────────────
-    const constellationEl = document.getElementById('constellation');
-    const tooltipEl = document.getElementById('tooltip');
-    const foundCounterEl = document.getElementById('foundPill');
-    let foundCount = 0;
-
-    const heartPositions = [
-      { x: 14, y: 14 }, { x: 38, y: 10 }, { x: 62, y: 14 },
-      { x: 22, y: 34 }, { x: 52, y: 30 }, { x: 76, y: 36 }
-    ];
-
-    const cravings = [
+    const memoryNotes = [
       "Bend you over and take you from behind",
       "Fuck your throat until tears run down your face",
       "Make you squirt all over my dick",
@@ -1174,241 +1215,295 @@
       "Tie you up and tease you for hours",
       "Cum all over your perfect tits"
     ];
-
-    // Clear any existing sparks (in case of reload)
-    Array.from(constellationEl.querySelectorAll('.spark')).forEach(el => el.remove());
-
-    heartPositions.forEach((pos, index) => {
-      const spark = document.createElement('div');
-      spark.className = 'spark';
-      spark.style.left = `calc(${pos.x}% - 8px)`;
-      spark.style.top  = `calc(${pos.y}% - 8px)`;
-      spark.dataset.opened = "0";
-
-      spark.addEventListener('click', () => {
-        if (spark.dataset.opened === "0") {
-          spark.dataset.opened = "1";
-          foundCount++;
-          foundCounterEl.textContent = `${foundCount} / 6 found`;
+    const constellation = document.getElementById('constellation');
+    const tooltip = document.getElementById('tooltip');
+    const foundPill = document.getElementById('foundPill');
+    let found = 0;
+    const heartsPos = [
+      {x:14,y:14}, {x:38,y:10}, {x:62,y:14},
+      {x:22,y:34}, {x:52,y:30}, {x:76,y:36}
+    ];
+    Array.from(constellation.querySelectorAll('.spark')).forEach(n => n.remove());
+    heartsPos.forEach((pos,i) => {
+      const s = document.createElement('div');
+      s.className = 'spark';
+      s.style.left = `calc(${pos.x}% - 8px)`;
+      s.style.top = `calc(${pos.y}% - 8px)`;
+      s.dataset.opened = "0";
+      s.addEventListener('click', () => {
+        if (s.dataset.opened === "0") {
+          s.dataset.opened = "1";
+          found++;
+          foundPill.textContent = `${found} / 6 found`;
         }
-        tooltipEl.innerHTML = `<strong>Craving:</strong><span class="tip-text">${cravings[index]}</span>`;
+        tooltip.innerHTML = `<strong>Craving:</strong><span class="tip-text">${memoryNotes[i]}</span>`;
       });
-
-      constellationEl.appendChild(spark);
+      constellation.appendChild(s);
     });
 
     // ───────────────────────────────────────────────
-    // 11. Final fireworks on "yes"
+    // NEW: Wetness Counter
     // ───────────────────────────────────────────────
-    const yesButton = document.getElementById('yesBtn');
-    const noButton = document.getElementById('noBtn');
-    const yesMessage = document.getElementById('yesMsg');
-    const fireworksCanvas = document.getElementById('fireworks');
-    const ctxFire = fireworksCanvas.getContext('2d');
+    function setWetness(level) {
+      const levelEl = document.getElementById('wetnessLevel');
+      const descEl = document.getElementById('wetnessDesc');
 
-    let fireworksActive = false;
-    let animationRunning = false;
-    let rockets = [];
-    let particles = [];
-    let launchInterval = null;
+      if (!levelEl || !descEl) return;
 
-    function randomRange(min, max) { return min + Math.random() * (max - min); }
+      levelEl.textContent = `Level ${level}`;
 
-    function resizeCanvasFireworks() {
-      const rect = fireworksCanvas.getBoundingClientRect();
-      const dpr = Math.max(1, window.devicePixelRatio || 1);
-      fireworksCanvas.width = Math.floor(rect.width * dpr);
-      fireworksCanvas.height = Math.floor(rect.height * dpr);
-      ctxFire.setTransform(1, 0, 0, 1, 0, 0);
+      const descriptions = [
+        "",
+        "Just a little tingle… cute.",
+        "Getting warm down there, huh?",
+        "My voice alone is doing this to you?",
+        "Panties starting to stick already?",
+        "You're properly wet now, aren't you?",
+        "Dripping for Daddy… good girl.",
+        "Soaked through. I can smell you from here.",
+        "Pussy throbbing and leaking like a faucet.",
+        "You're a messy, desperate little slut for me.",
+        "Completely drenched. Ready to be ruined."
+      ];
+
+      descEl.textContent = descriptions[level] || "Choose how wet I make you…";
+      descEl.style.opacity = '1';
+      descEl.style.transform = 'translateY(0)';
+
+      descEl.animate(
+        [{ transform: 'scale(1)' }, { transform: 'scale(1.04)' }, { transform: 'scale(1)' }],
+        { duration: 400, easing: 'ease-out' }
+      );
     }
-    resizeCanvasFireworks();
 
-    function launch() {
-      const dpr = Math.max(1, window.devicePixelRatio || 1);
-      rockets.push({
-        x: randomRange(fireworksCanvas.width * 0.2, fireworksCanvas.width * 0.8),
-        y: fireworksCanvas.height,
-        vx: randomRange(-0.5, 0.5) * dpr,
-        vy: randomRange(-9, -6) * dpr,
-        ay: 0.12 * dpr,
-        explodeAt: randomRange(fireworksCanvas.height * 0.2, fireworksCanvas.height * 0.5),
-        life: 300
+    // ───────────────────────────────────────────────
+    // NEW: Contract Signing
+    // ───────────────────────────────────────────────
+    const signBtn = document.getElementById('signBtn');
+    const signedMessage = document.getElementById('signedMessage');
+    const limitItems = document.querySelectorAll('.limit-item');
+
+    if (signBtn) {
+      signBtn.addEventListener('click', () => {
+        limitItems.forEach((item, index) => {
+          setTimeout(() => {
+            item.classList.add('signed');
+          }, index * 300 + 200);
+        });
+
+        setTimeout(() => {
+          signedMessage.style.opacity = '1';
+          signedMessage.style.transform = 'scale(1)';
+          signedMessage.animate(
+            [{ transform: 'scale(1)' }, { transform: 'scale(1.08)' }, { transform: 'scale(1)' }],
+            { duration: 600, easing: 'ease-out' }
+          );
+        }, limitItems.length * 300 + 800);
+
+        signBtn.disabled = true;
+        signBtn.textContent = "Signed & Owned";
+        signBtn.style.opacity = '0.6';
       });
     }
 
-    function burst(x, y) {
+    // ───────────────────────────────────────────────
+    // Final fireworks
+    // ───────────────────────────────────────────────
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const yesMsg = document.getElementById('yesMsg');
+    const fwCanvas = document.getElementById('fireworks');
+    const fwCtx = fwCanvas.getContext('2d');
+    let fireworksOn = false;
+    let animating = false;
+    let rockets = [];
+    let sparks = [];
+    let launchTimer = null;
+
+    function rand(min, max) { return min + Math.random() * (max - min); }
+
+    function resizeFireworks() {
+      const rect = fwCanvas.getBoundingClientRect();
       const dpr = Math.max(1, window.devicePixelRatio || 1);
-      const count = Math.floor(randomRange(50, 80));
-      const hue = randomRange(320, 360);
+      fwCanvas.width = Math.floor(rect.width * dpr);
+      fwCanvas.height = Math.floor(rect.height * dpr);
+      fwCtx.setTransform(1, 0, 0, 1, 0, 0);
+    }
+    resizeFireworks();
+
+    function launchRocket(x) {
+      const dpr = Math.max(1, window.devicePixelRatio || 1);
+      rockets.push({
+        x,
+        y: fwCanvas.height + 16 * dpr,
+        vx: rand(-0.22, 0.22) * dpr,
+        vy: rand(-8.4, -7.2) * dpr,
+        ay: 0.10 * dpr,
+        explodeY: rand(fwCanvas.height * 0.18, fwCanvas.height * 0.42),
+        life: 240
+      });
+    }
+
+    function explode(x, y) {
+      const dpr = Math.max(1, window.devicePixelRatio || 1);
+      const count = Math.floor(rand(52, 78));
+      const baseHue = rand(310, 355);
       for (let i = 0; i < count; i++) {
-        const angle = Math.random() * Math.PI * 2;
-        const speed = randomRange(2, 5) * dpr;
-        particles.push({
+        const a = Math.random() * Math.PI * 2;
+        const speed = rand(2.2, 4.3) * dpr;
+        sparks.push({
           x, y,
-          vx: Math.cos(angle) * speed,
-          vy: Math.sin(angle) * speed,
-          ay: 0.09 * dpr,
-          drag: 0.98,
-          life: randomRange(80, 140),
+          vx: Math.cos(a) * speed,
+          vy: Math.sin(a) * speed,
+          ay: 0.085 * dpr,
+          drag: 0.986,
           age: 0,
-          size: randomRange(1.5, 3) * dpr,
-          hue: hue + randomRange(-20, 20),
+          life: rand(90, 135),
+          size: rand(1.2, 2.4) * dpr,
+          hue: baseHue + rand(-10, 18),
           alpha: 1
         });
       }
+      if (sparks.length > 3200) sparks.splice(0, sparks.length - 3200);
     }
 
-    function startFireworksLoop() {
-      if (launchInterval) clearInterval(launchInterval);
-      launchInterval = setInterval(() => {
-        if (!fireworksActive) return;
-        resizeCanvasFireworks();
-        const launches = Math.random() < 0.4 ? 2 : 1;
-        for (let i = 0; i < launches; i++) launch();
-      }, 900);
+    function scheduleLaunches() {
+      launchTimer = setInterval(() => {
+        if (!fireworksOn) return;
+        resizeFireworks();
+        const n = Math.random() < 0.35 ? 2 : 1;
+        for (let k = 0; k < n; k++) {
+          const x = rand(fwCanvas.width * 0.15, fwCanvas.width * 0.85);
+          launchRocket(x);
+        }
+        if (!animating) {
+          animating = true;
+          requestAnimationFrame(animateFireworks);
+        }
+      }, 1000);
+    }
+
+    function startFireworks() {
+      if (fireworksOn) return;
+      fireworksOn = true;
+      resizeFireworks();
+      launchRocket(fwCanvas.width * 0.33);
+      launchRocket(fwCanvas.width * 0.67);
+      if (!animating) {
+        animating = true;
+        requestAnimationFrame(animateFireworks);
+      }
+      scheduleLaunches();
     }
 
     function animateFireworks() {
-      if (!animationRunning) return;
+      if (!animating) return;
+      fwCtx.globalCompositeOperation = 'source-over';
+      fwCtx.fillStyle = 'rgba(255,255,255,0.10)';
+      fwCtx.fillRect(0, 0, fwCanvas.width, fwCanvas.height);
 
-      ctxFire.globalCompositeOperation = 'source-over';
-      ctxFire.fillStyle = 'rgba(0,0,0,0.08)';
-      ctxFire.fillRect(0, 0, fireworksCanvas.width, fireworksCanvas.height);
-
-      // Update & draw rockets
       for (let i = rockets.length - 1; i >= 0; i--) {
         const r = rockets[i];
+        r.life--;
         r.vy += r.ay;
         r.x += r.vx;
         r.y += r.vy;
-        r.life--;
-
-        ctxFire.beginPath();
-        ctxFire.arc(r.x, r.y, 3, 0, Math.PI * 2);
-        ctxFire.fillStyle = 'rgba(255,100,180,0.9)';
-        ctxFire.fill();
-
-        if (r.y <= r.explodeAt || r.life <= 0 || r.vy > 0) {
-          burst(r.x, r.y);
+        fwCtx.beginPath();
+        fwCtx.arc(r.x, r.y, 2.2, 0, Math.PI * 2);
+        fwCtx.fillStyle = 'rgba(255,77,141,0.90)';
+        fwCtx.fill();
+        fwCtx.beginPath();
+        fwCtx.moveTo(r.x, r.y);
+        fwCtx.lineTo(r.x - r.vx * 2.2, r.y - r.vy * 2.2);
+        fwCtx.strokeStyle = 'rgba(255,133,168,0.55)';
+        fwCtx.lineWidth = 2;
+        fwCtx.stroke();
+        if (r.y <= r.explodeY || r.vy > -1.6 || r.life <= 0) {
+          explode(r.x, r.y);
           rockets.splice(i, 1);
         }
       }
 
-      // Update & draw particles
-      ctxFire.globalCompositeOperation = 'lighter';
-      for (let i = particles.length - 1; i >= 0; i--) {
-        const p = particles[i];
+      fwCtx.globalCompositeOperation = 'lighter';
+      for (let i = sparks.length - 1; i >= 0; i--) {
+        const p = sparks[i];
         p.age++;
         p.vx *= p.drag;
         p.vy *= p.drag;
         p.vy += p.ay;
         p.x += p.vx;
         p.y += p.vy;
-
-        const lifeLeft = 1 - (p.age / p.life);
-        p.alpha = Math.max(0, lifeLeft);
-
-        ctxFire.beginPath();
-        ctxFire.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctxFire.fillStyle = `hsla(${p.hue}, 100%, 70%, ${p.alpha})`;
-        ctxFire.fill();
-
-        if (p.age >= p.life) particles.splice(i, 1);
+        const t = 1 - (p.age / p.life);
+        p.alpha = Math.max(0, t);
+        fwCtx.beginPath();
+        fwCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        fwCtx.fillStyle = `hsla(${p.hue},95%,72%,${p.alpha})`;
+        fwCtx.fill();
+        if (p.age >= p.life) sparks.splice(i, 1);
       }
 
-      if (fireworksActive || rockets.length > 0 || particles.length > 0) {
-        requestAnimationFrame(animateFireworks);
-      } else {
-        animationRunning = false;
-        ctxFire.clearRect(0, 0, fireworksCanvas.width, fireworksCanvas.height);
+      fwCtx.globalCompositeOperation = 'source-over';
+
+      if (!fireworksOn && rockets.length === 0 && sparks.length === 0) {
+        animating = false;
+        fwCtx.clearRect(0, 0, fwCanvas.width, fwCanvas.height);
+        return;
       }
+
+      requestAnimationFrame(animateFireworks);
     }
 
-    function triggerFireworks() {
-      if (fireworksActive) return;
-      fireworksActive = true;
-      resizeCanvasFireworks();
-      launch(); launch(); // initial burst
-      if (!animationRunning) {
-        animationRunning = true;
-        requestAnimationFrame(animateFireworks);
-      }
-      startFireworksLoop();
-    }
-
-    yesButton.addEventListener('click', () => {
-      yesMessage.style.display = 'block';
-      triggerFireworks();
-      yesButton.animate(
-        [{ transform: 'scale(1)' }, { transform: 'scale(1.04)' }, { transform: 'scale(1)' }],
-        { duration: 300, easing: 'ease-out' }
-      );
+    yesBtn.addEventListener('click', () => {
+      yesMsg.style.display = 'block';
+      startFireworks();
+      yesBtn.animate([{transform:'scale(1)'},{transform:'scale(1.02)'},{transform:'scale(1)'}],{duration:240,easing:'ease-out'});
     });
 
-    // ───────────────────────────────────────────────
-    // 12. "No" button escape behavior
-    // ───────────────────────────────────────────────
-    function moveNoButtonRandomly() {
-      const container = document.getElementById('valCta');
-      const containerRect = container.getBoundingClientRect();
-      const yesRect = yesButton.getBoundingClientRect();
-      const btnWidth = noButton.offsetWidth || 130;
-      const btnHeight = noButton.offsetHeight || 40;
-
-      const safeZone = {
-        left: (yesRect.left - containerRect.left) - 30,
-        right: (yesRect.right - containerRect.left) + 30,
-        top: (yesRect.top - containerRect.top) - 30,
-        bottom: (yesRect.bottom - containerRect.top) + 30
+    function placeNoSafely(randomize) {
+      const cta = document.getElementById('valCta');
+      const ctaRect = cta.getBoundingClientRect();
+      const yesRect = yesBtn.getBoundingClientRect();
+      const btnW = noBtn.offsetWidth || 130;
+      const btnH = noBtn.offsetHeight || 40;
+      const noGo = {
+        left: (yesRect.left - ctaRect.left) - 18,
+        right: (yesRect.right - ctaRect.left) + 18,
+        top: (yesRect.top - ctaRect.top) - 18,
+        bottom: (yesRect.bottom - ctaRect.top) + 18
       };
-
-      const padding = 30;
-      const minX = padding;
-      const maxX = containerRect.width - padding - btnWidth;
-      const minY = Math.max(safeZone.bottom + 40, containerRect.height * 0.5);
-      const maxY = containerRect.height - padding - btnHeight;
-
-      let x = (containerRect.width / 2) - (btnWidth / 2);
-      let y = minY;
-
-      // Try to find a non-overlapping spot
-      for (let attempt = 0; attempt < 40; attempt++) {
-        x = minX + Math.random() * (maxX - minX);
-        y = minY + Math.random() * (maxY - minY);
-        const overlaps =
-          x < safeZone.right &&
-          x + btnWidth > safeZone.left &&
-          y < safeZone.bottom &&
-          y + btnHeight > safeZone.top;
-        if (!overlaps) break;
+      const padL = 22, padR = 22, padB = 16;
+      const minX = padL;
+      const maxX = ctaRect.width - padR - btnW;
+      const minY = Math.max(noGo.bottom + 24, ctaRect.height * 0.66);
+      const maxY = ctaRect.height - padB - btnH;
+      const safeMinY = Math.min(minY, maxY);
+      let x = (ctaRect.width / 2) - (btnW / 2);
+      let y = Math.max(safeMinY, ctaRect.height * 0.78);
+      if (randomize) {
+        for (let tries = 0; tries < 50; tries++) {
+          x = minX + Math.random() * Math.max(8, (maxX - minX));
+          y = safeMinY + Math.random() * Math.max(8, (maxY - safeMinY));
+          const intersects = x < noGo.right && x + btnW > noGo.left && y < noGo.bottom && y + btnH > noGo.top;
+          if (!intersects) break;
+        }
       }
-
-      noButton.style.left = x + 'px';
-      noButton.style.top = y + 'px';
-      noButton.style.transform = 'translateX(0)';
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+      noBtn.style.transform = "translateX(0)";
     }
 
-    noButton.addEventListener('click', e => {
+    placeNoSafely(false);
+
+    noBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      moveNoButtonRandomly();
-      noButton.animate(
-        [
-          { transform: 'translateX(0) scale(1)' },
-          { transform: 'translateX(0) scale(1.08)' },
-          { transform: 'translateX(0) scale(1)' }
-        ],
-        { duration: 240, easing: 'ease-out' }
-      );
+      placeNoSafely(true);
+      noBtn.animate([{transform:'translateX(0) scale(1)'},{transform:'translateX(0) scale(1.06)'},{transform:'translateX(0) scale(1)'}],{duration:240,easing:'ease-out'});
     });
 
-    // Initial position for "no"
-    moveNoButtonRandomly();
-
-    // Resize handling
     window.addEventListener('resize', () => {
-      resizeCanvasFireworks();
-      moveNoButtonRandomly();
-      requestAnimationFrame(resizeCanvas);
+      resizeFireworks();
+      placeNoSafely(false);
+      requestAnimationFrame(resizeScratch);
     });
   </script>
 </body>
