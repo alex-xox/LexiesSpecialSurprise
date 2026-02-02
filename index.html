@@ -162,6 +162,10 @@
     .no-btn{width:130px;height:40px;border-radius:999px;border:1px solid rgba(0,0,0,.18);background:rgba(55,55,60,.92);color:rgba(255,255,255,.92);font-weight:900;cursor:pointer;box-shadow:0 12px 24px rgba(0,0,0,.12);z-index:2;position:absolute;left:50%;transform:translateX(-50%);}
     .no-btn::after{content:" :(";opacity:.85;font-weight:900;}
     .yes-msg{display:none;position:relative;z-index:3;max-width:60ch;text-align:center;padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.86);border:1px solid rgba(240,170,200,.30);box-shadow:0 14px 30px rgba(0,0,0,.06);color:rgba(50,20,35,.92);font-size:14px;line-height:1.35;}
+    .bad-girl-wrap{position:relative;width:200px;height:200px;margin:40px auto;}
+    .ass{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:100px;height:100px;background:#ff85a8;border-radius:50%;box-shadow:0 10px 20px rgba(255,77,141,.35);}
+    .hand{position:absolute;top:20px;right:-20px;width:80px;height:30px;background:#ff4d8d;border-radius:15px;transform-origin:left center;animation:slap 1.5s ease-in-out infinite;}
+    @keyframes slap{0%,60%,100%{transform:rotate(-45deg);}30%{transform:rotate(15deg);}}
     @media (max-width:820px){
       .content{padding:34px 18px 18px 44px;}
       .reasons{grid-template-columns:1fr;}
@@ -188,7 +192,6 @@
           <div class="nav-zone nav-left" id="navLeft"></div>
           <div class="nav-zone nav-right" id="navRight"></div>
           <div class="pages" id="pages">
-            <!-- PAGE 1: Cover -->
             <section class="page" data-index="0" style="z-index:9">
               <div class="content">
                 <div class="topline">
@@ -210,8 +213,6 @@
                 </div>
               </div>
             </section>
-
-            <!-- PAGE 2: 15 Reasons I Want to Fuck You -->
             <section class="page" data-index="1" style="z-index:8">
               <div class="content">
                 <div class="topline">
@@ -231,8 +232,6 @@
                 </div>
               </div>
             </section>
-
-            <!-- PAGE 3: Scratch -->
             <section class="page" data-index="2" style="z-index:7">
               <div class="content">
                 <div class="topline"><span class="badge">Interactive</span><span>Scratch to Reveal</span></div>
@@ -252,8 +251,6 @@
                 </div>
               </div>
             </section>
-
-            <!-- PAGE 4: Dirty Talk Jar -->
             <section class="page" data-index="3" style="z-index:6">
               <div class="content">
                 <div class="topline"><span class="badge">Interactive</span><span>Dirty Talk Jar</span></div>
@@ -268,8 +265,6 @@
                 </div>
               </div>
             </section>
-
-            <!-- PAGE 5: Future Fuck Jar -->
             <section class="page" data-index="4" style="z-index:5">
               <div class="content">
                 <div class="topline"><span class="badge">Interactive</span><span>Future Fuck Jar</span></div>
@@ -294,8 +289,6 @@
                 </div>
               </div>
             </section>
-
-            <!-- PAGE 6: Choose the Vibe (sexual) -->
             <section class="page" data-index="5" style="z-index:4">
               <div class="content">
                 <div class="topline"><span class="badge">Interactive</span><span>Choose the Vibe</span></div>
@@ -309,8 +302,6 @@
                 </div>
               </div>
             </section>
-
-            <!-- PAGE 7: Constellation (sexual) -->
             <section class="page" data-index="6" style="z-index:3">
               <div class="content">
                 <div class="topline"><span class="badge">Interactive</span><span>Tap the Hearts</span></div>
@@ -322,8 +313,6 @@
                 </div>
               </div>
             </section>
-
-            <!-- PAGE 8: Instant Reaction -->
             <section class="page" data-index="7" style="z-index:2">
               <div class="content">
                 <div class="topline"><span class="badge">Intimate</span><span>Instant Reaction</span></div>
@@ -335,22 +324,20 @@
                     <div class="shaft" id="shaft"></div>
                     <div class="head" id="head"></div>
                   </div>
-                  <div class="heart-message" id="reactionMsg" style="margin-top:0;">Fuck… that’s what you do to my cock.</div>
+                  <div class="heart-message" id="reactionMsg" style="margin-top:0;">Fuck… that’s what you do to my dick.</div>
                   <button class="jar-btn" id="growBtn" style="margin-top:24px;width:220px;height:60px;font-size:18px;">Make It Happen 😈</button>
                 </div>
               </div>
             </section>
-
-            <!-- PAGE 9: Final (updated buttons) -->
             <section class="page" data-index="8" style="z-index:1">
               <div class="content">
                 <div class="topline"><span class="badge">Final Page</span><span>One question</span></div>
-                <h2 style="font-family:'Playfair Display',serif;font-size:30px;color:rgba(70,25,50,.92);text-align:center">Will you be my dirty little valentine?</h2>
+                <h2 style="font-family:'Playfair Display',serif;font-size:30px;color:rgba(70,25,50,.92);text-align:center">Will you be my perfect little slut?</h2>
                 <div class="valentine-cta" id="valCta">
                   <canvas id="fireworks"></canvas>
-                  <button class="yes-btn" id="yesBtn">You're such a good girl for me</button>
-                  <div class="yes-msg" id="yesMsg">Fuck yes! I can’t wait to use you 💦</div>
-                  <button class="no-btn" id="noBtn">Bad girl</button>
+                  <button class="yes-btn" id="yesBtn">yes</button>
+                  <div class="yes-msg" id="yesMsg">You're gonna be such a good girl for me</div>
+                  <button class="no-btn" id="noBtn">no</button>
                 </div>
                 <p class="note" style="text-align:center;margin-top:auto;opacity:.9;max-width:none">(If “no” runs away… it’s just shy.)</p>
               </div>
@@ -360,7 +347,6 @@
       </div>
     </div>
   </div>
-
   <script>
     (function makeBgHearts(){const bg=document.getElementById('bgHearts');const count=18;for(let i=0;i<count;i++){const h=document.createElement('div');h.className='heart';const left=Math.random()*100;const size=10+Math.random()*16;const dur=8+Math.random()*10;const delay=Math.random()*dur;h.style.left=left+'vw';h.style.bottom=(-10-Math.random()*30)+'vh';h.style.width=size+'px';h.style.height=size+'px';h.style.animationDuration=dur+'s';h.style.animationDelay=(-delay)+'s';bg.appendChild(h);}})();
     const pages=Array.from(document.querySelectorAll('.page'));let current=0;
@@ -378,7 +364,7 @@
     function shuffle(arr){const a=arr.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
     function randomFrom(a){return a[Math.floor(Math.random()*a.length)]}
 
-    const reasons=["Your perfect tits bouncing while you ride me","That tight little pussy gripping my cock","The way your ass jiggles when I spank it","How you moan my name when I’m deep inside","Your pretty mouth wrapped around me","How wet you get just thinking about me","The way you beg for more","Your thighs wrapped around my head","How you look when you cum","Your dirty little fantasies","The way you taste","How you arch your back for me","Your nipples getting hard when I touch you","How obedient you are in bed","The way you scream when I make you squirt"];
+    const reasons=["Your perfect tits bouncing while you ride me","That tight little pussy gripping my dick","The way your ass jiggles when I spank it","How you moan my name when I’m deep inside","Your pretty mouth wrapped around me","How wet you get just thinking about me","The way you beg for more","Your thighs wrapped around my head","How you look when you cum","Your dirty little fantasies","The way you taste","How you arch your back for me","Your nipples getting hard when I touch you","How obedient you are in bed","The way you scream when I make you squirt"];
     const reasonsGrid=document.getElementById('reasonsGrid');reasonsGrid.innerHTML="";shuffle(reasons).forEach((text,idx)=>{const item=document.createElement('div');item.className='reason';item.innerHTML=`<div class="dot">${idx+1}</div><span>${text}</span>`;reasonsGrid.appendChild(item);});
 
     const scratchArea=document.getElementById('scratchArea');const canvas=document.getElementById('scratchCanvas');const ctx=canvas.getContext('2d',{willReadFrequently:true});let isDrawing=false;
@@ -390,7 +376,7 @@
     const stopScratch=()=>{isDrawing=false;};canvas.addEventListener('pointerup',stopScratch);canvas.addEventListener('pointercancel',stopScratch);
     window.addEventListener('resize',()=>requestAnimationFrame(resizeScratch));requestAnimationFrame(resizeScratch);
 
-    const jarNotes=["Your pussy was made for my cock","I’m gonna fuck you until you can’t walk","Cum for me like a good little slut","I love how wet you get for daddy","Bend over and take every inch","I want to fill you up and watch it drip","Fuck you until you scream my name","Your ass looks perfect with my handprint","Gonna make you squirt all over me","Open wide and swallow every drop","I own that pretty little body","Fuck, you feel so tight around me","Beg for my cum","I’m gonna ruin you for anyone else","Your tits look perfect bouncing","Choke on it, baby","I love when you gag for me","Spread those legs wider","You’re my dirty little fucktoy","Cum on my cock right now"];
+    const jarNotes=["Your pussy was made for my dick","I’m gonna fuck you until you can’t walk","Cum for me like a good little slut","I love how wet you get for daddy","Bend over and take every inch","I want to fill you up and watch it drip","Fuck you until you scream my name","Your ass looks perfect with my handprint","Gonna make you squirt all over me","Open wide and swallow every drop","I own that pretty little body","Fuck, you feel so tight around me","Beg for my cum","I’m gonna ruin you for anyone else","Your tits look perfect bouncing","Choke on it, baby","I love when you gag for me","Spread those legs wider","You’re my dirty little fucktoy","Cum on my dick right now"];
     const jarBtn=document.getElementById('jarBtn');const jarNote=document.getElementById('jarNote');
     if(jarBtn){jarBtn.addEventListener('click',()=>{jarNote.textContent=randomFrom(jarNotes);jarNote.animate([{transform:'scale(1)'},{transform:'scale(1.02)'},{transform:'scale(1)'}],{duration:220,easing:'ease-out'});});}
 
@@ -406,14 +392,14 @@
     const vibePairs=[["Slow and deep","Hard and fast"],["Gentle kisses","Biting your neck"],["Missionary so I see your face","Doggy so I spank your ass"],["You on top riding me","Me pinning you down"],["Cum inside you","Cum on your tits"],["Eat your pussy","Make you suck me"],["Tease you for hours","Fuck you senseless"],["In bed all night","Quickie in public"],["Your moans quiet","Your screams loud"]];
     const vibeGrid=document.getElementById('vibeGrid');if(vibeGrid){vibeGrid.innerHTML="";shuffle(vibePairs).forEach((pair)=>{const card=document.createElement('div');card.className="vibe-card";card.innerHTML=`<div class="vibe-stack"><button class="vibe-option" type="button">${pair[0]}</button><button class="vibe-option" type="button">${pair[1]}</button></div>`;const opts=Array.from(card.querySelectorAll('.vibe-option'));opts.forEach(btn=>{btn.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();opts.forEach(o=>o.classList.remove('picked','dim'));btn.classList.add('picked');opts.forEach(o=>{if(o!==btn)o.classList.add('dim');});},{passive:false});});vibeGrid.appendChild(card);});}
 
-    const memoryNotes=["Bend you over and take you from behind","Fuck your throat until tears run down your face","Make you squirt all over my cock","Fill your pussy and watch it drip out","Tie you up and tease you for hours","Cum all over your perfect tits"];
+    const memoryNotes=["Bend you over and take you from behind","Fuck your throat until tears run down your face","Make you squirt all over my dick","Fill your pussy and watch it drip out","Tie you up and tease you for hours","Cum all over your perfect tits"];
     const constellation=document.getElementById('constellation');const tooltip=document.getElementById('tooltip');const foundPill=document.getElementById('foundPill');let found=0;
     const heartsPos=[{x:14,y:14},{x:38,y:10},{x:62,y:14},{x:22,y:34},{x:52,y:30},{x:76,y:36}];
     Array.from(constellation.querySelectorAll('.spark')).forEach(n=>n.remove());
     heartsPos.forEach((pos,i)=>{const s=document.createElement('div');s.className='spark';s.style.left=`calc(${pos.x}% - 8px)`;s.style.top=`calc(${pos.y}% - 8px)`;s.dataset.opened="0";s.addEventListener('click',()=>{if(s.dataset.opened==="0"){s.dataset.opened="1";found++;foundPill.textContent=`${found} / 6 found`;}tooltip.innerHTML=`<strong>Craving:</strong><span class="tip-text">${memoryNotes[i]}</span>`;});constellation.appendChild(s);});
 
     const growBtn=document.getElementById('growBtn');const shaft=document.getElementById('shaft');const head=document.getElementById('head');const reactionMsg=document.getElementById('reactionMsg');
-    if(growBtn&&shaft&&head){growBtn.addEventListener('click',()=>{shaft.classList.add('growing');head.classList.add('growing');reactionMsg.classList.add('show');setTimeout(()=>{shaft.classList.remove('growing');head.classList.remove('growing');},4200);growBtn.style.transform='scale(0.96)';setTimeout(()=>growBtn.style.transform='scale(1)',180);});}
+    if(growBtn&&shaft&&head){growBtn.addEventListener('click',()=>{shaft.classList.add('growing');reactionMsg.classList.add('show');setTimeout(()=>{shaft.classList.remove('growing');},4200);growBtn.style.transform='scale(0.96)';setTimeout(()=>growBtn.style.transform='scale(1)',180);});}
 
     const yesBtn=document.getElementById('yesBtn');const noBtn=document.getElementById('noBtn');const yesMsg=document.getElementById('yesMsg');const fwCanvas=document.getElementById('fireworks');const fwCtx=fwCanvas.getContext('2d');let fireworksOn=false;let animating=false;let rockets=[];let sparks=[];let launchTimer=null;
     function rand(min,max){return min+Math.random()*(max-min);}
@@ -429,7 +415,17 @@
     fwCtx.globalCompositeOperation='source-over';if(!fireworksOn&&rockets.length===0&&sparks.length===0){animating=false;fwCtx.clearRect(0,0,fwCanvas.width,fwCanvas.height);return;}requestAnimationFrame(animateFireworks);}
     yesBtn.addEventListener('click',()=>{yesMsg.style.display='block';startFireworks();yesBtn.animate([{transform:'scale(1)'},{transform:'scale(1.02)'},{transform:'scale(1)'}],{duration:240,easing:'ease-out'});});
     function placeNoSafely(randomize){const cta=document.getElementById('valCta');const ctaRect=cta.getBoundingClientRect();const yesRect=yesBtn.getBoundingClientRect();const btnW=noBtn.offsetWidth||130;const btnH=noBtn.offsetHeight||40;const noGo={left:(yesRect.left-ctaRect.left)-18,right:(yesRect.right-ctaRect.left)+18,top:(yesRect.top-ctaRect.top)-18,bottom:(yesRect.bottom-ctaRect.top)+18};const padL=22,padR=22,padB=16;const minX=padL;const maxX=ctaRect.width-padR-btnW;const minY=Math.max(noGo.bottom+24,ctaRect.height*0.66);const maxY=ctaRect.height-padB-btnH;const safeMinY=Math.min(minY,maxY);let x=(ctaRect.width/2)-(btnW/2);let y=Math.max(safeMinY,ctaRect.height*0.78);if(randomize){for(let tries=0;tries<50;tries++){x=minX+Math.random()*Math.max(8,(maxX-minX));y=safeMinY+Math.random()*Math.max(8,(maxY-safeMinY));const intersects=x<noGo.right&&x+btnW>noGo.left&&y<noGo.bottom&&y+btnH>noGo.top;if(!intersects)break;}}noBtn.style.left=x+"px";noBtn.style.top=y+"px";noBtn.style.transform="translateX(0)";}placeNoSafely(false);
-    noBtn.addEventListener('click',(e)=>{e.preventDefault();placeNoSafely(true);noBtn.animate([{transform:'translateX(0) scale(1)'},{transform:'translateX(0) scale(1.06)'},{transform:'translateX(0) scale(1)'}],{duration:240,easing:'ease-out'});});
+    noBtn.addEventListener('click',(e)=>{e.preventDefault();const newPage = document.createElement('section');newPage.className = 'page';newPage.dataset.index = pages.length;newPage.style.zIndex = 0;newPage.innerHTML = `
+<div class="content">
+  <div class="topline"><span class="badge">Secret</span><span>Bad Girl</span></div>
+  <h2 style="font-family:'Playfair Display',serif;font-size:30px;color:rgba(70,25,50,.92);text-align:center">Bad girl</h2>
+  <div class="bad-girl-wrap">
+    <div class="ass"></div>
+    <div class="hand"></div>
+  </div>
+  <p class="note" style="text-align:center;margin-top:20px;">You need a spanking.</p>
+</div>
+`;document.getElementById('pages').appendChild(newPage);pages.push(newPage);goTo(pages.length - 1);});
     window.addEventListener('resize',()=>{resizeFireworks();placeNoSafely(false);requestAnimationFrame(resizeScratch);});
   </script>
 </body>
